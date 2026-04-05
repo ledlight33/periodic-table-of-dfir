@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THE PERIODIC TABLE OF DFIR — Poster Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    /* Hide interactive elements and buttons */
+    .controls, footer, .print-btn-magenta { 
+        display: none !important; 
+    }
+
+    .container { 
+        max-width: none; 
+        width: 100%; 
+        padding: 60px; 
+    }
+
+    /* 1. Header Scaling */
+    header h1 { 
+        font-size: 5rem !important; /* Massive title for A1 */
+        margin-bottom: 10px;
+    }
+    header .stats-badge { 
+        font-size: 1.6rem !important; /* Large readable subtitle */
+        color: #888;
+        letter-spacing: 2px;
+    }
+
+    /* 2. Tool Tiles Scaling */
+    .element { 
+        cursor: default; 
+        transform: none !important; 
+        box-shadow: none !important; 
+        padding: 8px 4px;
+    }
+    .element .symbol { font-size: 2.2rem !important; font-weight: 800; }
+    .element .name { font-size: 0.75rem !important; font-weight: 700; white-space: normal; }
+    .element .number { font-size: 0.85rem !important; top: 6px; left: 8px; }
+
+   /* 3. Demo Tile & Explanations (SVG) */
+.table-key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1.4); /* Scaled up for A1 */
+    transform-origin: center;
+}
+
+/* General labels outside the tile */
+.key-svg text {
+    font-size: 14px !important;
+    fill: #aaa !important; 
+}
+
+/* FIX 1: Keep tile text white and readable */
+.key-svg text[x="210"], 
+.key-svg text[x="238"] {
+    fill: #ffffff !important;
+    opacity: 1 !important;
+}
+.key-svg text[font-weight="700"] {
+    font-size: 24px !important;
+    fill: #ffffff !important;
+}
+
+/* FIX 2: Create space for License types */
+/* 10px font is the 'sweet spot' for visibility and space */
+.key-svg text[y="81"], 
+.key-svg text[y="95"],
+.key-svg text[y="68"] {
+    font-size: 10px !important; 
+}
+
+/* Shifting the 'Free' and 'Standard' column to the right */
+.key-svg circle[cx="445"], 
+.key-svg text[x="453"] {
+    transform: translateX(45px); /* Move right by 45 pixels */
+}
+
+/* Shifting the 'Freemium' label further to the right */
+.key-svg circle[cx="480"], 
+.key-svg text[x="488"] {
+    transform: translateX(95px); /* Move right by 95 pixels */
+}
+/* 4. Category Legend Scaling - Optimized for single line */
+.legend {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Force all items into a single line */
+    justify-content: center !important;
+    gap: 22px !important; /* Reduced gap to fit all 8 categories */
+    margin-top: 50px !important;
+    padding: 15px 0 !important;
+    width: 100% !important;
+}
+
+.legend-item {
+    font-size: 1.15rem !important; /* Slightly smaller to prevent wrapping */
+    color: #e0e0e0 !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important; /* Prevent text from breaking into two lines */
+}
+
+.legend-swatch {
+    width: 22px !important; /* Scaled down slightly to match text */
+    height: 22px !important;
+    border-radius: 5px !important;
+}
+/* 5. Attribution Footer for Print - Final Positioning */
+.print-footer {
+    display: block !important;
+    /* Move the line UP more by reducing this margin */
+    margin-top: 20px; 
+    border-top: 2px solid rgba(255, 255, 255, 0.15);
+    padding-top: 15px;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+    /* Move content to the LEFT by adding right padding */
+    padding-right: 80px; 
+}
+
+.footer-text {
+    text-align: right;
+    line-height: 1.2;
+}
+
+.footer-text strong {
+    font-size: 1.9rem;
+    color: #fff;
+    display: block;
+}
+
+.footer-text .link {
+    color: #42A5F5;
+    font-size: 1.3rem;
+    margin-top: 2px;
+}
+
+.footer-qr-static {
+    width: 130px; /* Maintain poster scale */
+    height: auto;
+    background: transparent !important;
+    /* Ensure no extra margins touch the screen edge */
+    margin: 0; 
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+    <h1>The Periodic Table of <span class="accent">DFIR</span></h1>
+    <p class="stats-badge">118 Tools for Digital Forensics & Incident Response | v1.1</p>
+</header>
+        <div class="table-wrapper"><div class="periodic-table" id="table"></div></div>
+        <div class="legend" id="legend"></div>
+    </div>
+	<footer class="print-footer">
+    <div class="footer-info">
+        <div class="footer-text">
+            <p>Created by <strong>Marino Bekios</strong></p>
+            <p class="link">linkedin.com/in/marbekios</p>
+        </div>
+        <img src="Untitled.svg" class="footer-qr-static" alt="LinkedIn QR Code">
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

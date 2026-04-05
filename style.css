@@ -1,0 +1,534 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f0f1f;
+    color: #e0e0e0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Circuit board trace pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        /* Horizontal traces */
+        linear-gradient(0deg, transparent 49.5%, rgba(255,255,255,0.04) 49.5%, rgba(255,255,255,0.04) 50.5%, transparent 50.5%),
+        /* Vertical traces */
+        linear-gradient(90deg, transparent 49.5%, rgba(255,255,255,0.04) 49.5%, rgba(255,255,255,0.04) 50.5%, transparent 50.5%),
+        /* Diagonal accents */
+        radial-gradient(circle 2px, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 120px 120px, 120px 120px, 60px 60px;
+    background-position: 30px 30px, 30px 30px, 0 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+header .accent {
+    color: #42A5F5;
+}
+
+.subtitle {
+    color: #999;
+    font-size: 0.95rem;
+    margin-top: 6px;
+    font-weight: 300;
+}
+
+.stats-badge {
+    color: #666;
+    font-size: 0.78rem;
+    margin-top: 8px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.version {
+    color: #444;
+    font-size: 0.7rem;
+    margin-top: 4px;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+#search {
+    background: #141428;
+    border: 1px solid #2a2a2a;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    width: 320px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#search:focus {
+    border-color: #42A5F5;
+}
+
+#search::placeholder {
+    color: #555;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 5px 12px;
+    border: 2px solid var(--btn-color);
+    background: transparent;
+    color: var(--btn-color);
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-btn:hover {
+    background: var(--btn-color);
+    color: #0f0f1f;
+}
+
+.filter-btn.active {
+    background: var(--btn-color);
+    color: #0f0f1f;
+}
+
+/* Periodic Table Grid */
+.table-wrapper {
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(7, auto) 18px repeat(2, auto);
+    gap: 3px;
+    min-width: 920px;
+}
+
+/* Element Tile */
+.element {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: #fff;
+    padding: 4px 2px;
+    aspect-ratio: 1;
+}
+
+.element:hover {
+    transform: scale(1.2);
+    z-index: 100;
+    box-shadow: 0 0 15px 3px var(--cat-color, rgba(255,255,255,0.3));
+}
+
+.element.dimmed {
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+.element .number {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    font-size: 0.5rem;
+    font-weight: 400;
+    opacity: 0.75;
+    line-height: 1;
+}
+
+.element .symbol {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.element .name {
+    font-size: 0.4rem;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.1;
+    opacity: 0.85;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    padding: 0 2px;
+}
+
+/* License dot */
+.element .license-dot {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.5px rgba(255,255,255,0.3), 0 0 0 1px rgba(0,0,0,0.2);
+}
+
+/* Dark text for yellow/amber category */
+.element.dark-text,
+.element.dark-text .number,
+.element.dark-text .symbol,
+.element.dark-text .name {
+    color: #1a1a1a;
+}
+
+/* Tooltip */
+.element .tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e1e1e;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 12px 14px;
+    min-width: 220px;
+    max-width: 300px;
+    z-index: 200;
+    pointer-events: none;
+    text-align: left;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.element .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #1e1e1e;
+}
+
+.element:hover .tooltip {
+    display: block;
+}
+
+.tooltip-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.tooltip-cat {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.tooltip-desc {
+    font-size: 0.78rem;
+    color: #aaa;
+    line-height: 1.4;
+}
+
+.tooltip-url {
+    font-size: 0.68rem;
+    color: #42A5F5;
+    margin-top: 4px;
+    word-break: break-all;
+}
+
+.tooltip-lic {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    color: #999;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #333;
+}
+
+.tooltip-lic-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Tooltip below for top rows */
+.element[data-row="1"] .tooltip,
+.element[data-row="2"] .tooltip {
+    bottom: auto;
+    top: calc(100% + 10px);
+}
+
+.element[data-row="1"] .tooltip::after,
+.element[data-row="2"] .tooltip::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: #1e1e1e;
+}
+
+/* Tooltip aligned left for left columns */
+.element[data-col="1"] .tooltip,
+.element[data-col="2"] .tooltip {
+    left: 0;
+    transform: none;
+}
+
+.element[data-col="1"] .tooltip::after,
+.element[data-col="2"] .tooltip::after {
+    left: 15px;
+    transform: none;
+}
+
+/* Tooltip aligned right for right columns */
+.element[data-col="16"] .tooltip,
+.element[data-col="17"] .tooltip,
+.element[data-col="18"] .tooltip {
+    left: auto;
+    right: 0;
+    transform: none;
+}
+
+.element[data-col="16"] .tooltip::after,
+.element[data-col="17"] .tooltip::after,
+.element[data-col="18"] .tooltip::after {
+    left: auto;
+    right: 15px;
+    transform: none;
+}
+
+/* Key element — "How to read" */
+.table-key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.key-svg {
+    width: 100%;
+    height: 100%;
+    max-height: 110px;
+}
+
+/* Row labels for extension rows */
+.row-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: #888;
+    border-radius: 4px;
+    background: #141428;
+    letter-spacing: 0.5px;
+}
+
+/* Legend */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 25px;
+    padding: 15px 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.78rem;
+    color: #aaa;
+}
+
+.legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    /* The nice white line at the bottom */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes content to the left and right edges */
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Magenta Button Style */
+.print-btn-magenta {
+    background: #d81b60; /* Solid Magenta */
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+}
+
+.print-btn-magenta:hover {
+    background: #ad1457;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(216, 27, 96, 0.5);
+}
+
+/* Right Side Tidy Up */
+.footer-info-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-text {
+    text-align: right;
+}
+
+.footer-author {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.footer-author strong {
+    color: #fff;
+}
+
+.footer-link a {
+    color: #42A5F5;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.footer-link a:hover {
+    text-decoration: underline;
+}
+
+.footer-qr {
+    width: 80px;
+    height: 80px;
+    background: #fff; /* White background for the QR to be readable */
+    padding: 5px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .periodic-table {
+        gap: 2px;
+        min-width: 760px;
+    }
+
+    .element .symbol {
+        font-size: 0.9rem;
+    }
+
+    .element .name {
+        font-size: 0.35rem;
+    }
+
+    .element .number {
+        font-size: 0.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .periodic-table {
+        min-width: 620px;
+    }
+
+    .element {
+        padding: 2px 1px;
+    }
+
+    .element .symbol {
+        font-size: 0.7rem;
+    }
+
+    .element .name {
+        display: none;
+    }
+
+    .element .number {
+        font-size: 0.35rem;
+    }
+
+    .row-label {
+        font-size: 0.45rem;
+    }
+}
