@@ -50,7 +50,6 @@ An interactive, visual reference of 118 DFIR tools organized into 8 categories �
 Print it, frame it, hang it on your SOC wall:
 
 - [PDF — A1 Print-Ready](assets/poster-a1.pdf)
-- [SVG — Vector / Infinite Scale](assets/poster-a1.svg)
 - [PNG — 4K Resolution](assets/poster-4k.png)
 
 ## Contributing
