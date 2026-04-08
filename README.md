@@ -50,6 +50,7 @@ An interactive, visual reference of 118 DFIR tools organized into 8 categories â
 **[âž¡ Click here to explore the Interactive Table](https://ledlight33.github.io/periodic-table-of-dfir/)**
 
 
+
 ## Download Poster
 
 Print it, frame it, hang it on your SOC wall:
