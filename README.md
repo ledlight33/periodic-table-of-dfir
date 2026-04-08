@@ -69,8 +69,11 @@ See [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ## License
 
-- **Code:** MIT License
-- **Content & Design:** CC BY 4.0 — feel free to share with attribution
+- **Code:** MIT License  
+- **Content & Design:** [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — free to share with attribution for non-commercial use only  
+- For commercial licensing inquiries: [linkedin.com/in/marbekios](https://linkedin.com/in/marbekios)
+
+
 
 ## Created By
 
