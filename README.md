@@ -43,9 +43,12 @@ An interactive, visual reference of 118 DFIR tools organized into 8 categories �
 
 ## Live Demo
 
-[View the interactive table](https://ledlight33.github.io/periodic-table-of-dfir/)
-
 ![Periodic Table of DFIR Demo](assets/demo.gif)
+
+## 🖱️ Try it yourself
+
+**[➡ Click here to explore the Interactive Table](https://ledlight33.github.io/periodic-table-of-dfir/)**
+
 
 ## Download Poster
 
