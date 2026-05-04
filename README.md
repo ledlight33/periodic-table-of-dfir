@@ -10,10 +10,6 @@
 
 ![The Periodic Table of DFIR](assets/og-image.png)
 
-### 🎬 Interactive Demo
-
-![Demo](assets/demo.gif)
-
 ---
 
 ## What It Is
@@ -33,6 +29,8 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 🖨️ **[Printable Poster Edition](https://ledlight33.github.io/periodic-table-of-dfir/print.html)** — A1-ready, ideal for SOC walls and lab posters.
 
 > 💡 **For the full interactive experience**, view on a **desktop browser at 1920×1080 or higher** — hover tooltips, the atmospheric wallpaper, and the full 18-column layout shine at full resolution. The page is responsive down to 768px (tablet/mobile), but tile names hide and the wallpaper effects scale down on smaller screens.
+
+![Demo](assets/demo.gif)
 
 ---
 
