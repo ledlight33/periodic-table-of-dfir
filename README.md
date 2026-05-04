@@ -186,7 +186,7 @@ All rights not expressly granted are reserved by the author.
 
 ## Author & Contact
 
-Created by **Marino Bekios** — DFIR professional.
+Created by **Marino Bekios** — Cybersecurity Professional
 
 - 🌐 **Website:** [marinobekios.com](https://marinobekios.com/)
 - 💼 **LinkedIn:** [linkedin.com/in/marbekios](https://linkedin.com/in/marbekios)
