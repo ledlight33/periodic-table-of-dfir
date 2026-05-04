@@ -10,6 +10,10 @@
 
 ![The Periodic Table of DFIR](assets/og-image.png)
 
+### 🎬 Interactive Demo
+
+![Demo](assets/demo.gif)
+
 ---
 
 ## What It Is
