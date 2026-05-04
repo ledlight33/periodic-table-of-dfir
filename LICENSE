@@ -1,4 +1,5 @@
-MIT License
+MIT License (Code)
+==================
 
 Copyright (c) 2026 Marino Bekios
 
@@ -20,15 +21,47 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
 
-Content & Design: Licensed under CC BY-NC 4.0
-https://creativecommons.org/licenses/by-nc/4.0/
+===========================================================================
+Content, Design & Visual Concept
+===========================================================================
 
-You are free to share and adapt the content for non-commercial purposes,
-provided appropriate credit is given to Marino Bekios.
+The table layout, categorization, color scheme, tile groupings, "periodic
+table of DFIR" concept, accompanying graphics (poster artwork, OG image,
+demo media), and overall visual design are licensed under:
 
-Commercial use of the content, design, or concept requires
-explicit written permission from Marino Bekios.
+  Creative Commons Attribution-NonCommercial 4.0 International
+  (CC BY-NC 4.0)
+  https://creativecommons.org/licenses/by-nc/4.0/
 
-Contact: linkedin.com/in/marbekios
+You are free to:
+  - Share — copy and redistribute the material in any medium or format
+  - Adapt — remix, transform, and build upon the material
+
+Under the following terms:
+  - Attribution — You must give appropriate credit to Marino Bekios,
+    provide a link to the project, and indicate if changes were made.
+  - NonCommercial — You may NOT use the material for commercial purposes
+    without prior written permission from the author.
+
+
+===========================================================================
+Commercial Use, Licensing & Collaboration
+===========================================================================
+
+The following uses require PRIOR WRITTEN PERMISSION from the author:
+
+  - Commercial use of any kind (resale, paid products, monetized content,
+    advertising-supported sites, premium services, etc.)
+  - Integration into commercial products, platforms, or paid services
+  - Use in marketing, promotional, or revenue-generating materials
+  - Licensing for organizational, enterprise, or institutional use
+  - Custom commissions, partnerships, or collaborations
+  - Sponsored or branded versions of this work
+
+For inquiries, please contact:
+
+  Website:   https://marinobekios.com/
+  LinkedIn:  https://linkedin.com/in/marbekios
+
+All rights not expressly granted above are reserved by the author.

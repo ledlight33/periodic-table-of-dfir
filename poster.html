@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Fixed 3840px viewport — do NOT change this -->
+    <meta name="viewport" content="width=3840">
+    <title>THE PERIODIC TABLE OF DFIR — 4K Poster Export</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    /* ============================================================
+       4K POSTER CANVAS — 3840 px wide, auto height
+       All rem values inherit from html { font-size: 44px }
+       which scales everything ~2.75× from the 16px screen base.
+       ============================================================ */
+
+    /* Undo style.css viewport-fit logic — poster needs to render at fixed 3840px */
+    html, body {
+        overflow: visible !important;
+        height: auto !important;
+    }
+    .table-wrapper {
+        overflow: visible !important;
+        display: block !important;
+    }
+    .periodic-table {
+        grid-template-columns: repeat(18, 1fr) !important;
+        grid-template-rows: repeat(7, auto) 18px repeat(2, auto) !important;
+        width: 100% !important;
+    }
+    .element {
+        aspect-ratio: 1 !important;
+    }
+
+    html {
+        font-size: 44px;
+    }
+
+    body {
+        width: 3840px;
+        min-height: 2160px;
+        background: #0f0f1f;
+    }
+
+    /* Remove the circuit-board overlay — cleaner at poster scale */
+    body::before {
+        display: none;
+    }
+
+    .container {
+        max-width: 3840px;
+        width: 3840px;
+        padding: 56px 100px 70px;
+    }
+
+    /* ---- Header ---- */
+    header {
+        margin-bottom: 28px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;   /* 2.2 × 44 = 96.8px */
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;  /* 37.4px */
+        margin-top: 8px;
+    }
+
+    .stats-badge {
+        font-size: 0.65rem;  /* 28.6px */
+        margin-top: 10px;
+        letter-spacing: 2px;
+    }
+
+    .version {
+        display: none;       /* omit version tag on poster */
+    }
+
+    /* ---- Controls (hidden on poster) ---- */
+    .controls {
+        display: none !important;
+    }
+
+    /* ---- Periodic Table Grid ---- */
+    .table-wrapper {
+        overflow: visible;
+        padding-bottom: 0;
+    }
+
+    .periodic-table {
+        gap: 7px;
+        min-width: none !important;
+    }
+
+    /* ---- Element Tiles ---- */
+    .element {
+        padding: 6px 3px;
+        cursor: default;
+        border-radius: 5px;
+    }
+
+    /* Lock out hover effects — this is a static poster */
+    .element:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        z-index: auto !important;
+    }
+
+    .element .tooltip {
+        display: none !important;
+    }
+
+    .element .symbol {
+        font-size: 1.2rem;   /* 1.2 × 44 = 52.8px */
+    }
+
+    .element .name {
+        font-size: 0.42rem;  /* 18.5px */
+        white-space: normal;
+        line-height: 1.15;
+    }
+
+    .element .number {
+        font-size: 0.42rem;  /* 18.5px */
+        top: 5px;
+        left: 6px;
+    }
+
+    .element .license-dot {
+        width: 14px;
+        height: 14px;
+        top: 5px;
+        right: 6px;
+    }
+
+    /* ---- Key / SVG legend tile ---- */
+    .table-key {
+        transform: none;
+        transform-origin: center;
+    }
+
+    .key-svg {
+        max-height: none;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* ---- Row labels ---- */
+    .row-label {
+        font-size: 0.5rem;
+        padding-right: 10px;
+    }
+
+    /* ---- Category Legend ---- */
+    .legend {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        gap: 28px !important;
+        margin-top: 32px !important;
+        padding: 16px 0 !important;
+        width: 100% !important;
+    }
+
+    .legend-item {
+        font-size: 0.62rem !important;  /* 27.3px */
+        color: #e0e0e0 !important;
+        font-weight: 600 !important;
+        white-space: nowrap !important;
+        gap: 8px;
+    }
+
+    .legend-swatch {
+        width: 20px !important;
+        height: 20px !important;
+        border-radius: 4px !important;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+        margin-top: 28px;
+        padding-top: 24px;
+        border-top: 2px solid rgba(255, 255, 255, 0.18);
+    }
+
+    /* Hide the web-only print button */
+    .print-btn-magenta,
+    .footer-left {
+        display: none !important;
+    }
+
+    .footer-content {
+        justify-content: flex-end;
+        max-width: none;
+    }
+
+    .footer-info-group {
+        gap: 28px;
+    }
+
+    .footer-text {
+        text-align: right;
+        line-height: 1.3;
+    }
+
+    .footer-author {
+        font-size: 0.75rem;  /* 33px */
+    }
+
+    .footer-author strong {
+        color: #fff;
+    }
+
+    .footer-link a {
+        font-size: 0.65rem;  /* 28.6px */
+        color: #42A5F5;
+        text-decoration: none;
+    }
+
+    .footer-qr-static-index {
+        width: 180px !important;
+        height: 180px !important;
+    }
+
+    /* ---- Ensure colors print fully ---- */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* ---- Capture helper banner (hidden by default; closable) ---- */
+    #capture-hint {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #1e1e40;
+        border: 1px solid #42A5F5;
+        color: #ddd;
+        font-family: monospace;
+        font-size: 13px;
+        padding: 14px 36px 14px 18px;
+        border-radius: 8px;
+        z-index: 9999;
+        line-height: 1.7;
+        max-width: 420px;
+    }
+    #capture-hint .close-btn {
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        width: 22px;
+        height: 22px;
+        border: none;
+        background: transparent;
+        color: #aaa;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+        border-radius: 4px;
+        font-family: inherit;
+    }
+    #capture-hint .close-btn:hover {
+        color: #fff;
+        background: rgba(66, 165, 245, 0.2);
+    }
+    /* Print: never show the helper, even if it's still open in the DOM */
+    @media print {
+        #capture-hint { display: none !important; }
+    }
+
+    </style>
+</head>
+<body>
+
+    <!-- Capture instructions overlay (visible only at screen width < 3840) -->
+    <div id="capture-hint">
+        <button class="close-btn" id="capture-hint-close" aria-label="Close" title="Close">✕</button>
+        📸 <strong>To export as 4K PNG:</strong><br>
+        1. F12 → toggle Device Toolbar (Ctrl+Shift+M)<br>
+        2. Set Width = <strong>3840</strong>, Height = <strong>2160</strong><br>
+        3. Ctrl+Shift+P → type <strong>Capture full size screenshot</strong><br>
+        4. PNG saved automatically to Downloads
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>The Periodic Table of <span class="accent">DFIR</span></h1>
+            <p class="subtitle">The Definitive Reference for Digital Forensics &amp; Incident Response Tools</p>
+            <p class="stats-badge">118 Tools &nbsp;|&nbsp; 9 Categories &nbsp;|&nbsp; 69 Open Source &nbsp;|&nbsp; v1.2</p>
+        </header>
+
+        <div class="table-wrapper">
+            <div class="periodic-table" id="table"></div>
+        </div>
+
+        <div class="legend" id="legend"></div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-right">
+                    <div class="footer-info-group">
+                        <div class="footer-text">
+                            <p class="footer-author">Created by <strong>Marino Bekios</strong></p>
+                            <p class="footer-link">
+                                <a href="https://marinobekios.com/">marinobekios.com</a>
+                                &nbsp;·&nbsp;
+                                <a href="https://linkedin.com/in/marbekios">linkedin.com/in/marbekios</a>
+                            </p>
+                        </div>
+                        <img src="assets/qr-linkedin.png"
+                             class="footer-qr-static-index"
+                             alt="LinkedIn QR Code">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Show the hint banner only when the screen is narrower than the canvas
+        // (i.e., when viewed normally in a browser, not inside DevTools at 3840px)
+        const hint = document.getElementById('capture-hint');
+        if (window.innerWidth < 3840) {
+            hint.style.display = 'block';
+        }
+        // Close button — dismiss the banner permanently for this session
+        document.getElementById('capture-hint-close').addEventListener('click', () => {
+            hint.style.display = 'none';
+        });
+        // Auto-hide if the user resizes to ≥3840 (i.e., they followed the instructions)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 3840) hint.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

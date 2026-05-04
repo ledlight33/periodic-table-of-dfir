@@ -3,25 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE PERIODIC TABLE OF DFIR</title>
+    <title>The Periodic Table of DFIR — 118 Essential Forensics & IR Tools</title>
+    <meta name="description" content="The definitive visual reference for Digital Forensics & Incident Response. 118 tools across 9 categories — disk, memory, network, malware, mobile, cloud, IR, frameworks, and hybrid platforms.">
+    <meta name="author" content="Marino Bekios">
+    <meta name="keywords" content="DFIR, digital forensics, incident response, cybersecurity, periodic table, forensic tools, malware analysis, threat intelligence">
+
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ledlight33.github.io/periodic-table-of-dfir/">
+    <meta property="og:title" content="The Periodic Table of DFIR">
+    <meta property="og:description" content="118 essential tools for Digital Forensics & Incident Response, organized like the periodic table. By Marino Bekios.">
+    <meta property="og:image" content="https://ledlight33.github.io/periodic-table-of-dfir/assets/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Periodic Table of DFIR">
+    <meta name="twitter:description" content="118 essential tools for Digital Forensics & Incident Response.">
+    <meta name="twitter:image" content="https://ledlight33.github.io/periodic-table-of-dfir/assets/og-image.png">
+
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <!-- =====================================================
+         INDEX-ONLY: Matrix rain + scan-line atmospheric layer
+         (Not loaded by print.html or poster.html)
+         ===================================================== -->
+    <style>
+        /* Hide the existing circuit-board pattern on index — matrix replaces it */
+        body::before { display: none !important; }
+
+        #matrix-rain {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.42;
+            pointer-events: none;
+        }
+
+        .scan-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .scan-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1.5px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(0, 200, 255, 0.25) 25%,
+                rgba(0, 230, 255, 0.55) 50%,
+                rgba(0, 200, 255, 0.25) 75%,
+                transparent 100%);
+            /* 16-second cycle: ~11s slow sweep top→bottom, ~5s invisible pause before next */
+            animation: scanMove 16s ease-in-out infinite;
+        }
+        @keyframes scanMove {
+            0%   { top: 0;     opacity: 0; }
+            4%   { opacity: 1; }
+            70%  { top: 100%;  opacity: 1; }
+            74%  { top: 100%;  opacity: 0; }
+            100% { top: 100%;  opacity: 0; }
+        }
+
+        /* Resolution hint — only shows on smaller screens, hidden on full desktop */
+        .resolution-hint {
+            display: none;
+            margin-top: 6px;
+            font-size: 0.7rem;
+            color: rgba(0, 195, 255, 0.55);
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 1280px) {
+            .resolution-hint { display: block; }
+        }
+
+        /* Atmospheric quote — sits in the footer row between print button and author info */
+        .wallpaper-quote {
+            font-family: 'Share Tech Mono', Consolas, monospace;
+            font-size: 12px;
+            letter-spacing: 2.5px;
+            color: rgba(0, 195, 255, 0.45);
+            font-style: italic;
+            text-transform: uppercase;
+            text-align: center;
+            text-shadow: 0 0 8px rgba(0, 200, 255, 0.2);
+            pointer-events: none;
+            flex: 0 1 auto;
+            padding: 0 20px;
+        }
+        @media (max-width: 1100px) {
+            .wallpaper-quote { font-size: 10px; letter-spacing: 1.5px; padding: 0 12px; }
+        }
+        @media (max-width: 768px) {
+            .wallpaper-quote { display: none; }
+        }
+
+        /* Respect users who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .scan-line { animation: none; display: none; }
+        }
+    </style>
 </head>
 <body>
+    <!-- Matrix rain background (index only) -->
+    <canvas id="matrix-rain" aria-hidden="true"></canvas>
+    <div class="scan-overlay" aria-hidden="true"><div class="scan-line"></div></div>
 
-    
-
+    <div class="container">
         <header>
             <h1>The Periodic Table of <span class="accent">DFIR</span></h1>
             <p class="subtitle">The Definitive Reference for Digital Forensics & Incident Response Tools</p>
-            <p class="stats-badge">118 Tools | 8 Categories | 69 Open Source</p>
-            <p class="version">v1.1</p>
+            <p class="stats-badge">118 Tools | 9 Categories | 69 Open Source</p>
+            <p class="version">v1.2</p>
+            <p class="resolution-hint">💡 For the full interactive experience, view on desktop at 1920×1080 or higher</p>
         </header>
 
         <div class="controls">
-            <input type="text" id="search" placeholder="Search by name, symbol, or category..." autocomplete="off" spellcheck="false">
+            <div class="search-wrapper">
+                <input type="text" id="search" placeholder="Search by name, symbol, or category..." autocomplete="off" spellcheck="false">
+                <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
+            </div>
             <div class="filter-buttons" id="filters"></div>
         </div>
 
@@ -38,11 +148,14 @@
                         🖨️ CLICK FOR PRINTABLE VERSION
                     </a>
                 </div>
+                <div class="wallpaper-quote" aria-hidden="true">"What our eyes can see is not the measure of all things."</div>
                 <div class="footer-right">
                     <div class="footer-info-group">
                         <div class="footer-text">
                             <p class="footer-author">Created by <strong>Marino Bekios</strong></p>
                             <p class="footer-link">
+                                <a href="https://marinobekios.com/" target="_blank">marinobekios.com</a>
+                                &nbsp;·&nbsp;
                                 <a href="https://linkedin.com/in/marbekios" target="_blank">linkedin.com/in/marbekios</a>
                             </p>
                         </div>
@@ -52,5 +165,65 @@
             </div>
         </footer>
     </div>
+
+    <!-- Matrix rain renderer (index only). Lightweight: pauses when tab hidden,
+         responds to viewport resize, stops if user prefers reduced motion. -->
+    <script>
+    (function () {
+        const canvas = document.getElementById('matrix-rain');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const FONT_SIZE = 15;
+        let W, H, COLS, drops, speed, bright, timer = null;
+
+        function resize() {
+            W = canvas.width  = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+            COLS = Math.floor(W / FONT_SIZE);
+            drops  = Array.from({ length: COLS }, () => Math.random() * (H / FONT_SIZE));
+            speed  = Array.from({ length: COLS }, () => 0.18 + Math.random() * 0.42);  // was 0.4–1.3, now 0.18–0.6 (≈50% slower)
+            bright = Array.from({ length: COLS }, () => 0.30 + Math.random() * 0.50);
+            ctx.font = FONT_SIZE + 'px "Share Tech Mono", Consolas, monospace';
+        }
+
+        function draw() {
+            // Trail effect — semi-transparent fill matching body background colour
+            ctx.fillStyle = 'rgba(15, 15, 31, 0.07)';
+            ctx.fillRect(0, 0, W, H);
+
+            for (let i = 0; i < COLS; i++) {
+                const x = i * FONT_SIZE;
+                const y = drops[i] * FONT_SIZE;
+                const bit = Math.random() > 0.5 ? '1' : '0';
+                const alpha = bright[i] * (0.8 + Math.random() * 0.2);
+
+                ctx.fillStyle = 'rgba(0, 195, 255, ' + Math.min(1, alpha * 1.3) + ')';
+                ctx.fillText(bit, x, y);
+
+                drops[i] += speed[i];
+                if (y > H && Math.random() > 0.972) {
+                    drops[i] = Math.random() * -30;
+                    bright[i] = 0.30 + Math.random() * 0.48;
+                    speed[i]  = 0.18 + Math.random() * 0.42;
+                }
+            }
+        }
+
+        function start() { if (!timer) timer = setInterval(draw, 50); }
+        function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+        resize();
+        window.addEventListener('resize', resize);
+        document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            // Single static frame for users who prefer no motion
+            for (let i = 0; i < 40; i++) draw();
+        } else {
+            start();
+        }
+    })();
+    </script>
+
     <script src="script.js"></script>
 </body>

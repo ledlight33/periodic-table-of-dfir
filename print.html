@@ -4,16 +4,49 @@
     <meta charset="UTF-8">
     <title>THE PERIODIC TABLE OF DFIR — Poster Edition</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
-    /* Hide interactive elements and buttons */
-    .controls, footer, .print-btn-magenta { 
-        display: none !important; 
+    /* ============================================================
+       PRINT.HTML BASE OVERRIDES — undo style.css viewport-fit logic
+       ============================================================
+       style.css makes index.html shrink-to-fit the screen by:
+         - hiding all overflow on html/body
+         - sizing tiles via min(viewport-w, viewport-h) / 18 with a 1440px cap
+       Both of those break the poster: it's designed to render large
+       (A1 ≈ 2520px wide) and uses scrolling page layout, not fit-to-screen. */
+    html, body {
+        overflow: visible !important;
+        height: auto !important;
     }
 
-    .container { 
-        max-width: none; 
-        width: 100%; 
-        padding: 60px; 
+    .table-wrapper {
+        overflow: visible !important;
+        display: block !important; /* undo flex-center from style.css */
+    }
+
+    /* Restore the original auto-sizing grid: tiles fill the container width,
+       row heights determined by aspect-ratio:1 on .element */
+    .periodic-table {
+        grid-template-columns: repeat(18, 1fr) !important;
+        grid-template-rows: repeat(7, auto) 18px repeat(2, auto) !important;
+        width: 100% !important;
+    }
+
+    .element {
+        aspect-ratio: 1 !important;
+    }
+
+    /* Hide interactive elements and buttons */
+    .controls, footer, .print-btn-magenta {
+        display: none !important;
+    }
+
+    .container {
+        max-width: none;
+        width: 100%;
+        padding: 60px;
     }
 
     /* 1. Header Scaling */
@@ -28,15 +61,38 @@
     }
 
     /* 2. Tool Tiles Scaling */
-    .element { 
-        cursor: default; 
-        transform: none !important; 
-        box-shadow: none !important; 
+    .element {
+        cursor: default;
+        transform: none !important;
+        box-shadow: none !important;
         padding: 8px 4px;
+        gap: 2px; /* small breathing room between symbol and name */
     }
     .element .symbol { font-size: 2.2rem !important; font-weight: 800; }
-    .element .name { font-size: 0.75rem !important; font-weight: 700; white-space: normal; }
+    .element .name {
+        font-size: 0.75rem !important;
+        font-weight: 700 !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        line-height: 1.1 !important;
+        margin-top: 2px;
+    }
     .element .number { font-size: 0.85rem !important; top: 6px; left: 8px; }
+
+    /* FIX: Marker tiles (57-71 / 89-103) — keep range text on one line and
+       sized closer to regular tile symbols. .element .symbol has 2.2rem !important
+       which beats inline styles; this more-specific rule with !important wins. */
+    .row-marker .symbol {
+        font-size: 1.5rem !important;
+        white-space: nowrap !important;
+        line-height: 1.15 !important;
+        font-weight: 800 !important;
+    }
+    .row-marker .name {
+        font-size: 0.7rem !important;
+        margin-top: 2px !important;
+    }
 
    /* 3. Demo Tile & Explanations (SVG) */
 .table-key {
@@ -49,39 +105,28 @@
 
 /* General labels outside the tile */
 .key-svg text {
-    font-size: 14px !important;
-    fill: #aaa !important; 
+    font-size: 11px !important;
+    fill: #aaa !important;
 }
 
-/* FIX 1: Keep tile text white and readable */
-.key-svg text[x="210"], 
-.key-svg text[x="238"] {
+/* FIX 1: Keep tile text white and readable (Vr symbol/name at x=223, number at x=196) */
+.key-svg text[x="196"],
+.key-svg text[x="223"] {
     fill: #ffffff !important;
     opacity: 1 !important;
 }
-.key-svg text[font-weight="700"] {
+
+/* "Vr" tile symbol — large white, selector specific to its coordinates */
+.key-svg text[x="223"][y="58"] {
     font-size: 24px !important;
+}
+
+/* LICENSE legend header — bigger and bolder in print (y=74 is unique to LICENSE) */
+.key-svg text[y="74"] {
+    font-size: 22px !important;
     fill: #ffffff !important;
-}
-
-/* FIX 2: Create space for License types */
-/* 10px font is the 'sweet spot' for visibility and space */
-.key-svg text[y="81"], 
-.key-svg text[y="95"],
-.key-svg text[y="68"] {
-    font-size: 10px !important; 
-}
-
-/* Shifting the 'Free' and 'Standard' column to the right */
-.key-svg circle[cx="445"], 
-.key-svg text[x="453"] {
-    transform: translateX(45px); /* Move right by 45 pixels */
-}
-
-/* Shifting the 'Freemium' label further to the right */
-.key-svg circle[cx="480"], 
-.key-svg text[x="488"] {
-    transform: translateX(95px); /* Move right by 95 pixels */
+    font-weight: 800 !important;
+    letter-spacing: 3px !important;
 }
 /* 4. Category Legend Scaling - Optimized for single line */
 .legend {
@@ -117,11 +162,23 @@
 
 .footer-info {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 25px;
-    /* Move content to the LEFT by adding right padding */
-    padding-right: 80px; 
+    padding: 0 80px;
+}
+
+/* Atmospheric quote on the left of the print footer, matching A1 poster scale */
+.print-quote {
+    font-family: 'Share Tech Mono', Consolas, monospace;
+    font-size: 1.15rem;
+    letter-spacing: 4px;
+    color: rgba(0, 195, 255, 0.55);
+    font-style: italic;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(0, 200, 255, 0.25);
+    flex: 0 1 auto;
+    white-space: nowrap;
 }
 
 .footer-text {
@@ -146,7 +203,44 @@
     height: auto;
     background: transparent !important;
     /* Ensure no extra margins touch the screen edge */
-    margin: 0; 
+    margin: 0;
+}
+
+/* =====================================================
+   PRINT / @PAGE — Force single-page A1 landscape poster
+   ===================================================== */
+@page {
+    size: A1 landscape;
+    margin: 10mm;
+}
+
+@media print {
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: auto;
+        overflow: visible;
+    }
+
+    /* No page breaks anywhere — everything on one sheet */
+    .container,
+    .table-wrapper,
+    .periodic-table,
+    .legend,
+    footer.print-footer {
+        page-break-inside: avoid !important;
+        break-inside:       avoid !important;
+        page-break-before:  avoid !important;
+        break-before:       avoid !important;
+        page-break-after:   avoid !important;
+        break-after:        avoid !important;
+    }
+
+    /* Ensure colors and backgrounds print correctly */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust:         exact !important;
+    }
 }
 </style>
 </head>
@@ -154,20 +248,24 @@
     <div class="container">
         <header>
     <h1>The Periodic Table of <span class="accent">DFIR</span></h1>
-    <p class="stats-badge">118 Tools for Digital Forensics & Incident Response | v1.1</p>
+    <p class="stats-badge">118 Tools for Digital Forensics & Incident Response | v1.2</p>
 </header>
         <div class="table-wrapper"><div class="periodic-table" id="table"></div></div>
         <div class="legend" id="legend"></div>
+
+        <footer class="print-footer">
+            <div class="footer-info">
+                <div class="print-quote">"What our eyes can see is not the measure of all things."</div>
+                <div style="display: flex; align-items: center; gap: 25px;">
+                    <div class="footer-text">
+                        <p>Created by <strong>Marino Bekios</strong></p>
+                        <p class="link">marinobekios.com &nbsp;·&nbsp; linkedin.com/in/marbekios</p>
+                    </div>
+                    <img src="assets/qr-linkedin.png" class="footer-qr-static" alt="LinkedIn QR Code">
+                </div>
+            </div>
+        </footer>
     </div>
-	<footer class="print-footer">
-    <div class="footer-info">
-        <div class="footer-text">
-            <p>Created by <strong>Marino Bekios</strong></p>
-            <p class="link">linkedin.com/in/marbekios</p>
-        </div>
-        <img src="assets/qr-linkedin.png" class="footer-qr-static" alt="LinkedIn QR Code">
-    </div>
-</footer>
 
 <script src="script.js"></script>
 </body>

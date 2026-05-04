@@ -1,0 +1,54 @@
+# ============================================================
+# .gitignore — files Git should NEVER upload to GitHub
+# ============================================================
+
+# --- Operating System junk ---
+# (.DS_Store: macOS folder metadata; Thumbs.db / Desktop.ini: Windows)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# --- Editor & IDE files ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# --- Claude Code local state (keep private) ---
+.claude/
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Environment & secrets ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# --- Node modules (in case tooling is added later) ---
+node_modules/
+package-lock.json
+yarn.lock
+
+# --- Build / output folders ---
+dist/
+build/
+*.min.js.map
+
+# --- Junk / scratch files ---
+*.bak
+*.tmp
+Untitled.*

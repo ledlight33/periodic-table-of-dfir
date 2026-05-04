@@ -4,12 +4,23 @@
     box-sizing: border-box;
 }
 
+/* Block overflow at the document root too — body alone isn't enough,
+   the <html> element can still flash scrollbars during hover transitions
+   when the transformed tile briefly extends past the viewport. */
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 body {
     background: #0f0f1f;
     color: #e0e0e0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    /* Block both axes — content is sized to fit the viewport via the tile calc,
+       and this prevents transient scrollbars from hover transforms (scale 1.2). */
+    overflow: hidden;
 }
 
 /* Circuit board trace pattern */
@@ -38,13 +49,13 @@ body::before {
     z-index: 1;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 16px 20px;
 }
 
 /* Header */
 header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 14px;
 }
 
 header h1 {
@@ -59,24 +70,25 @@ header .accent {
 }
 
 .subtitle {
-    color: #999;
+    color: #bbb;
     font-size: 0.95rem;
     margin-top: 6px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .stats-badge {
-    color: #666;
+    color: #999;
     font-size: 0.78rem;
     margin-top: 8px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 1px;
 }
 
 .version {
-    color: #444;
+    color: #777;
     font-size: 0.7rem;
     margin-top: 4px;
+    font-weight: 500;
 }
 
 /* Controls */
@@ -84,19 +96,24 @@ header .accent {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 25px;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 320px;
 }
 
 #search {
     background: #141428;
     border: 1px solid #2a2a2a;
     color: #fff;
-    padding: 10px 18px;
+    padding: 10px 36px 10px 18px;
     border-radius: 8px;
     font-size: 0.9rem;
     font-family: inherit;
-    width: 320px;
+    width: 100%;
     outline: none;
     transition: border-color 0.3s;
 }
@@ -107,6 +124,30 @@ header .accent {
 
 #search::placeholder {
     color: #555;
+}
+
+.search-clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 0.85rem;
+    line-height: 1;
+    padding: 4px;
+    display: none;
+    transition: color 0.2s;
+}
+
+.search-clear:hover {
+    color: #fff;
+}
+
+.search-clear.visible {
+    display: block;
 }
 
 .filter-buttons {
@@ -143,16 +184,28 @@ header .accent {
 
 /* Periodic Table Grid */
 .table-wrapper {
-    overflow-x: auto;
-    padding-bottom: 10px;
+    /* visible so hover scale + box-shadow don't create a local scrollbar;
+       the body/html overflow: hidden catches anything that escapes the viewport */
+    overflow: visible;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .periodic-table {
+    /* Calculate tile size as the SMALLER of:
+       - what fits horizontally: (viewport-width up to 1440 - container padding 40 - 17 gaps × 3) / 18 cols
+       - what fits vertically:   (viewport-height - reserved 460 for header/footer/etc - 45 row gaps & separator) / 9 rows
+       Whichever is smaller drives the size, so the table always fits the screen. */
+    --tile-w: calc((min(100vw, 1440px) - 91px) / 18);
+    --tile-h: calc((100vh - 505px) / 9);
+    --tile:   min(var(--tile-w), var(--tile-h));
+
     display: grid;
-    grid-template-columns: repeat(18, 1fr);
-    grid-template-rows: repeat(7, auto) 18px repeat(2, auto);
+    grid-template-columns: repeat(18, var(--tile));
+    grid-template-rows:    repeat(7, var(--tile)) 18px repeat(2, var(--tile));
     gap: 3px;
-    min-width: 920px;
+    justify-content: center;
 }
 
 /* Element Tile */
@@ -193,17 +246,17 @@ header .accent {
 }
 
 .element .symbol {
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 800;
     line-height: 1.1;
 }
 
 .element .name {
-    font-size: 0.4rem;
-    font-weight: 400;
+    font-size: 0.5rem;
+    font-weight: 500;
     text-align: center;
     line-height: 1.1;
-    opacity: 0.85;
+    opacity: 0.9;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -216,8 +269,8 @@ header .accent {
     position: absolute;
     top: 3px;
     right: 4px;
-    width: 5px;
-    height: 5px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     box-shadow: 0 0 0 0.5px rgba(255,255,255,0.3), 0 0 0 1px rgba(0,0,0,0.2);
 }
@@ -292,15 +345,36 @@ header .accent {
     word-break: break-all;
 }
 
+/* Platform / OS support row (above license, owns the divider) */
+.tooltip-os {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    color: #aaa;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #333;
+}
+
+.tooltip-os-icons {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.tooltip-os-label {
+    color: #bbb;
+    font-weight: 500;
+}
+
 .tooltip-lic {
     display: flex;
     align-items: center;
     gap: 6px;
     font-size: 0.7rem;
     color: #999;
-    margin-top: 6px;
-    padding-top: 6px;
-    border-top: 1px solid #333;
+    margin-top: 4px;
 }
 
 .tooltip-lic-dot {
@@ -310,15 +384,45 @@ header .accent {
     flex-shrink: 0;
 }
 
+/* Scale downward for top rows so tile doesn't clip at page edge */
+.element[data-row="1"]:hover,
+.element[data-row="2"]:hover,
+.element[data-row="3"]:hover {
+    transform-origin: top center;
+}
+
+/* Scale upward (away from bottom edge) for extension rows
+   so the bottom-most mobile/malware tiles don't push the viewport scroll */
+.element[data-row="9"]:hover,
+.element[data-row="10"]:hover {
+    transform-origin: center bottom;
+}
+
+/* Scale inward from right edge for last 2 columns */
+.element[data-col="17"]:hover,
+.element[data-col="18"]:hover {
+    transform-origin: right center;
+}
+
+/* Bottom-right corners need both edges anchored */
+.element[data-row="9"][data-col="17"]:hover,
+.element[data-row="9"][data-col="18"]:hover,
+.element[data-row="10"][data-col="17"]:hover,
+.element[data-row="10"][data-col="18"]:hover {
+    transform-origin: right bottom;
+}
+
 /* Tooltip below for top rows */
 .element[data-row="1"] .tooltip,
-.element[data-row="2"] .tooltip {
+.element[data-row="2"] .tooltip,
+.element[data-row="3"] .tooltip {
     bottom: auto;
     top: calc(100% + 10px);
 }
 
 .element[data-row="1"] .tooltip::after,
-.element[data-row="2"] .tooltip::after {
+.element[data-row="2"] .tooltip::after,
+.element[data-row="3"] .tooltip::after {
     top: auto;
     bottom: 100%;
     border-top-color: transparent;
@@ -365,7 +469,7 @@ header .accent {
 .key-svg {
     width: 100%;
     height: 100%;
-    max-height: 110px;
+    max-height: 138px;
 }
 
 /* Row labels for extension rows */
@@ -388,8 +492,8 @@ header .accent {
     flex-wrap: wrap;
     justify-content: center;
     gap: 18px;
-    margin-top: 25px;
-    padding: 15px 0;
+    margin-top: 14px;
+    padding: 8px 0;
 }
 
 .legend-item {
@@ -409,10 +513,10 @@ header .accent {
 
 /* Footer Styles */
 footer {
-    margin-top: 50px;
-    padding-top: 30px;
+    margin-top: 18px;
+    padding-top: 14px;
     /* The nice white line at the bottom */
-    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-content {
@@ -481,6 +585,26 @@ footer {
     padding: 5px;
     border-radius: 4px;
     flex-shrink: 0;
+}
+
+/* Row marker tiles (lanthanide/actinide style indicators) */
+.row-marker {
+    cursor: default;
+}
+
+/* Flash animation for extension row tools when marker is hovered.
+   No transform: scale — that pushed bottom-right tiles past the grid edge
+   and caused stray page scrollbars. The stronger glow gives the same visual punch. */
+@keyframes rowFlash {
+    0%   { box-shadow: 0 0 4px 1px var(--cat-color); }
+    50%  { box-shadow: 0 0 24px 9px var(--cat-color); }
+    100% { box-shadow: 0 0 4px 1px var(--cat-color); }
+}
+
+.row-highlight {
+    animation: rowFlash 2s ease-in-out infinite;
+    position: relative;
+    z-index: 50;
 }
 
 /* Responsive */
