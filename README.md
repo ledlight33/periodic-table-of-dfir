@@ -71,7 +71,7 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 | 🩵 Cyan | **Mobile Forensics** | iOS, Android, mobile artifact parsers |
 | 🟡 Yellow | **Log Analysis & Threat Intel** | SIEM, CTI platforms, log search |
 | 🟢 Green | **Frameworks & Standards** | NIST, MITRE, ISO, SANS, RFCs |
-| 💚 Teal | **Cloud Forensics** | AWS, Azure, multi-cloud security tools |
+| ♏ Teal | **Cloud Forensics** | AWS, Azure, multi-cloud security tools |
 | ⚪ Silver | **Hybrid Platforms** | All-in-one acquisition + analysis suites |
 
 ---
@@ -166,7 +166,7 @@ This project uses a **dual-license model**:
 
 **You are free to:**
 - Use the project for personal, educational, or non-commercial purposes
-- Share and adapt the work, **with proper attribution to Marino Bekios**
+- Share and adapt the work, **with proper attribution to author**
 
 ### ⚠️ Commercial Use & Collaboration
 
