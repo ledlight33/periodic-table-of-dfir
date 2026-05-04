@@ -22,9 +22,6 @@ Desktop.ini
 .sublime-project
 .sublime-workspace
 
-# --- Claude Code local state (keep private) ---
-.claude/
-
 # --- Logs ---
 *.log
 npm-debug.log*
