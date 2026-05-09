@@ -1,12 +1,25 @@
-# The Periodic Table of DFIR
+<h1 align="center">The Periodic Table of DFIR</h1>
 
-> The definitive visual reference for Digital Forensics & Incident Response — **118 essential tools** organized like the periodic table.
+<p align="center">
+  <i>The definitive visual reference for Digital Forensics & Incident Response.</i>
+</p>
 
-![Version](https://img.shields.io/badge/version-1.2.1-blue)
-![Tools](https://img.shields.io/badge/tools-118-green)
-![Categories](https://img.shields.io/badge/categories-9-orange)
-![Open Source](https://img.shields.io/badge/open%20source-68-success)
-![License](https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY--NC%204.0-lightgrey)
+<p align="center">
+  <a href="https://github.com/ledlight33/periodic-table-of-dfir/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-Dual_License-red.svg?style=flat-square" alt="License">
+  </a>
+  <img src="https://img.shields.io/badge/Version-1.2.1-blue.svg?style=flat-square" alt="Version">
+  <img src="https://img.shields.io/badge/Tools-118-success.svg?style=flat-square" alt="Tools">
+</p>
+
+---
+<p align="center">
+  <img src="https://img.shields.io/badge/version-1.2.1-007ec6.svg" alt="version">
+  <img src="https://img.shields.io/badge/tools-118-97ca00.svg" alt="tools">
+  <img src="https://img.shields.io/badge/categories-9-fe7d37.svg" alt="categories">
+  <img src="https://img.shields.io/badge/open%20source-68-4c1.svg" alt="open source">
+  <img src="https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY--NC%204.0-lightgrey.svg" alt="license">
+</p>
 
 ![The Periodic Table of DFIR](assets/og-image.png)
 
