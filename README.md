@@ -75,10 +75,10 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 | 🟠 Orange | **Network Forensics** | PCAP analysis, IDS/IPS, full-packet capture |
 | 🔴 Red | **Malware Analysis & RE** | Reverse engineering, sandboxes, static/dynamic analysis |
 | 🟣 Purple | **Incident Response** | Triage, live response, EDR, threat hunting |
-| 🩵 Cyan | **Mobile Forensics** | iOS, Android, mobile artifact parsers |
+| 🌐 Cyan | **Mobile Forensics** | iOS, Android, mobile artifact parsers |
 | 🟡 Yellow | **Log Analysis & Threat Intel** | SIEM, CTI platforms, log search |
 | 🟢 Green | **Frameworks & Standards** | NIST, MITRE, ISO, SANS, RFCs |
-| ♏ Teal | **Cloud Forensics** | AWS, Azure, multi-cloud security tools |
+| 🔵 Teal | **Cloud Forensics** | AWS, Azure, multi-cloud security tools |
 | ⚪ Silver | **Hybrid Platforms** | All-in-one acquisition + analysis suites |
 
 ---
@@ -215,7 +215,7 @@ For commercial licensing, partnerships, custom work, or any collaboration — pl
 
 Inspired by Dmitri Mendeleev's original periodic table (1869) and the countless DFIR practitioners who build, maintain, and document the tools listed here. Every tile represents real work by real teams that the community depends on.
 
-Special thanks to the open-source contributors behind the 69 free and open tools in this collection.
+Special thanks to the open-source contributors behind the 68 free and open tools in this collection.
 
 ---
 
