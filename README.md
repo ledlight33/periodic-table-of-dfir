@@ -1,12 +1,19 @@
-# The Periodic Table of DFIR
+<h1 align="center">The Periodic Table of DFIR 🔎</h1>
 
-> The definitive visual reference for Digital Forensics & Incident Response — **118 essential tools** organized like the periodic table.
+<p align="center">
+  <i>The definitive visual reference for Digital Forensics & Incident Response.</i>
+  <br>
+  <b>118 essential tools organized like the periodic table.</b>
+</p>
 
-![Version](https://img.shields.io/badge/version-1.2.1-blue)
-![Tools](https://img.shields.io/badge/tools-118-green)
-![Categories](https://img.shields.io/badge/categories-9-orange)
-![Open Source](https://img.shields.io/badge/open%20source-68-success)
-![License](https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY--NC%204.0-lightgrey)
+---
+<p align="center">
+  <img src="https://img.shields.io/badge/version-1.2.1-007ec6.svg" alt="version">
+  <img src="https://img.shields.io/badge/tools-118-97ca00.svg" alt="tools">
+  <img src="https://img.shields.io/badge/categories-9-fe7d37.svg" alt="categories">
+  <img src="https://img.shields.io/badge/open%20source-68-4c1.svg" alt="open source">
+  <img src="https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY--NC%204.0-lightgrey.svg" alt="license">
+</p>
 
 ![The Periodic Table of DFIR](assets/og-image.png)
 
@@ -68,10 +75,10 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 | 🟠 Orange | **Network Forensics** | PCAP analysis, IDS/IPS, full-packet capture |
 | 🔴 Red | **Malware Analysis & RE** | Reverse engineering, sandboxes, static/dynamic analysis |
 | 🟣 Purple | **Incident Response** | Triage, live response, EDR, threat hunting |
-| 🩵 Cyan | **Mobile Forensics** | iOS, Android, mobile artifact parsers |
+| 🌐 Cyan | **Mobile Forensics** | iOS, Android, mobile artifact parsers |
 | 🟡 Yellow | **Log Analysis & Threat Intel** | SIEM, CTI platforms, log search |
 | 🟢 Green | **Frameworks & Standards** | NIST, MITRE, ISO, SANS, RFCs |
-| ♏ Teal | **Cloud Forensics** | AWS, Azure, multi-cloud security tools |
+| 🔵 Teal | **Cloud Forensics** | AWS, Azure, multi-cloud security tools |
 | ⚪ Silver | **Hybrid Platforms** | All-in-one acquisition + analysis suites |
 
 ---
@@ -208,7 +215,7 @@ For commercial licensing, partnerships, custom work, or any collaboration — pl
 
 Inspired by Dmitri Mendeleev's original periodic table (1869) and the countless DFIR practitioners who build, maintain, and document the tools listed here. Every tile represents real work by real teams that the community depends on.
 
-Special thanks to the open-source contributors behind the 69 free and open tools in this collection.
+Special thanks to the open-source contributors behind the 68 free and open tools in this collection.
 
 ---
 
