@@ -8,8 +8,6 @@
   <a href="https://github.com/ledlight33/periodic-table-of-dfir/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-Dual_License-red.svg?style=flat-square" alt="License">
   </a>
-  <img src="https://img.shields.io/badge/Version-1.2.1-blue.svg?style=flat-square" alt="Version">
-  <img src="https://img.shields.io/badge/Tools-118-success.svg?style=flat-square" alt="Tools">
 </p>
 
 ---
