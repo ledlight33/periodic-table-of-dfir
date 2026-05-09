@@ -1,13 +1,13 @@
 const CATEGORIES = {
-    disk:      { name: 'Disk & Memory Forensics',    color: '#42A5F5' },
-    network:   { name: 'Network Forensics',           color: '#FF7043' },
-    malware:   { name: 'Malware Analysis & RE',       color: '#EF5350' },
-    ir:        { name: 'Incident Response',            color: '#AB47BC' },
-    mobile:    { name: 'Mobile Forensics',             color: '#26C6DA' },
-    logti:     { name: 'Log Analysis & Threat Intel',  color: '#FFCA28' },
     framework: { name: 'Frameworks & Standards',       color: '#66BB6A' },
+    disk:      { name: 'Disk & Memory Forensics',    color: '#42A5F5' },
+    hybrid:    { name: 'Hybrid Platforms',              color: '#9E9E9E' },
+    network:   { name: 'Network Forensics',           color: '#FF7043' },
+    ir:        { name: 'Incident Response',            color: '#AB47BC' },
     cloud:     { name: 'Cloud Forensics',              color: '#26A69A' },
-    hybrid:    { name: 'Hybrid Platforms',              color: '#9E9E9E' }
+    logti:     { name: 'Log Analysis & Threat Intel',  color: '#FFCA28' },
+    malware:   { name: 'Malware Analysis & RE',       color: '#EF5350' },
+    mobile:    { name: 'Mobile Forensics',             color: '#26C6DA' }
 };
 
 // Platform support indicators (shown in tooltip on hover)
@@ -109,9 +109,9 @@ const ELEMENTS = [
     { n:87,  s:'AT', name:'MITRE ATT&CK',     cat:'framework', l:'fr',  r:7,  c:1,  os:['standard'],           url:'https://attack.mitre.org', d:'Adversary tactics and techniques knowledge base' },
     { n:88,  s:'DF', name:'DFIR Report',       cat:'framework', l:'fr',  r:7,  c:2,  os:['standard'],           url:'https://thedfirreport.com', d:'Community knowledge resource — real-world intrusion analysis & threat research reports' },
     { n:104, s:'Mp', name:'MemProcFS',         cat:'disk',      l:'os',  r:7,  c:4,  os:['win','lin','mac'],    url:'https://github.com/ufrisk/MemProcFS', d:'Memory analysis via virtual filesystem' },
-    { n:105, s:'Cl', name:'CloudTrail',        cat:'cloud',     l:'cm',  r:7,  c:5,  os:['web'],                url:'https://aws.amazon.com/cloudtrail/', d:'AWS API activity logging and auditing' },
+    { n:105, s:'Fj', name:'FUJI',               cat:'disk',      l:'os',  r:7,  c:5,  os:['mac'],                url:'https://github.com/Lazza/Fuji', d:'iOS full filesystem acquisition tool' },
     { n:106, s:'GD', name:'GuardDuty',         cat:'cloud',     l:'cm',  r:7,  c:6,  os:['web'],                url:'https://aws.amazon.com/guardduty/', d:'AWS intelligent threat detection service' },
-    { n:107, s:'SS', name:'ScoutSuite',        cat:'cloud',     l:'os',  r:7,  c:7,  os:['win','lin','mac'],    url:'https://github.com/nccgroup/ScoutSuite', d:'Multi-cloud security auditing tool' },
+    { n:107, s:'Cl', name:'CloudTrail',        cat:'cloud',     l:'cm',  r:7,  c:7,  os:['web'],                url:'https://aws.amazon.com/cloudtrail/', d:'AWS API activity logging and auditing' },
     { n:108, s:'Pw', name:'Prowler',           cat:'cloud',     l:'os',  r:7,  c:8,  os:['win','lin','mac'],    url:'https://github.com/prowler-cloud/prowler', d:'Cloud security assessment CLI tool' },
     { n:109, s:'CQ', name:'CloudQuery',        cat:'cloud',     l:'os',  r:7,  c:9,  os:['win','lin','mac'],    url:'https://www.cloudquery.io', d:'Cloud asset inventory and compliance queries' },
     { n:110, s:'AH', name:'AzureHound',        cat:'cloud',     l:'os',  r:7,  c:10, os:['win','lin','mac'],    url:'https://github.com/BloodHoundAD/AzureHound', d:'Azure AD attack path enumeration' },
@@ -153,10 +153,10 @@ const ELEMENTS = [
     { n:97,  s:'Mq', name:'Magnet ACQUIRE',    cat:'mobile',    l:'fr',  r:10, c:11, os:['win'],                url:'https://www.magnetforensics.com/resources/magnet-acquire/', d:'Mobile and cloud evidence acquisition' },
     { n:98,  s:'Li', name:'libimobiledevice',  cat:'mobile',    l:'os',  r:10, c:12, os:['lin','mac'],          url:'https://libimobiledevice.org', d:'Cross-platform iOS device communication' },
     { n:99,  s:'Ad', name:'ADB',               cat:'mobile',    l:'os',  r:10, c:13, os:['win','lin','mac'],    url:'https://developer.android.com/tools/adb', d:'Android Debug Bridge for device access' },
-    { n:100, s:'Ec', name:'Elcomsoft',          cat:'mobile',    l:'cm',  r:10, c:14, os:['win'],                url:'https://www.elcomsoft.com/eift.html', d:'iOS forensic toolkit and extraction' },
+    { n:100, s:'Ec', name:'Elcomsoft',          cat:'mobile',    l:'cm',  r:10, c:14, os:['win','lin','mac'],    url:'https://www.elcomsoft.com/eift.html', d:'iOS forensic toolkit and extraction' },
     { n:101, s:'Ap', name:'APOLLO',             cat:'mobile',    l:'os',  r:10, c:15, os:['win','lin','mac'],    url:'https://github.com/mac4n6/APOLLO', d:'Apple pattern of life analysis tool' },
     { n:102, s:'GK', name:'Magnet GrayKey',     cat:'mobile',    l:'cm',  r:10, c:16, os:['appliance'],          url:'https://www.magnetforensics.com/products/magnet-graykey/', d:'Mobile device passcode unlock and extraction' },
-    { n:103, s:'Fj', name:'FUJI',               cat:'mobile',    l:'os',  r:10, c:17, os:['mac'],                url:'https://github.com/Lazza/Fuji', d:'iOS full filesystem acquisition tool' }
+    { n:103, s:'AE', name:'ArtEx',              cat:'mobile',    l:'fr',  r:10, c:17, os:['win'],                url:'https://www.doubleblak.com/app.php?id=ArtEx2', d:'iOS & Android artifact analysis and verification tool' }
 ];
 
 const LICENSE = {

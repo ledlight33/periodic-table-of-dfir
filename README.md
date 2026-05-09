@@ -2,10 +2,10 @@
 
 > The definitive visual reference for Digital Forensics & Incident Response — **118 essential tools** organized like the periodic table.
 
-![Version](https://img.shields.io/badge/version-1.2-blue)
+![Version](https://img.shields.io/badge/version-1.2.1-blue)
 ![Tools](https://img.shields.io/badge/tools-118-green)
 ![Categories](https://img.shields.io/badge/categories-9-orange)
-![Open Source](https://img.shields.io/badge/open%20source-69-success)
+![Open Source](https://img.shields.io/badge/open%20source-68-success)
 ![License](https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY--NC%204.0-lightgrey)
 
 ![The Periodic Table of DFIR](assets/og-image.png)
@@ -51,10 +51,10 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 
 | License | Count |
 |---|---|
-| Open Source | 69 |
+| Open Source | 68 |
 | Commercial | 22 |
 | Freemium | 6 |
-| Free | 9 |
+| Free | 10 |
 | Standards / Frameworks | 12 |
 | **Total** | **118** |
 
@@ -123,7 +123,16 @@ periodic-table-of-dfir/
 
 ## Versioning
 
-**v1.2** is the current release.
+**v1.2.1** is the current release.
+
+### What's new in v1.2.1
+- FUJI moved to Disk & Memory Forensics (correct category), renumbered #105
+- ScoutSuite removed; CloudTrail renumbered to #107
+- ArtEx [AE] added to Mobile Forensics #103 — iOS/Android artifact analysis tool (Windows)
+- Elcomsoft (#100) platform corrected to cross-platform (Windows / Linux / macOS)
+- Category filter buttons and legend reordered to match the table's visual flow
+- Atmospheric quote added to poster.html footer
+- Open source count corrected to 68; Free count to 10
 
 ### What's new in v1.2
 - 9th category added: **Hybrid Platforms**
