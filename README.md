@@ -1,7 +1,9 @@
-<h1 align="center">The Periodic Table of DFIR</h1>
+<h1 align="center">The Periodic Table of DFIR 🔎</h1>
 
 <p align="center">
   <i>The definitive visual reference for Digital Forensics & Incident Response.</i>
+  <br>
+  <b>118 essential tools organized like the periodic table.</b>
 </p>
 
 ---
