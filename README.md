@@ -4,12 +4,6 @@
   <i>The definitive visual reference for Digital Forensics & Incident Response.</i>
 </p>
 
-<p align="center">
-  <a href="https://github.com/ledlight33/periodic-table-of-dfir/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-Dual_License-red.svg?style=flat-square" alt="License">
-  </a>
-</p>
-
 ---
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.2.1-007ec6.svg" alt="version">
