@@ -135,7 +135,7 @@ periodic-table-of-dfir/
 ### What's new in v1.2.1
 - FUJI moved to Disk & Memory Forensics (correct category), renumbered #105
 - ScoutSuite removed; CloudTrail renumbered to #107
-- ArtEx [AE] added to Mobile Forensics #103 — iOS/Android artifact analysis tool (Windows)
+- ArtEx [AE] added to Mobile Forensics #103 — iOS artifact analysis tool (Windows)
 - Elcomsoft (#100) platform corrected to cross-platform (Windows / Linux / macOS)
 - Category filter buttons and legend reordered to match the table's visual flow
 - Atmospheric quote added to poster.html footer

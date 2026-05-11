@@ -156,7 +156,7 @@ const ELEMENTS = [
     { n:100, s:'Ec', name:'Elcomsoft',          cat:'mobile',    l:'cm',  r:10, c:14, os:['win','lin','mac'],    url:'https://www.elcomsoft.com/eift.html', d:'iOS forensic toolkit and extraction' },
     { n:101, s:'Ap', name:'APOLLO',             cat:'mobile',    l:'os',  r:10, c:15, os:['win','lin','mac'],    url:'https://github.com/mac4n6/APOLLO', d:'Apple pattern of life analysis tool' },
     { n:102, s:'GK', name:'Magnet GrayKey',     cat:'mobile',    l:'cm',  r:10, c:16, os:['appliance'],          url:'https://www.magnetforensics.com/products/magnet-graykey/', d:'Mobile device passcode unlock and extraction' },
-    { n:103, s:'AE', name:'ArtEx',              cat:'mobile',    l:'fr',  r:10, c:17, os:['win'],                url:'https://www.doubleblak.com/app.php?id=ArtEx2', d:'iOS & Android artifact analysis and verification tool' }
+    { n:103, s:'AE', name:'ArtEx',              cat:'mobile',    l:'fr',  r:10, c:17, os:['win'],                url:'https://www.doubleblak.com/app.php?id=ArtEx2', d:'iOS artifact analysis and verification tool' }
 ];
 
 const LICENSE = {

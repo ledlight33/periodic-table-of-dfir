@@ -6,7 +6,7 @@
 - **FUJI (#105)** moved from Mobile Forensics to Disk & Memory Forensics — correct categorisation
 - **CloudTrail** renumbered from #105 to #107
 - **ScoutSuite (#107)** removed from the table entirely
-- **ArtEx (#103)** added to Mobile Forensics — iOS/Android artifact analysis and verification tool, Windows only (symbol: AE)
+- **ArtEx (#103)** added to Mobile Forensics — iOS artifact analysis and verification tool, Windows only (symbol: AE)
 - **Elcomsoft (#100)** platform corrected to cross-platform (Windows / Linux / macOS)
 - **Atmospheric quote** added to `poster.html` footer — consistent with index and print versions
 
