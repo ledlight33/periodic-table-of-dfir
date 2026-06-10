@@ -105,11 +105,11 @@ const ELEMENTS = [
     { n:85,  s:'Sy', name:'Sysmon',           cat:'ir',        l:'fr',  r:6,  c:17, os:['win','lin'],          url:'https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon', d:'Windows system activity monitor' },
     { n:86,  s:'UA', name:'UAC',              cat:'ir',        l:'os',  r:6,  c:18, os:['lin','mac'],          url:'https://github.com/tclahr/uac', d:'Unix-like artifacts collector for IR' },
 
-    // === Row 7 — FW(c:1-2) + [89-103 marker c:3] + Disk(c:4) + Cloud(c:5-15) + IR(c:16-18) ===
+    // === Row 7 — FW(c:1-2) + [89-103 marker c:3] + Disk(c:4-5) + Cloud(c:6-15) + IR(c:16-18) ===
     { n:87,  s:'AT', name:'MITRE ATT&CK',     cat:'framework', l:'fr',  r:7,  c:1,  os:['standard'],           url:'https://attack.mitre.org', d:'Adversary tactics and techniques knowledge base' },
     { n:88,  s:'DF', name:'DFIR Report',       cat:'framework', l:'fr',  r:7,  c:2,  os:['standard'],           url:'https://thedfirreport.com', d:'Community knowledge resource — real-world intrusion analysis & threat research reports' },
     { n:104, s:'Mp', name:'MemProcFS',         cat:'disk',      l:'os',  r:7,  c:4,  os:['win','lin','mac'],    url:'https://github.com/ufrisk/MemProcFS', d:'Memory analysis via virtual filesystem' },
-    { n:105, s:'Fj', name:'FUJI',               cat:'disk',      l:'os',  r:7,  c:5,  os:['mac'],                url:'https://github.com/Lazza/Fuji', d:'iOS full filesystem acquisition tool' },
+    { n:105, s:'Fj', name:'FUJI',               cat:'disk',      l:'os',  r:7,  c:5,  os:['mac'],                url:'https://github.com/Lazza/Fuji', d:'macOS forensic disk image acquisition tool' },
     { n:106, s:'GD', name:'GuardDuty',         cat:'cloud',     l:'cm',  r:7,  c:6,  os:['web'],                url:'https://aws.amazon.com/guardduty/', d:'AWS intelligent threat detection service' },
     { n:107, s:'Cl', name:'CloudTrail',        cat:'cloud',     l:'cm',  r:7,  c:7,  os:['web'],                url:'https://aws.amazon.com/cloudtrail/', d:'AWS API activity logging and auditing' },
     { n:108, s:'Pw', name:'Prowler',           cat:'cloud',     l:'os',  r:7,  c:8,  os:['win','lin','mac'],    url:'https://github.com/prowler-cloud/prowler', d:'Cloud security assessment CLI tool' },
@@ -191,6 +191,15 @@ document.addEventListener('DOMContentLoaded', () => {
         searchClear.classList.remove('visible');
         applyFilters();
         searchInput.focus();
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchInput.value) {
+            searchInput.value = '';
+            searchQuery = '';
+            searchClear.classList.remove('visible');
+            applyFilters();
+        }
     });
 
     // Apply filter from URL hash on load
@@ -414,18 +423,27 @@ function applyFilters() {
 
 function applyHashFilter() {
     const hash = window.location.hash.slice(1);
-    if (!hash) return;
-    const slugs = hash.split(',');
+    const slugs = hash ? hash.split(',') : [];
     const container = document.getElementById('filters');
+    const buttons = container.querySelectorAll('.filter-btn');
+
+    // Reset to a clean state so a changed hash replaces (not stacks on) old filters
+    activeFilters.clear();
+    buttons.forEach(btn => btn.classList.remove('active'));
+
     Object.entries(CATEGORIES).forEach(([key, cat]) => {
         const catSlug = cat.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '');
         if (slugs.includes(catSlug)) {
             activeFilters.add(key);
-            container.querySelectorAll('.filter-btn').forEach(btn => {
+            buttons.forEach(btn => {
                 if (btn.textContent === cat.name) btn.classList.add('active');
-                if (btn.textContent === 'All') btn.classList.remove('active');
             });
         }
     });
+
+    buttons.forEach(btn => {
+        if (btn.textContent === 'All') btn.classList.toggle('active', activeFilters.size === 0);
+    });
+
     applyFilters();
 }

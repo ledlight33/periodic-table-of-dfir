@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.2.2 — May 2026
+
+### Fixed
+- **FUJI description corrected** — it is a macOS forensic acquisition tool, not iOS
+- **License breakdown corrected** against actual data: 68 Open Source, 24 Commercial, 8 Freemium, 11 Free, 7 Standards
+- **URL hash filters** now replace previous filters on hash change instead of stacking
+- **Escape key** clears the search box
+- Missing `</html>` closing tag restored in `index.html`
+
+---
+
 ## v1.2.1 — May 2026
 
 ### Changed
@@ -12,7 +23,6 @@
 
 ### Fixed
 - Open source count corrected: 69 → **68** (ScoutSuite removed; ArtEx is free, not open source)
-- Free tool count corrected: 9 → **10**
 - **Category filter buttons and legend** reordered to match table visual flow: Frameworks → Disk → Hybrid → Network → IR → Cloud → Log Analysis → Malware → Mobile
 
 ---

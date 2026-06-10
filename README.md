@@ -8,7 +8,7 @@
 
 ---
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.2.1-007ec6.svg" alt="version">
+  <img src="https://img.shields.io/badge/version-1.2.2-007ec6.svg" alt="version">
   <img src="https://img.shields.io/badge/tools-118-97ca00.svg" alt="tools">
   <img src="https://img.shields.io/badge/categories-9-fe7d37.svg" alt="categories">
   <img src="https://img.shields.io/badge/open%20source-68-4c1.svg" alt="open source">
@@ -59,10 +59,10 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 | License | Count |
 |---|---|
 | Open Source | 68 |
-| Commercial | 22 |
-| Freemium | 6 |
-| Free | 10 |
-| Standards / Frameworks | 12 |
+| Commercial | 24 |
+| Freemium | 8 |
+| Free | 11 |
+| Standards / Frameworks | 7 |
 | **Total** | **118** |
 
 ---
@@ -130,7 +130,14 @@ periodic-table-of-dfir/
 
 ## Versioning
 
-**v1.2.1** is the current release.
+**v1.2.2** is the current release.
+
+### What's new in v1.2.2
+- FUJI description corrected — it is a macOS forensic acquisition tool, not iOS
+- License breakdown corrected against the data: 68 Open Source, 24 Commercial, 8 Freemium, 11 Free, 7 Standards
+- URL hash filters now replace previous filters instead of stacking
+- Escape key clears the search box
+- HTML validity fix in index.html
 
 ### What's new in v1.2.1
 - FUJI moved to Disk & Memory Forensics (correct category), renumbered #105
@@ -139,7 +146,6 @@ periodic-table-of-dfir/
 - Elcomsoft (#100) platform corrected to cross-platform (Windows / Linux / macOS)
 - Category filter buttons and legend reordered to match the table's visual flow
 - Atmospheric quote added to poster.html footer
-- Open source count corrected to 68; Free count to 10
 
 ### What's new in v1.2
 - 9th category added: **Hybrid Platforms**
