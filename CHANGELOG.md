@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.2.3 — May 2026
+
+### Fixed
+- **CISA Playbooks (#56)** URL updated — old page returned 404 (moved to cisa.gov/resources-tools)
+- **Wiz Defend (#114)** URL updated — page moved from /product/ to /platform/
+- **EnCase (#26)** URL updated — product renamed to OpenText Forensic
+- **TheHive (#52)** reclassified Open Source → **Freemium** — TheHive 5 is commercial by StrangeBee with a free tier; TheHive 4 (AGPL) reached end-of-life. URL updated to strangebee.com
+- Open source count corrected: 68 → **67**; Freemium count: 8 → **9**
+
+---
+
 ## v1.2.2 — May 2026
 
 ### Fixed

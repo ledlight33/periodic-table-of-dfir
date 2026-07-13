@@ -8,10 +8,10 @@
 
 ---
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.2.2-007ec6.svg" alt="version">
+  <img src="https://img.shields.io/badge/version-1.2.3-007ec6.svg" alt="version">
   <img src="https://img.shields.io/badge/tools-118-97ca00.svg" alt="tools">
   <img src="https://img.shields.io/badge/categories-9-fe7d37.svg" alt="categories">
-  <img src="https://img.shields.io/badge/open%20source-68-4c1.svg" alt="open source">
+  <img src="https://img.shields.io/badge/open%20source-67-4c1.svg" alt="open source">
   <img src="https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY--NC%204.0-lightgrey.svg" alt="license">
 </p>
 
@@ -58,9 +58,9 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 
 | License | Count |
 |---|---|
-| Open Source | 68 |
+| Open Source | 67 |
 | Commercial | 24 |
-| Freemium | 8 |
+| Freemium | 9 |
 | Free | 11 |
 | Standards / Frameworks | 7 |
 | **Total** | **118** |
@@ -130,7 +130,13 @@ periodic-table-of-dfir/
 
 ## Versioning
 
-**v1.2.2** is the current release.
+**v1.2.3** is the current release.
+
+### What's new in v1.2.3
+- Dead links fixed: CISA Playbooks and Wiz Defend (pages had moved)
+- EnCase URL updated — product renamed to OpenText Forensic
+- TheHive reclassified Open Source → Freemium (TheHive 5 is commercial by StrangeBee; v4 AGPL is EOL) and URL updated
+- Counts corrected: 67 Open Source, 9 Freemium
 
 ### What's new in v1.2.2
 - FUJI description corrected — it is a macOS forensic acquisition tool, not iOS
@@ -221,7 +227,7 @@ For commercial licensing, partnerships, custom work, or any collaboration — pl
 
 Inspired by Dmitri Mendeleev's original periodic table (1869) and the countless DFIR practitioners who build, maintain, and document the tools listed here. Every tile represents real work by real teams that the community depends on.
 
-Special thanks to the open-source contributors behind the 68 free and open tools in this collection.
+Special thanks to the open-source contributors behind the 67 free and open tools in this collection.
 
 ---
 
