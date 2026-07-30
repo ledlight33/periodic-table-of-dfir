@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Periodic Table of DFIR — 118 Essential Forensics & IR Tools</title>
-    <meta name="description" content="The definitive visual reference for Digital Forensics & Incident Response. 118 tools across 9 categories — disk, memory, network, malware, mobile, cloud, IR, frameworks, and hybrid platforms.">
+    <title>The Periodic Table of DFIR - 118 Essential Forensics & IR Tools</title>
+    <meta name="description" content="The definitive visual reference for Digital Forensics & Incident Response. 118 tools across 9 categories plus a synthetic-elements row of AI DFIR tools - disk, memory, network, malware, mobile, cloud, IR, frameworks, hybrid platforms, and AI.">
     <meta name="author" content="Marino Bekios">
     <meta name="keywords" content="DFIR, digital forensics, incident response, cybersecurity, periodic table, forensic tools, malware analysis, threat intelligence">
 
@@ -31,7 +31,7 @@
          (Not loaded by print.html or poster.html)
          ===================================================== -->
     <style>
-        /* Hide the existing circuit-board pattern on index — matrix replaces it */
+        /* Hide the existing circuit-board pattern on index - matrix replaces it */
         body::before { display: none !important; }
 
         #matrix-rain {
@@ -73,7 +73,7 @@
             100% { top: 100%;  opacity: 0; }
         }
 
-        /* Resolution hint — only shows on smaller screens, hidden on full desktop */
+        /* Resolution hint - only shows on smaller screens, hidden on full desktop */
         .resolution-hint {
             display: none;
             margin-top: 6px;
@@ -86,7 +86,7 @@
             .resolution-hint { display: block; }
         }
 
-        /* Atmospheric quote — sits in the footer row between print button and author info */
+        /* Atmospheric quote - sits in the footer row between print button and author info */
         .wallpaper-quote {
             font-family: 'Share Tech Mono', Consolas, monospace;
             font-size: 12px;
@@ -122,8 +122,8 @@
         <header>
             <h1>The Periodic Table of <span class="accent">DFIR</span></h1>
             <p class="subtitle">The Definitive Reference for Digital Forensics & Incident Response Tools</p>
-            <p class="stats-badge">118 Tools | 9 Categories | 67 Open Source</p>
-            <p class="version">v1.2.3</p>
+            <p class="stats-badge">118 Tools + 8 Synthetic | 9 Categories + AI | 67 Open Source</p>
+            <p class="version">v1.3</p>
             <p class="resolution-hint">💡 For the full interactive experience, view on desktop at 1920×1080 or higher</p>
         </header>
 
@@ -181,13 +181,13 @@
             H = canvas.height = window.innerHeight;
             COLS = Math.floor(W / FONT_SIZE);
             drops  = Array.from({ length: COLS }, () => Math.random() * (H / FONT_SIZE));
-            speed  = Array.from({ length: COLS }, () => 0.18 + Math.random() * 0.42);  // was 0.4–1.3, now 0.18–0.6 (≈50% slower)
+            speed  = Array.from({ length: COLS }, () => 0.18 + Math.random() * 0.42);  // was 0.4-1.3, now 0.18-0.6 (≈50% slower)
             bright = Array.from({ length: COLS }, () => 0.30 + Math.random() * 0.50);
             ctx.font = FONT_SIZE + 'px "Share Tech Mono", Consolas, monospace';
         }
 
         function draw() {
-            // Trail effect — semi-transparent fill matching body background colour
+            // Trail effect - semi-transparent fill matching body background colour
             ctx.fillStyle = 'rgba(15, 15, 31, 0.07)';
             ctx.fillRect(0, 0, W, H);
 

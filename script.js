@@ -7,7 +7,8 @@ const CATEGORIES = {
     cloud:     { name: 'Cloud Forensics',              color: '#26A69A' },
     logti:     { name: 'Log Analysis & Threat Intel',  color: '#FFCA28' },
     malware:   { name: 'Malware Analysis & RE',       color: '#EF5350' },
-    mobile:    { name: 'Mobile Forensics',             color: '#26C6DA' }
+    mobile:    { name: 'Mobile Forensics',             color: '#26C6DA' },
+    ai:        { name: 'AI · Synthetic',               color: '#FFFFFF' }
 };
 
 // Platform support indicators (shown in tooltip on hover)
@@ -22,60 +23,60 @@ const OS_LABELS = {
 
 // License types: 'os' = Open Source, 'fr' = Free, 'cm' = Commercial, 'fm' = Freemium, 'std' = Standard/Framework
 const ELEMENTS = [
-    // === Row 1 — Iconic anchors (like H and He) ===
+    // === Row 1 - Iconic anchors (like H and He) ===
     { n:1,   s:'CT', name:'Cyber Triage',     cat:'ir',        l:'cm',  r:1,  c:1,  os:['win','lin'],          url:'https://www.cybertriage.com', d:'Automated incident response forensics' },
     { n:2,   s:'Sp', name:'Splunk',           cat:'logti',     l:'cm',  r:1,  c:18, os:['win','lin','mac'],    url:'https://www.splunk.com', d:'Enterprise SIEM and data analytics platform' },
 
-    // === Row 2 — Frameworks (left) + LogTI (right) ===
+    // === Row 2 - Frameworks (left) + LogTI (right) ===
     { n:3,   s:'NF', name:'NIST CSF',         cat:'framework', l:'std', r:2,  c:1,  os:['standard'],           url:'https://www.nist.gov/cyberframework', d:'Cybersecurity framework for managing risk' },
     { n:4,   s:'NI', name:'NIST 800-61',      cat:'framework', l:'std', r:2,  c:2,  os:['standard'],           url:'https://csrc.nist.gov/pubs/sp/800/61/r2/final', d:'Computer security incident handling guide' },
     { n:5,   s:'EK', name:'Elastic Stack',    cat:'logti',     l:'os',  r:2,  c:13, os:['win','lin','mac'],    url:'https://www.elastic.co/elastic-stack', d:'Open-source log analysis and search (ELK)' },
     { n:6,   s:'Gl', name:'Graylog',          cat:'logti',     l:'os',  r:2,  c:14, os:['lin'],                url:'https://www.graylog.org', d:'Centralized log management platform' },
     { n:7,   s:'QR', name:'QRadar',           cat:'logti',     l:'cm',  r:2,  c:15, os:['web'],                url:'https://www.ibm.com/qradar', d:'IBM SIEM for threat detection and compliance' },
     { n:8,   s:'Se', name:'Sentinel',         cat:'logti',     l:'cm',  r:2,  c:16, os:['web'],                url:'https://azure.microsoft.com/en-us/products/microsoft-sentinel', d:'Microsoft cloud-native SIEM solution' },
-    { n:9,   s:'Si', name:'Sigma',            cat:'logti',     l:'os',  r:2,  c:17, os:['standard'],           url:'https://github.com/SigmaHQ/sigma', d:'Generic signature format for log events' },
+    { n:9,   s:'Si', name:'Sigma',            cat:'logti',     l:'os',  r:2,  c:17, os:['standard'],           url:'https://github.com/SigmaHQ/sigma', d:'Generic signature format for log events', install:'pip install sigma-cli' },
     { n:10,  s:'OC', name:'OpenCTI',          cat:'logti',     l:'os',  r:2,  c:18, os:['web'],                url:'https://www.opencti.io', d:'Open-source cyber threat intelligence platform' },
 
-    // === Row 3 — Frameworks (left) + LogTI (right) ===
+    // === Row 3 - Frameworks (left) + LogTI (right) ===
     { n:11,  s:'SR', name:'SANS IR',          cat:'framework', l:'std', r:3,  c:1,  os:['standard'],           url:'https://www.sans.org/white-papers/33901/', d:'SANS incident response process methodology' },
     { n:12,  s:'DM', name:'Diamond Model',    cat:'framework', l:'std', r:3,  c:2,  os:['standard'],           url:'https://www.activeresponse.org/wp-content/uploads/2013/07/diamond.pdf', d:'Intrusion analysis methodology' },
     { n:13,  s:'MI', name:'MISP',             cat:'logti',     l:'os',  r:3,  c:13, os:['web'],                url:'https://www.misp-project.org', d:'Threat intelligence sharing platform' },
     { n:14,  s:'VT', name:'VirusTotal',       cat:'logti',     l:'fm',  r:3,  c:14, os:['web'],                url:'https://www.virustotal.com', d:'Multi-engine file and URL scanner' },
     { n:15,  s:'GN', name:'GreyNoise',        cat:'logti',     l:'fm',  r:3,  c:15, os:['web'],                url:'https://www.greynoise.io', d:'Internet noise and mass scanning analyzer' },
     { n:16,  s:'Ts', name:'Timesketch',       cat:'logti',     l:'os',  r:3,  c:16, os:['web'],                url:'https://timesketch.org', d:'Collaborative forensic timeline analysis' },
-    { n:17,  s:'Sh', name:'Shodan',           cat:'logti',     l:'fm',  r:3,  c:17, os:['web'],                url:'https://www.shodan.io', d:'Internet-connected device search engine' },
+    { n:17,  s:'Sh', name:'Shodan',           cat:'logti',     l:'fm',  r:3,  c:17, os:['web'],                url:'https://www.shodan.io', d:'Internet-connected device search engine', install:'pip install shodan' },
     { n:18,  s:'Ar', name:'Aurora',           cat:'logti',     l:'cm',  r:3,  c:18, os:['win'],                url:'https://www.nextron-systems.com/aurora/', d:'Sigma-based endpoint detection agent' },
 
-    // === Row 4 — FW(c:1-2) + Disk(c:3-7) + Hybrid(c:8-9) + Network(c:10-17) + LogTI(c:18) ===
+    // === Row 4 - FW(c:1-2) + Disk(c:3-7) + Hybrid(c:8-9) + Network(c:10-17) + LogTI(c:18) ===
     { n:19,  s:'D3', name:'D3FEND',           cat:'framework', l:'fr',  r:4,  c:1,  os:['standard'],           url:'https://d3fend.mitre.org', d:'MITRE defensive techniques knowledge graph' },
     { n:20,  s:'RE', name:'RE&CT',            cat:'framework', l:'os',  r:4,  c:2,  os:['standard'],           url:'https://atc-project.github.io/atc-react/', d:'Framework of incident response actions' },
     { n:21,  s:'Au', name:'Autopsy',          cat:'disk',      l:'os',  r:4,  c:3,  os:['win','lin','mac'],    url:'https://www.autopsy.com', d:'Open-source digital forensics platform' },
     { n:22,  s:'FT', name:'FTK Imager',       cat:'disk',      l:'fr',  r:4,  c:4,  os:['win'],                url:'https://www.exterro.com/digital-forensics-software/ftk-imager', d:'Forensic disk imaging and preview tool' },
-    { n:23,  s:'Vo', name:'Volatility',       cat:'disk',      l:'os',  r:4,  c:5,  os:['win','lin','mac'],    url:'https://www.volatilityfoundation.org', d:'Advanced memory forensics framework' },
-    { n:24,  s:'TK', name:'Sleuth Kit',       cat:'disk',      l:'os',  r:4,  c:6,  os:['win','lin','mac'],    url:'https://www.sleuthkit.org', d:'Filesystem forensic analysis toolkit' },
+    { n:23,  s:'Vo', name:'Volatility',       cat:'disk',      l:'os',  r:4,  c:5,  os:['win','lin','mac'],    url:'https://www.volatilityfoundation.org', d:'Advanced memory forensics framework', install:'pip install volatility3' },
+    { n:24,  s:'TK', name:'Sleuth Kit',       cat:'disk',      l:'os',  r:4,  c:6,  os:['win','lin','mac'],    url:'https://www.sleuthkit.org', d:'Filesystem forensic analysis toolkit', install:'sudo apt install sleuthkit' },
     { n:25,  s:'XW', name:'X-Ways',           cat:'disk',      l:'cm',  r:4,  c:7,  os:['win'],                url:'https://www.x-ways.net/forensics/', d:'Advanced forensics work environment' },
     { n:26,  s:'En', name:'EnCase',           cat:'hybrid',    l:'cm',  r:4,  c:8,  os:['win'],                url:'https://www.opentext.com/products/forensic', d:'Enterprise digital investigation solution' },
     { n:27,  s:'Ax', name:'AXIOM',            cat:'hybrid',    l:'cm',  r:4,  c:9,  os:['win'],                url:'https://www.magnetforensics.com/products/magnet-axiom/', d:'Magnet forensics investigation suite' },
-    { n:28,  s:'Wk', name:'Wireshark',        cat:'network',   l:'os',  r:4,  c:10, os:['win','lin','mac'],    url:'https://www.wireshark.org', d:'Network protocol analyzer and packet inspector' },
-    { n:29,  s:'Td', name:'tcpdump',          cat:'network',   l:'os',  r:4,  c:11, os:['lin','mac'],          url:'https://www.tcpdump.org', d:'Command-line packet capture and analysis' },
+    { n:28,  s:'Wk', name:'Wireshark',        cat:'network',   l:'os',  r:4,  c:10, os:['win','lin','mac'],    url:'https://www.wireshark.org', d:'Network protocol analyzer and packet inspector', install:'winget install WiresharkFoundation.Wireshark' },
+    { n:29,  s:'Td', name:'tcpdump',          cat:'network',   l:'os',  r:4,  c:11, os:['lin','mac'],          url:'https://www.tcpdump.org', d:'Command-line packet capture and analysis', install:'sudo apt install tcpdump' },
     { n:30,  s:'Zk', name:'Zeek',             cat:'network',   l:'os',  r:4,  c:12, os:['lin','mac'],          url:'https://zeek.org', d:'Network security monitoring framework' },
-    { n:31,  s:'Su', name:'Suricata',         cat:'network',   l:'os',  r:4,  c:13, os:['win','lin','mac'],    url:'https://suricata.io', d:'High-performance IDS/IPS/NSM engine' },
-    { n:32,  s:'Sn', name:'Snort',            cat:'network',   l:'os',  r:4,  c:14, os:['win','lin','mac'],    url:'https://www.snort.org', d:'Open-source intrusion detection system' },
+    { n:31,  s:'Su', name:'Suricata',         cat:'network',   l:'os',  r:4,  c:13, os:['win','lin','mac'],    url:'https://suricata.io', d:'High-performance IDS/IPS/NSM engine', install:'sudo apt install suricata' },
+    { n:32,  s:'Sn', name:'Snort',            cat:'network',   l:'os',  r:4,  c:14, os:['win','lin','mac'],    url:'https://www.snort.org', d:'Open-source intrusion detection system', install:'sudo apt install snort' },
     { n:33,  s:'NM', name:'NetworkMiner',     cat:'network',   l:'fm',  r:4,  c:15, os:['win','lin','mac'],    url:'https://www.netresec.com/?page=NetworkMiner', d:'Network forensic analysis tool (NFAT)' },
     { n:34,  s:'Am', name:'Arkime',           cat:'network',   l:'os',  r:4,  c:16, os:['lin'],                url:'https://arkime.com', d:'Full packet capture and search system' },
     { n:35,  s:'Ri', name:'RITA',             cat:'network',   l:'os',  r:4,  c:17, os:['win','lin','mac'],    url:'https://github.com/activecm/rita', d:'Real intelligence threat analytics for Zeek' },
     { n:36,  s:'Sk', name:'Strelka',          cat:'logti',     l:'os',  r:4,  c:18, os:['lin'],                url:'https://github.com/target/strelka', d:'File analysis and scanning at scale' },
 
-    // === Row 5 — FW(c:1-2) + Disk(c:3-6) + Hybrid(c:7-8) + Network(c:9-13) + IR(c:14-18) ===
+    // === Row 5 - FW(c:1-2) + Disk(c:3-6) + Hybrid(c:7-8) + Network(c:9-13) + IR(c:14-18) ===
     { n:37,  s:'I5', name:'ISO 27035',        cat:'framework', l:'std', r:5,  c:1,  os:['standard'],           url:'https://www.iso.org/standard/78973.html', d:'Incident management standard' },
     { n:38,  s:'I7', name:'ISO 27037',        cat:'framework', l:'std', r:5,  c:2,  os:['standard'],           url:'https://www.iso.org/standard/44381.html', d:'Digital evidence handling guidelines' },
     { n:39,  s:'Kp', name:'KAPE',             cat:'disk',      l:'fr',  r:5,  c:3,  os:['win'],                url:'https://github.com/EricZimmerman/KapeFiles', d:'Kroll artifact parser and extractor' },
     { n:40,  s:'BE', name:'Bulk Extractor',   cat:'disk',      l:'os',  r:5,  c:4,  os:['win','lin','mac'],    url:'https://github.com/simsong/bulk_extractor', d:'Extract useful artifacts from disk images' },
-    { n:41,  s:'PR', name:'PhotoRec',         cat:'disk',      l:'os',  r:5,  c:5,  os:['win','lin','mac'],    url:'https://www.cgsecurity.org/wiki/PhotoRec', d:'Recover lost files from disk images' },
-    { n:42,  s:'Hs', name:'Hindsight',        cat:'disk',      l:'os',  r:5,  c:6,  os:['win','lin','mac'],    url:'https://github.com/obsidianforensics/hindsight', d:'Chrome/Chromium browser forensics tool' },
+    { n:41,  s:'PR', name:'PhotoRec',         cat:'disk',      l:'os',  r:5,  c:5,  os:['win','lin','mac'],    url:'https://www.cgsecurity.org/wiki/PhotoRec', d:'Recover lost files from disk images', install:'sudo apt install testdisk' },
+    { n:42,  s:'Hs', name:'Hindsight',        cat:'disk',      l:'os',  r:5,  c:6,  os:['win','lin','mac'],    url:'https://github.com/obsidianforensics/hindsight', d:'Chrome/Chromium browser forensics tool', install:'pip install pyhindsight' },
     { n:43,  s:'Bx', name:'Belkasoft X',      cat:'hybrid',    l:'cm',  r:5,  c:7,  os:['win'],                url:'https://belkasoft.com/x', d:'All-in-one forensic acquisition and analysis platform' },
     { n:44,  s:'Ba', name:'Binalyze AIR',     cat:'hybrid',    l:'cm',  r:5,  c:8,  os:['web'],                url:'https://binalyze.com', d:'Rapid remote forensic acquisition and triage' },
-    { n:45,  s:'Tw', name:'tshark',           cat:'network',   l:'os',  r:5,  c:9,  os:['win','lin','mac'],    url:'https://www.wireshark.org/docs/man-pages/tshark.html', d:'CLI network protocol analyzer' },
+    { n:45,  s:'Tw', name:'tshark',           cat:'network',   l:'os',  r:5,  c:9,  os:['win','lin','mac'],    url:'https://www.wireshark.org/docs/man-pages/tshark.html', d:'CLI network protocol analyzer', install:'sudo apt install tshark' },
     { n:46,  s:'Zu', name:'Zui',              cat:'network',   l:'os',  r:5,  c:10, os:['win','lin','mac'],    url:'https://zui.brimdata.io', d:'Desktop app for network data exploration' },
     { n:47,  s:'St', name:'Stenographer',     cat:'network',   l:'os',  r:5,  c:11, os:['lin'],                url:'https://github.com/google/stenographer', d:'Full packet capture to disk at scale' },
     { n:48,  s:'Ml', name:'Malcolm',          cat:'network',   l:'os',  r:5,  c:12, os:['lin'],                url:'https://github.com/cisagov/Malcolm', d:'CISA network traffic analysis tool suite' },
@@ -84,9 +85,9 @@ const ELEMENTS = [
     { n:51,  s:'GR', name:'GRR',              cat:'ir',        l:'os',  r:5,  c:15, os:['win','lin','mac'],    url:'https://github.com/google/grr', d:'Google rapid response IR framework' },
     { n:52,  s:'TH', name:'TheHive',          cat:'ir',        l:'fm',  r:5,  c:16, os:['lin'],                url:'https://strangebee.com/thehive/', d:'Scalable incident response platform' },
     { n:53,  s:'Cx', name:'Cortex',           cat:'ir',        l:'os',  r:5,  c:17, os:['lin'],                url:'https://github.com/TheHive-Project/Cortex', d:'Observable analysis and active response' },
-    { n:54,  s:'Oq', name:'osquery',          cat:'ir',        l:'os',  r:5,  c:18, os:['win','lin','mac'],    url:'https://osquery.io', d:'SQL-powered endpoint visibility tool' },
+    { n:54,  s:'Oq', name:'osquery',          cat:'ir',        l:'os',  r:5,  c:18, os:['win','lin','mac'],    url:'https://osquery.io', d:'SQL-powered endpoint visibility tool', install:'brew install osquery' },
 
-    // === Row 6 — FW(c:1-2) + [57-71 marker c:3] + Disk(c:4-6) + Hybrid(c:7-10) + IR(c:11-18) ===
+    // === Row 6 - FW(c:1-2) + [57-71 marker c:3] + Disk(c:4-6) + Hybrid(c:7-10) + IR(c:11-18) ===
     { n:55,  s:'RF', name:'RFC 3227',         cat:'framework', l:'std', r:6,  c:1,  os:['standard'],           url:'https://datatracker.ietf.org/doc/html/rfc3227', d:'Evidence collection and archiving guidelines' },
     { n:56,  s:'CP', name:'CISA Playbooks',   cat:'framework', l:'fr',  r:6,  c:2,  os:['standard'],           url:'https://www.cisa.gov/resources-tools/resources/federal-government-cybersecurity-incident-and-vulnerability-response-playbooks', d:'Federal cybersecurity IR playbooks' },
     { n:72,  s:'AI', name:'Arsenal IM',       cat:'disk',      l:'fm',  r:6,  c:4,  os:['win'],                url:'https://arsenalrecon.com/weapons/image-mounter', d:'Mount forensic disk images as drives' },
@@ -105,17 +106,17 @@ const ELEMENTS = [
     { n:85,  s:'Sy', name:'Sysmon',           cat:'ir',        l:'fr',  r:6,  c:17, os:['win','lin'],          url:'https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon', d:'Windows system activity monitor' },
     { n:86,  s:'UA', name:'UAC',              cat:'ir',        l:'os',  r:6,  c:18, os:['lin','mac'],          url:'https://github.com/tclahr/uac', d:'Unix-like artifacts collector for IR' },
 
-    // === Row 7 — FW(c:1-2) + [89-103 marker c:3] + Disk(c:4-5) + Cloud(c:6-15) + IR(c:16-18) ===
+    // === Row 7 - FW(c:1-2) + [89-103 marker c:3] + Disk(c:4-5) + Cloud(c:6-15) + IR(c:16-18) ===
     { n:87,  s:'AT', name:'MITRE ATT&CK',     cat:'framework', l:'fr',  r:7,  c:1,  os:['standard'],           url:'https://attack.mitre.org', d:'Adversary tactics and techniques knowledge base' },
-    { n:88,  s:'DF', name:'DFIR Report',       cat:'framework', l:'fr',  r:7,  c:2,  os:['standard'],           url:'https://thedfirreport.com', d:'Community knowledge resource — real-world intrusion analysis & threat research reports' },
+    { n:88,  s:'DF', name:'DFIR Report',       cat:'framework', l:'fr',  r:7,  c:2,  os:['standard'],           url:'https://thedfirreport.com', d:'Community knowledge resource - real-world intrusion analysis & threat research reports' },
     { n:104, s:'Mp', name:'MemProcFS',         cat:'disk',      l:'os',  r:7,  c:4,  os:['win','lin','mac'],    url:'https://github.com/ufrisk/MemProcFS', d:'Memory analysis via virtual filesystem' },
     { n:105, s:'Fj', name:'FUJI',               cat:'disk',      l:'os',  r:7,  c:5,  os:['mac'],                url:'https://github.com/Lazza/Fuji', d:'macOS forensic disk image acquisition tool' },
     { n:106, s:'GD', name:'GuardDuty',         cat:'cloud',     l:'cm',  r:7,  c:6,  os:['web'],                url:'https://aws.amazon.com/guardduty/', d:'AWS intelligent threat detection service' },
     { n:107, s:'Cl', name:'CloudTrail',        cat:'cloud',     l:'cm',  r:7,  c:7,  os:['web'],                url:'https://aws.amazon.com/cloudtrail/', d:'AWS API activity logging and auditing' },
-    { n:108, s:'Pw', name:'Prowler',           cat:'cloud',     l:'os',  r:7,  c:8,  os:['win','lin','mac'],    url:'https://github.com/prowler-cloud/prowler', d:'Cloud security assessment CLI tool' },
-    { n:109, s:'CQ', name:'CloudQuery',        cat:'cloud',     l:'os',  r:7,  c:9,  os:['win','lin','mac'],    url:'https://www.cloudquery.io', d:'Cloud asset inventory and compliance queries' },
+    { n:108, s:'Pw', name:'Prowler',           cat:'cloud',     l:'os',  r:7,  c:8,  os:['win','lin','mac'],    url:'https://github.com/prowler-cloud/prowler', d:'Cloud security assessment CLI tool', install:'pip install prowler' },
+    { n:109, s:'CQ', name:'CloudQuery',        cat:'cloud',     l:'os',  r:7,  c:9,  os:['win','lin','mac'],    url:'https://www.cloudquery.io', d:'Cloud asset inventory and compliance queries', install:'brew install cloudquery' },
     { n:110, s:'AH', name:'AzureHound',        cat:'cloud',     l:'os',  r:7,  c:10, os:['win','lin','mac'],    url:'https://github.com/BloodHoundAD/AzureHound', d:'Azure AD attack path enumeration' },
-    { n:111, s:'Ro', name:'ROADtools',         cat:'cloud',     l:'os',  r:7,  c:11, os:['win','lin','mac'],    url:'https://github.com/dirkjanm/ROADtools', d:'Azure AD exploration and forensics' },
+    { n:111, s:'Ro', name:'ROADtools',         cat:'cloud',     l:'os',  r:7,  c:11, os:['win','lin','mac'],    url:'https://github.com/dirkjanm/ROADtools', d:'Azure AD exploration and forensics', install:'pip install roadrecon' },
     { n:112, s:'Iv', name:'Invictus IR',       cat:'cloud',     l:'os',  r:7,  c:12, os:['web'],                url:'https://github.com/invictus-ir', d:'Azure and M365 incident response tools' },
     { n:113, s:'Cd', name:'Cado Response',     cat:'cloud',     l:'cm',  r:7,  c:13, os:['web'],                url:'https://www.cadosecurity.com', d:'Cloud-native forensics and IR platform' },
     { n:114, s:'Wd', name:'Wiz Defend',        cat:'cloud',     l:'cm',  r:7,  c:14, os:['web'],                url:'https://www.wiz.io/platform/wiz-defend', d:'Cloud detection and response platform' },
@@ -124,39 +125,50 @@ const ELEMENTS = [
     { n:117, s:'Wz', name:'Wazuh',             cat:'ir',        l:'os',  r:7,  c:17, os:['win','lin','mac'],    url:'https://wazuh.com', d:'Open-source XDR and SIEM platform' },
     { n:118, s:'Ed', name:'Elastic EDR',       cat:'ir',        l:'fm',  r:7,  c:18, os:['win','lin','mac'],    url:'https://www.elastic.co/security/endpoint-security', d:'Elastic endpoint detection and response' },
 
-    // === Row 9 — Malware Analysis & RE (cols 3-17) — numbers 57-71 like lanthanides ===
-    { n:57,  s:'Gh', name:'Ghidra',            cat:'malware',   l:'os',  r:9,  c:3,  os:['win','lin','mac'],    url:'https://ghidra-sre.org', d:'NSA reverse engineering framework' },
+    // === Row 9 - Malware Analysis & RE (cols 3-17) - numbers 57-71 like lanthanides ===
+    { n:57,  s:'Gh', name:'Ghidra',            cat:'malware',   l:'os',  r:9,  c:3,  os:['win','lin','mac'],    url:'https://ghidra-sre.org', d:'NSA reverse engineering framework', install:'winget install NationalSecurityAgency.Ghidra' },
     { n:58,  s:'ID', name:'IDA Pro',           cat:'malware',   l:'cm',  r:9,  c:4,  os:['win','lin','mac'],    url:'https://hex-rays.com/ida-pro/', d:'Industry-standard disassembler and debugger' },
     { n:59,  s:'Xd', name:'x64dbg',            cat:'malware',   l:'os',  r:9,  c:5,  os:['win'],                url:'https://x64dbg.com', d:'Open-source Windows x64/x32 debugger' },
-    { n:60,  s:'R2', name:'Radare2',           cat:'malware',   l:'os',  r:9,  c:6,  os:['win','lin','mac'],    url:'https://rada.re', d:'Portable reverse engineering framework' },
+    { n:60,  s:'R2', name:'Radare2',           cat:'malware',   l:'os',  r:9,  c:6,  os:['win','lin','mac'],    url:'https://rada.re', d:'Portable reverse engineering framework', install:'brew install radare2' },
     { n:61,  s:'CS', name:'CAPE Sandbox',      cat:'malware',   l:'os',  r:9,  c:7,  os:['lin'],                url:'https://github.com/kevoreilly/CAPEv2', d:'Config and payload extraction sandbox' },
     { n:62,  s:'Ay', name:'Any.Run',           cat:'malware',   l:'fm',  r:9,  c:8,  os:['web'],                url:'https://any.run', d:'Interactive online malware sandbox' },
-    { n:63,  s:'Ya', name:'YARA',              cat:'malware',   l:'os',  r:9,  c:9,  os:['win','lin','mac'],    url:'https://virustotal.github.io/yara/', d:'Pattern matching for malware researchers' },
+    { n:63,  s:'Ya', name:'YARA',              cat:'malware',   l:'os',  r:9,  c:9,  os:['win','lin','mac'],    url:'https://virustotal.github.io/yara/', d:'Pattern matching for malware researchers', install:'brew install yara' },
     { n:64,  s:'PE', name:'PEStudio',          cat:'malware',   l:'fm',  r:9,  c:10, os:['win'],                url:'https://www.winitor.com', d:'Static analysis of PE executables' },
     { n:65,  s:'Rx', name:'REMnux',            cat:'malware',   l:'os',  r:9,  c:11, os:['lin'],                url:'https://remnux.org', d:'Linux distro for malware analysis' },
     { n:66,  s:'CC', name:'CyberChef',         cat:'malware',   l:'os',  r:9,  c:12, os:['web'],                url:'https://gchq.github.io/CyberChef/', d:'Data encoding/decoding Swiss army knife' },
-    { n:67,  s:'FL', name:'FLOSS',             cat:'malware',   l:'os',  r:9,  c:13, os:['win','lin','mac'],    url:'https://github.com/mandiant/flare-floss', d:'Obfuscated string extraction from malware' },
-    { n:68,  s:'Ca', name:'Capa',              cat:'malware',   l:'os',  r:9,  c:14, os:['win','lin','mac'],    url:'https://github.com/mandiant/capa', d:'Detect capabilities in executable files' },
-    { n:69,  s:'OL', name:'OLETools',          cat:'malware',   l:'os',  r:9,  c:15, os:['win','lin','mac'],    url:'https://github.com/decalage2/oletools', d:'Analyze malicious Office documents' },
-    { n:70,  s:'Fr', name:'Frida',             cat:'malware',   l:'os',  r:9,  c:16, os:['win','lin','mac'],    url:'https://frida.re', d:'Dynamic instrumentation toolkit for RE and hooking' },
+    { n:67,  s:'FL', name:'FLOSS',             cat:'malware',   l:'os',  r:9,  c:13, os:['win','lin','mac'],    url:'https://github.com/mandiant/flare-floss', d:'Obfuscated string extraction from malware', install:'pip install flare-floss' },
+    { n:68,  s:'Ca', name:'Capa',              cat:'malware',   l:'os',  r:9,  c:14, os:['win','lin','mac'],    url:'https://github.com/mandiant/capa', d:'Detect capabilities in executable files', install:'pip install flare-capa' },
+    { n:69,  s:'OL', name:'OLETools',          cat:'malware',   l:'os',  r:9,  c:15, os:['win','lin','mac'],    url:'https://github.com/decalage2/oletools', d:'Analyze malicious Office documents', install:'pip install oletools' },
+    { n:70,  s:'Fr', name:'Frida',             cat:'malware',   l:'os',  r:9,  c:16, os:['win','lin','mac'],    url:'https://frida.re', d:'Dynamic instrumentation toolkit for RE and hooking', install:'pip install frida-tools' },
     { n:71,  s:'Di', name:'Detect It Easy',    cat:'malware',   l:'os',  r:9,  c:17, os:['win','lin','mac'],    url:'https://github.com/horsicq/Detect-It-Easy', d:'PE/ELF identifier for packers and compilers' },
 
-    // === Row 10 — Mobile Forensics (cols 3-17) — numbers 89-103 like actinides ===
+    // === Row 10 - Mobile Forensics (cols 3-17) - numbers 89-103 like actinides ===
     { n:89,  s:'Pt', name:'PiRogue Tool Suite', cat:'mobile',    l:'os',  r:10, c:3,  os:['lin'],                url:'https://pts-project.org', d:'Network traffic analysis suite for mobile device forensics' },
     { n:90,  s:'Ce', name:'Cellebrite',        cat:'mobile',    l:'cm',  r:10, c:4,  os:['win'],                url:'https://cellebrite.com/en/ufed/', d:'Mobile device extraction and analysis' },
     { n:91,  s:'Ud', name:'UFADE',             cat:'mobile',    l:'os',  r:10, c:5,  os:['win','lin','mac'],    url:'https://github.com/prosch88/UFADE', d:'Universal forensic acquisition and decoding engine' },
     { n:92,  s:'AL', name:'ALEAPP',            cat:'mobile',    l:'os',  r:10, c:6,  os:['win','lin','mac'],    url:'https://github.com/abrignoni/ALEAPP', d:'Android logs events and protobuf parser' },
     { n:93,  s:'iL', name:'iLEAPP',            cat:'mobile',    l:'os',  r:10, c:7,  os:['win','lin','mac'],    url:'https://github.com/abrignoni/iLEAPP', d:'iOS logs events and plists parser' },
-    { n:94,  s:'Mv', name:'MVT',               cat:'mobile',    l:'os',  r:10, c:8,  os:['win','lin','mac'],    url:'https://github.com/mvt-project/mvt', d:'Mobile verification toolkit for spyware' },
+    { n:94,  s:'Mv', name:'MVT',               cat:'mobile',    l:'os',  r:10, c:8,  os:['win','lin','mac'],    url:'https://github.com/mvt-project/mvt', d:'Mobile verification toolkit for spyware', install:'pip install mvt' },
     { n:95,  s:'Lx', name:'ALEX',              cat:'mobile',    l:'os',  r:10, c:9,  os:['win','lin','mac'],    url:'https://github.com/prosch88/ALEX', d:'Android logical extraction and analysis tool' },
     { n:96,  s:'XR', name:'MSAB XRY',          cat:'mobile',    l:'cm',  r:10, c:10, os:['win'],                url:'https://www.msab.com/products/xry/', d:'Mobile device examination platform' },
     { n:97,  s:'Mq', name:'Magnet ACQUIRE',    cat:'mobile',    l:'fr',  r:10, c:11, os:['win'],                url:'https://www.magnetforensics.com/resources/magnet-acquire/', d:'Mobile and cloud evidence acquisition' },
-    { n:98,  s:'Li', name:'libimobiledevice',  cat:'mobile',    l:'os',  r:10, c:12, os:['lin','mac'],          url:'https://libimobiledevice.org', d:'Cross-platform iOS device communication' },
-    { n:99,  s:'Ad', name:'ADB',               cat:'mobile',    l:'os',  r:10, c:13, os:['win','lin','mac'],    url:'https://developer.android.com/tools/adb', d:'Android Debug Bridge for device access' },
+    { n:98,  s:'Li', name:'libimobiledevice',  cat:'mobile',    l:'os',  r:10, c:12, os:['lin','mac'],          url:'https://libimobiledevice.org', d:'Cross-platform iOS device communication', install:'brew install libimobiledevice' },
+    { n:99,  s:'Ad', name:'ADB',               cat:'mobile',    l:'os',  r:10, c:13, os:['win','lin','mac'],    url:'https://developer.android.com/tools/adb', d:'Android Debug Bridge for device access', install:'sudo apt install adb' },
     { n:100, s:'Ec', name:'Elcomsoft',          cat:'mobile',    l:'cm',  r:10, c:14, os:['win','lin','mac'],    url:'https://www.elcomsoft.com/eift.html', d:'iOS forensic toolkit and extraction' },
     { n:101, s:'Ap', name:'APOLLO',             cat:'mobile',    l:'os',  r:10, c:15, os:['win','lin','mac'],    url:'https://github.com/mac4n6/APOLLO', d:'Apple pattern of life analysis tool' },
     { n:102, s:'GK', name:'Magnet GrayKey',     cat:'mobile',    l:'cm',  r:10, c:16, os:['appliance'],          url:'https://www.magnetforensics.com/products/magnet-graykey/', d:'Mobile device passcode unlock and extraction' },
-    { n:103, s:'AE', name:'ArtEx',              cat:'mobile',    l:'fr',  r:10, c:17, os:['win'],                url:'https://www.doubleblak.com/app.php?id=ArtEx2', d:'iOS artifact analysis and verification tool' }
+    { n:103, s:'AE', name:'ArtEx',              cat:'mobile',    l:'fr',  r:10, c:17, os:['win'],                url:'https://www.doubleblak.com/app.php?id=ArtEx2', d:'iOS artifact analysis and verification tool' },
+
+    // === Row 12 - Period 8: SYNTHETIC ELEMENTS (119+) - AI DFIR, like elements beyond 118:
+    //     synthesized, unstable, not yet confirmed. Cols 6-13, marker at c:5. ===
+    { n:119, s:'SC', name:'Security Copilot',    cat:'ai', l:'cm', r:11, c:4,  os:['web'], url:'https://www.microsoft.com/en-us/security/business/ai-machine-learning/microsoft-security-copilot', d:'Microsoft AI assistant for security investigation and response' },
+    { n:120, s:'Cr', name:'Charlotte AI',        cat:'ai', l:'cm', r:11, c:5,  os:['web'], url:'https://www.crowdstrike.com/platform/charlotte-ai/', d:'Agentic AI security analyst for the CrowdStrike Falcon platform' },
+    { n:121, s:'Pu', name:'Purple AI',           cat:'ai', l:'cm', r:11, c:6,  os:['web'], url:'https://www.sentinelone.com/platform/purple/', d:'SentinelOne agentic AI analyst for SOC investigations' },
+    { n:122, s:'Gm', name:'Gemini SecOps',       cat:'ai', l:'cm', r:11, c:7,  os:['web'], url:'https://cloud.google.com/security/products/gemini', d:'Google AI assistant for security operations and threat intelligence' },
+    { n:123, s:'Mc', name:'Magnet Copilot',      cat:'ai', l:'cm', r:11, c:8, os:['win'], url:'https://www.magnetforensics.com/blog/accelerating-investigations-with-ai-using-magnet-copilot-in-magnet-axiom/', d:'AI evidence analysis inside Magnet Axiom' },
+    { n:124, s:'CI', name:'Code Insight',        cat:'ai', l:'fm', r:11, c:9, os:['web'], url:'https://blog.virustotal.com/2023/04/introducing-virustotal-code-insight.html', d:'VirusTotal AI-powered malicious code analysis' },
+    { n:125, s:'EA', name:'Elastic AI Assistant', cat:'ai', l:'fm', r:11, c:10, os:['web'], url:'https://www.elastic.co/security/ai', d:'AI assistant for Elastic Security alert triage and workflows' },
+    { n:126, s:'In', name:'AI Investigator',     cat:'ai', l:'cm', r:11, c:11, os:['web'], url:'https://www.cadosecurity.com/platform/ai-investigator/', d:'Cado AI-driven cloud forensics investigation' }
 ];
 
 const LICENSE = {
@@ -207,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('hashchange', applyHashFilter);
 });
 
-// Build the OS line for the tooltip — emoji icons + readable label
+// Build the OS line for the tooltip - emoji icons + readable label
 function renderOS(osArr) {
     if (!osArr || osArr.length === 0) return '';
 
@@ -233,7 +245,7 @@ function renderTable() {
         const cat = CATEGORIES[el.cat];
         const lic = LICENSE[el.l];
         const tile = document.createElement('a');
-        tile.className = 'element' + (el.cat === 'logti' ? ' dark-text' : '');
+        tile.className = 'element' + (el.cat === 'logti' ? ' dark-text' : '') + (el.cat === 'ai' ? ' synthetic dark-text' : '');
         tile.href = el.url;
         tile.target = '_blank';
         tile.rel = 'noopener noreferrer';
@@ -250,9 +262,10 @@ function renderTable() {
             `<span class="name">${el.name}</span>` +
             `<div class="tooltip">` +
                 `<div class="tooltip-name">${el.name}</div>` +
-                `<div class="tooltip-cat" style="background:${cat.color};color:${el.cat === 'logti' ? '#1a1a1a' : '#fff'}">${cat.name}</div>` +
+                `<div class="tooltip-cat" style="background:${cat.color};color:${el.cat === 'logti' || el.cat === 'ai' ? '#1a1a1a' : '#fff'}">${cat.name}</div>` +
                 `<div class="tooltip-desc">${el.d}</div>` +
                 `<div class="tooltip-url">${shortUrl}</div>` +
+                (el.install ? `<div class="tooltip-install"><code>${el.install}</code><span class="copy-btn" role="button" tabindex="0" title="Copy command" data-cmd="${el.install}">📋</span></div>` : '') +
                 renderOS(el.os) +
                 `<div class="tooltip-lic"><span class="tooltip-lic-dot" style="background:${lic.color}"></span>${lic.label}</div>` +
             `</div>`;
@@ -260,7 +273,7 @@ function renderTable() {
         grid.appendChild(tile);
     });
 
-    // Row 6 c:3 — Malware series marker (like lanthanide indicator, 57–71)
+    // Row 6 c:3 - Malware series marker (like lanthanide indicator, 57-71)
     const mwMarker = document.createElement('div');
     mwMarker.className = 'element row-marker';
     mwMarker.dataset.row = '6';
@@ -268,7 +281,7 @@ function renderTable() {
     mwMarker.dataset.cat = 'malware';
     mwMarker.style.cssText = `grid-row:6;grid-column:3;background:${CATEGORIES.malware.color};--cat-color:${CATEGORIES.malware.color};`;
     mwMarker.innerHTML =
-        `<span class="symbol" style="font-size:1.0rem;line-height:1.15;font-weight:800">57–71</span>` +
+        `<span class="symbol" style="font-size:1.0rem;line-height:1.15;font-weight:800">57-71</span>` +
         `<span class="name" style="font-size:0.62rem;opacity:1;font-weight:700;white-space:normal;text-align:center">MA·RE</span>`;
     mwMarker.addEventListener('mouseenter', () => {
         document.querySelectorAll('.element[data-cat="malware"]').forEach(el => el.classList.add('row-highlight'));
@@ -278,7 +291,7 @@ function renderTable() {
     });
     grid.appendChild(mwMarker);
 
-    // Row 7 c:3 — Mobile series marker (like actinide indicator, 89–103)
+    // Row 7 c:3 - Mobile series marker (like actinide indicator, 89-103)
     const mobMarker = document.createElement('div');
     mobMarker.className = 'element row-marker';
     mobMarker.dataset.row = '7';
@@ -286,7 +299,7 @@ function renderTable() {
     mobMarker.dataset.cat = 'mobile';
     mobMarker.style.cssText = `grid-row:7;grid-column:3;background:${CATEGORIES.mobile.color};--cat-color:${CATEGORIES.mobile.color};`;
     mobMarker.innerHTML =
-        `<span class="symbol" style="font-size:1.0rem;line-height:1.15;font-weight:800">89–103</span>` +
+        `<span class="symbol" style="font-size:1.0rem;line-height:1.15;font-weight:800">89-103</span>` +
         `<span class="name" style="font-size:0.62rem;opacity:1;font-weight:700;white-space:normal;text-align:center">MOB</span>`;
     mobMarker.addEventListener('mouseenter', () => {
         document.querySelectorAll('.element[data-cat="mobile"]').forEach(el => el.classList.add('row-highlight'));
@@ -296,13 +309,69 @@ function renderTable() {
     });
     grid.appendChild(mobMarker);
 
-    // Key element — "How to read this table" (SVG with angled lines like real periodic table)
+    // Row 11 c:3 - Synthetic series toggle (period 8, elements 119+ - AI DFIR).
+    // Sits under element 89 (PiRogue). Click to expand/collapse the AI tools to the right.
+    const aiMarker = document.createElement('div');
+    aiMarker.className = 'element row-marker synthetic dark-text ai-toggle';
+    aiMarker.dataset.row = '11';
+    aiMarker.dataset.col = '3';
+    aiMarker.dataset.cat = 'ai';
+    aiMarker.setAttribute('role', 'button');
+    aiMarker.setAttribute('aria-expanded', 'false');
+    aiMarker.title = 'Click to expand the synthetic AI elements (119-126)';
+    aiMarker.style.cssText = `grid-row:11;grid-column:3;--cat-color:${CATEGORIES.ai.color};cursor:pointer;`;
+    aiMarker.innerHTML =
+        `<span class="symbol" style="font-size:1.0rem;line-height:1.15;font-weight:800">119+</span>` +
+        `<span class="name ai-toggle-label" style="font-size:0.62rem;opacity:1;font-weight:700;white-space:normal;text-align:center">AI·SYN ▸</span>`;
+    aiMarker.addEventListener('click', () => setAIExpanded(!grid.classList.contains('ai-open')));
+    aiMarker.addEventListener('mouseenter', () => {
+        if (!grid.classList.contains('ai-open')) return;
+        document.querySelectorAll('.element[data-cat="ai"]').forEach(el => el.classList.add('row-highlight'));
+    });
+    aiMarker.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.element[data-cat="ai"]').forEach(el => el.classList.remove('row-highlight'));
+    });
+    grid.appendChild(aiMarker);
+
+    // Install-command copy chips (event delegation - chips live inside <a> tiles,
+    // so the click must not trigger navigation). Clicking anywhere on the chip copies.
+    grid.addEventListener('click', (e) => {
+        const chip = e.target.closest('.tooltip-install');
+        if (!chip) {
+            // Clicks elsewhere inside an interactive tooltip are info, not navigation
+            if (e.target.closest('.tooltip')) e.preventDefault();
+            return;
+        }
+        e.preventDefault();
+        e.stopPropagation();
+        const btn = chip.querySelector('.copy-btn');
+        const showCopied = () => {
+            btn.textContent = '✓';
+            setTimeout(() => { btn.textContent = '📋'; }, 1200);
+        };
+        const fallbackCopy = () => {
+            const ta = document.createElement('textarea');
+            ta.value = btn.dataset.cmd;
+            ta.style.cssText = 'position:fixed;opacity:0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); showCopied(); } catch (_) {}
+            ta.remove();
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(btn.dataset.cmd).then(showCopied).catch(fallbackCopy);
+        } else {
+            fallbackCopy();
+        }
+    });
+
+    // Key element - "How to read this table" (SVG with angled lines like real periodic table)
     const key = document.createElement('div');
     key.className = 'table-key';
     key.style.cssText = 'grid-row:2/4;grid-column:4/12;';
     key.innerHTML =
         '<svg viewBox="0 0 700 138" xmlns="http://www.w3.org/2000/svg" class="key-svg">' +
-            // Sample tile (Velociraptor, IR purple, n:50) — shifted LEFT by 15px (rect 200→185)
+            // Sample tile (Velociraptor, IR purple, n:50) - shifted LEFT by 15px (rect 200→185)
             '<rect x="185" y="10" width="76" height="76" rx="5" fill="' + CATEGORIES.ir.color + '"/>' +
             '<text x="196" y="27" fill="white" font-size="10" font-family="Inter,sans-serif" opacity="0.8">50</text>' +
             '<circle cx="253" cy="21" r="5" fill="' + LICENSE.os.color + '" stroke="rgba(0,0,0,0.4)" stroke-width="0.5"/>' +
@@ -314,7 +383,7 @@ function renderTable() {
             '<circle cx="194" cy="24" r="3" fill="#aaa"/>' +
             '<text x="98" y="16" fill="#ddd" font-size="11" font-family="Inter,sans-serif" text-anchor="end" font-weight="500">Tool Number</text>' +
 
-            // License Type (line shortened — ends near tile, label close)
+            // License Type (line shortened - ends near tile, label close)
             '<line x1="259" y1="21" x2="290" y2="13" stroke="#aaa" stroke-width="1.4"/>' +
             '<circle cx="259" cy="21" r="3" fill="#aaa"/>' +
             '<text x="295" y="16" fill="#ddd" font-size="11" font-family="Inter,sans-serif" font-weight="500">License Type</text>' +
@@ -329,31 +398,46 @@ function renderTable() {
             '<circle cx="184" cy="74" r="3" fill="#aaa"/>' +
             '<text x="98" y="95" fill="#ddd" font-size="11" font-family="Inter,sans-serif" text-anchor="end" font-weight="500">Full Tool Name</text>' +
 
-            // Color = Category (line shortened — ends near tile, label close)
+            // Color = Category (line shortened - ends near tile, label close)
             '<line x1="263" y1="51" x2="290" y2="45" stroke="#aaa" stroke-width="1.4"/>' +
             '<circle cx="263" cy="51" r="3" fill="#aaa"/>' +
             '<text x="295" y="48" fill="#ddd" font-size="11" font-family="Inter,sans-serif" font-weight="500">Color = Category</text>' +
 
-            // LICENSE legend header — moved further RIGHT (was x=408 → x=470)
-            '<text x="470" y="74" fill="#fff" font-size="14" font-family="Inter,sans-serif" font-weight="800" letter-spacing="2.2">LICENSE</text>' +
+            // LICENSE legend - single vertical column, top-aligned with the key
+            '<text x="470" y="30" fill="#fff" font-size="14" font-family="Inter,sans-serif" font-weight="800" letter-spacing="2.2">LICENSE</text>' +
 
-            // Row 1 — left col x=478/488, right col x=608/618 (much wider gap so Open Source ↔ Free can breathe)
-            '<circle cx="478" cy="91" r="5" fill="#FFFFFF" stroke="rgba(0,0,0,0.4)" stroke-width="0.5"/>' +
-            '<text x="488" y="95" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Open Source</text>' +
-            '<circle cx="608" cy="91" r="5" fill="' + LICENSE.fr.color + '"/>' +
-            '<text x="618" y="95" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Free</text>' +
+            '<circle cx="478" cy="48" r="5" fill="#FFFFFF" stroke="rgba(0,0,0,0.4)" stroke-width="0.5"/>' +
+            '<text x="488" y="52" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Open Source</text>' +
 
-            // Row 2
-            '<circle cx="478" cy="110" r="5" fill="' + LICENSE.fm.color + '"/>' +
-            '<text x="488" y="114" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Freemium</text>' +
-            '<circle cx="608" cy="110" r="5" fill="' + LICENSE.cm.color + '"/>' +
-            '<text x="618" y="114" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Commercial</text>' +
+            '<circle cx="478" cy="66" r="5" fill="' + LICENSE.fr.color + '"/>' +
+            '<text x="488" y="70" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Free</text>' +
 
-            // Row 3
-            '<circle cx="478" cy="129" r="5" fill="' + LICENSE.std.color + '"/>' +
-            '<text x="488" y="133" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Standard</text>' +
+            '<circle cx="478" cy="84" r="5" fill="' + LICENSE.fm.color + '"/>' +
+            '<text x="488" y="88" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Freemium</text>' +
+
+            '<circle cx="478" cy="102" r="5" fill="' + LICENSE.cm.color + '"/>' +
+            '<text x="488" y="106" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Commercial</text>' +
+
+            '<circle cx="478" cy="120" r="5" fill="' + LICENSE.std.color + '"/>' +
+            '<text x="488" y="124" fill="#ddd" font-size="10" font-family="Inter,sans-serif">Standard</text>' +
         '</svg>';
     grid.appendChild(key);
+}
+
+// Expand/collapse the synthetic AI row (period 8, 119+)
+function setAIExpanded(open) {
+    const grid = document.getElementById('table');
+    if (!grid) return;
+    grid.classList.toggle('ai-open', open);
+    const marker = grid.querySelector('.ai-toggle');
+    if (marker) {
+        marker.setAttribute('aria-expanded', String(open));
+        const label = marker.querySelector('.ai-toggle-label');
+        if (label) label.textContent = open ? 'AI·SYN ▾' : 'AI·SYN ▸';
+        marker.title = open
+            ? 'Click to collapse the synthetic AI elements'
+            : 'Click to expand the synthetic AI elements (119-126)';
+    }
 }
 
 function renderLegend() {
@@ -411,6 +495,11 @@ function applyFilters() {
 
         el.classList.toggle('dimmed', !(matchesFilter && matchesSearch));
     });
+
+    // Auto-expand the synthetic row when a filter or search targets it
+    const aiRelevant = activeFilters.has('ai') ||
+        (searchQuery && [...document.querySelectorAll('.element[data-cat="ai"]:not(.row-marker)')].some(el => !el.classList.contains('dimmed')));
+    if (aiRelevant) setAIExpanded(true);
 
     // Update URL hash
     if (activeFilters.size > 0) {

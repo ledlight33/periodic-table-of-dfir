@@ -8,9 +8,10 @@
 
 ---
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.2.3-007ec6.svg" alt="version">
+  <img src="https://img.shields.io/badge/version-1.3-007ec6.svg" alt="version">
   <img src="https://img.shields.io/badge/tools-118-97ca00.svg" alt="tools">
-  <img src="https://img.shields.io/badge/categories-9-fe7d37.svg" alt="categories">
+  <img src="https://img.shields.io/badge/synthetic%20AI-8-ffffff.svg" alt="synthetic AI">
+  <img src="https://img.shields.io/badge/categories-9%20%2B%20AI-fe7d37.svg" alt="categories">
   <img src="https://img.shields.io/badge/open%20source-67-4c1.svg" alt="open source">
   <img src="https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY--NC%204.0-lightgrey.svg" alt="license">
 </p>
@@ -21,11 +22,13 @@
 
 ## What It Is
 
-A single-page, fully interactive periodic table of the **118 most important tools** in Digital Forensics & Incident Response — from disk imaging to cloud forensics, from reverse engineering to mobile extraction.
+A single-page, fully interactive periodic table of the **118 most important tools** in Digital Forensics & Incident Response - from disk imaging to cloud forensics, from reverse engineering to mobile extraction.
 
 Each tile is a real DFIR tool. Hover for a tooltip with the tool's purpose, license, supported platforms, and a link to its official page. Click any tile to open the tool's website.
 
-The layout mirrors the structure of Mendeleev's periodic table — including **lanthanide and actinide-style indicator rows** for Malware Analysis (57–71) and Mobile Forensics (89–103).
+The layout mirrors the structure of Mendeleev's periodic table - including **lanthanide and actinide-style indicator rows** for Malware Analysis (57-71) and Mobile Forensics (89-103).
+
+And just like the real periodic table, elements beyond 118 are **synthetic** - lab-made, unstable, not yet confirmed. **Period 8 (elements 119+)** is a dedicated extension row for the emerging generation of **AI-powered DFIR tools**: Security Copilot, Charlotte AI, Purple AI, Gemini SecOps, Magnet Copilot, Code Insight, Elastic AI Assistant, and Cado AI Investigator. As they mature, synthetic elements can be "confirmed" and promoted into the main table.
 
 ---
 
@@ -33,9 +36,9 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 
 🔗 **[View the Periodic Table of DFIR](https://ledlight33.github.io/periodic-table-of-dfir/)**
 
-🖨️ **[Printable Poster Edition](https://ledlight33.github.io/periodic-table-of-dfir/print.html)** — A1-ready, ideal for SOC walls and lab posters.
+🖨️ **[Printable Poster Edition](https://ledlight33.github.io/periodic-table-of-dfir/print.html)** - A1-ready, ideal for SOC walls and lab posters.
 
-> 💡 **For the full interactive experience**, view on a **desktop browser at 1920×1080 or higher** — hover tooltips, the atmospheric wallpaper, and the full 18-column layout shine at full resolution. The page is responsive down to 768px (tablet/mobile), but tile names hide and the wallpaper effects scale down on smaller screens.
+> 💡 **For the full interactive experience**, view on a **desktop browser at 1920×1080 or higher** - hover tooltips, the atmospheric wallpaper, and the full 18-column layout shine at full resolution. The page is responsive down to 768px (tablet/mobile), but tile names hide and the wallpaper effects scale down on smaller screens.
 
 ![Demo](assets/demo.gif)
 
@@ -43,13 +46,16 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 
 ## Features
 
-- 🧪 **118 tools** across 9 categories — every major DFIR domain covered
+- 🧪 **118 tools** across 9 categories - every major DFIR domain covered
+- ⚛️ **Period 8 - Synthetic Elements (119+)** - the AI DFIR generation as white, dashed, unstable tiles; click the **119+** tile to expand the row
+- 📋 **One-click install commands** - 25 open-source tools carry a copyable `pip` / `brew` / `apt` / `winget` command right in the tooltip
 - 🎨 **Color-coded tiles** by category, instantly readable
-- ⚪ **License indicators** — Open Source, Free, Freemium, Commercial, Standard
-- 🪟 🐧 🍎 **Platform support** in the hover tooltip — Windows, Linux, macOS, Web, Appliance
+- ⚪ **License indicators** - Open Source, Free, Freemium, Commercial, Standard
+- 🪟 🐧 🍎 **Platform support** in the hover tooltip - Windows, Linux, macOS, Web, Appliance
 - 🔍 **Live search** by tool name, symbol, or category
 - 🎯 **Category filters** with URL-shareable hash links
-- ✨ **Lanthanide-style markers** — hover the row indicator to flash all related tools
+- ✨ **Lanthanide-style markers** - hover the row indicator to flash all related tools
+- 🗂️ **Open dataset** - the full table as [`tools.json`](https://ledlight33.github.io/periodic-table-of-dfir/tools.json)
 - 🖨️ **Print-ready poster version** for physical display
 
 ---
@@ -63,7 +69,9 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 | Freemium | 9 |
 | Free | 11 |
 | Standards / Frameworks | 7 |
-| **Total** | **118** |
+| **Core table** | **118** |
+| Synthetic AI (119-126) | 8 |
+| **Grand total** | **126** |
 
 ---
 
@@ -80,12 +88,13 @@ The layout mirrors the structure of Mendeleev's periodic table — including **l
 | 🟢 Green | **Frameworks & Standards** | NIST, MITRE, ISO, SANS, RFCs |
 | 🔵 Teal | **Cloud Forensics** | AWS, Azure, multi-cloud security tools |
 | ⚪ Silver | **Hybrid Platforms** | All-in-one acquisition + analysis suites |
+| ⚪ White | **AI · Synthetic (119+)** | AI copilots & assistants for DFIR - the unconfirmed elements |
 
 ---
 
 ## Tech Stack
 
-Pure web — **no frameworks, no build step**.
+Pure web - **no frameworks, no build step**.
 
 - HTML5 + CSS Grid (18-column periodic layout)
 - Vanilla JavaScript (zero dependencies)
@@ -106,7 +115,7 @@ cd periodic-table-of-dfir
 # Open index.html in any modern browser
 ```
 
-No `npm install`, no build step, no server needed. Edit `script.js` to add or modify tools, refresh the page — done.
+No `npm install`, no build step, no server needed. Edit `script.js` to add or modify tools, refresh the page - done.
 
 ---
 
@@ -118,7 +127,9 @@ periodic-table-of-dfir/
 ├── print.html          # A1-ready printable poster edition
 ├── poster.html         # 4K PNG export source (3840×2160)
 ├── style.css           # All styling
-├── script.js           # Tool data + rendering
+├── script.js           # Tool data + rendering (single source of truth)
+├── tools.json          # Open dataset - generated from script.js
+├── scripts/            # build-tools-json.mjs generator
 ├── assets/             # QR code, preview images, demo.gif, posters
 ├── LICENSE             # MIT (code) + CC BY-NC 4.0 (content)
 ├── CHANGELOG.md        # Version history
@@ -126,20 +137,29 @@ periodic-table-of-dfir/
 └── README.md
 ```
 
+> 🗂️ **Open dataset:** the full table is published as machine-readable JSON at
+> [`tools.json`](https://ledlight33.github.io/periodic-table-of-dfir/tools.json) - name, symbol, category, license, platforms, URL, description, and install command for all 126 elements. Free for non-commercial use with attribution (CC BY-NC 4.0). Regenerate after data changes with `node scripts/build-tools-json.mjs`.
+
 ---
 
 ## Versioning
 
-**v1.2.3** is the current release.
+**v1.3** is the current release.
+
+### What's new in v1.3
+- ⚛️ **Period 8 - Synthetic Elements (119-126):** an expandable extension row for AI DFIR tools (Security Copilot, Charlotte AI, Purple AI, Gemini SecOps, Magnet Copilot, Code Insight, Elastic AI Assistant, Cado AI Investigator) - click the 119+ tile under element 89 to reveal them, styled as unstable synthetic elements with their own AI · Synthetic category, filter, and legend entry
+- 📋 **Install-command chips:** 25 open-source tools now show a copyable one-line install command (`pip` / `brew` / `apt` / `winget`) in their tooltip
+- 🗂️ **tools.json open dataset** + generator script - the whole table as machine-readable JSON
+- All 126 tool URLs verified working
 
 ### What's new in v1.2.3
 - Dead links fixed: CISA Playbooks and Wiz Defend (pages had moved)
-- EnCase URL updated — product renamed to OpenText Forensic
+- EnCase URL updated - product renamed to OpenText Forensic
 - TheHive reclassified Open Source → Freemium (TheHive 5 is commercial by StrangeBee; v4 AGPL is EOL) and URL updated
 - Counts corrected: 67 Open Source, 9 Freemium
 
 ### What's new in v1.2.2
-- FUJI description corrected — it is a macOS forensic acquisition tool, not iOS
+- FUJI description corrected - it is a macOS forensic acquisition tool, not iOS
 - License breakdown corrected against the data: 68 Open Source, 24 Commercial, 8 Freemium, 11 Free, 7 Standards
 - URL hash filters now replace previous filters instead of stacking
 - Escape key clears the search box
@@ -148,7 +168,7 @@ periodic-table-of-dfir/
 ### What's new in v1.2.1
 - FUJI moved to Disk & Memory Forensics (correct category), renumbered #105
 - ScoutSuite removed; CloudTrail renumbered to #107
-- ArtEx [AE] added to Mobile Forensics #103 — iOS artifact analysis tool (Windows)
+- ArtEx [AE] added to Mobile Forensics #103 - iOS artifact analysis tool (Windows)
 - Elcomsoft (#100) platform corrected to cross-platform (Windows / Linux / macOS)
 - Category filter buttons and legend reordered to match the table's visual flow
 - Atmospheric quote added to poster.html footer
@@ -159,10 +179,10 @@ periodic-table-of-dfir/
 - 7 tools added (UFADE, ALEX, FUJI, Belkasoft X, Binalyze AIR, Security Onion, PiRogue Tool Suite)
 - 5 tools moved to Hybrid Platforms (AXIOM, EnCase, CrowdStrike, Carbon Black, Oxygen)
 - Renumbered row-by-row to mirror the real periodic table
-- Lanthanide / actinide-style indicator markers for malware (57–71) and mobile (89–103)
+- Lanthanide / actinide-style indicator markers for malware (57-71) and mobile (89-103)
 - **Platform support icons in tooltips** (Windows / Linux / macOS / Web / Appliance)
-- **Atmospheric wallpaper** — subtle matrix rain + scan beam behind the table on the live page
-- Viewport-fit layout — no scrollbars on common desktop resolutions
+- **Atmospheric wallpaper** - subtle matrix rain + scan beam behind the table on the live page
+- Viewport-fit layout - no scrollbars on common desktop resolutions
 - Improved license-dot colors for visibility on all backgrounds
 - Larger tool names and license dots
 - Search clear button (✕)
@@ -214,12 +234,12 @@ All rights not expressly granted are reserved by the author.
 
 ## Author & Contact
 
-Created by **Marino Bekios** — Cybersecurity Professional
+Created by **Marino Bekios** - Cybersecurity Professional
 
 - 🌐 **Website:** [marinobekios.com](https://marinobekios.com/)
 - 💼 **LinkedIn:** [linkedin.com/in/marbekios](https://linkedin.com/in/marbekios)
 
-For commercial licensing, partnerships, custom work, or any collaboration — please reach out via the website or LinkedIn.
+For commercial licensing, partnerships, custom work, or any collaboration - please reach out via the website or LinkedIn.
 
 ---
 
@@ -231,4 +251,4 @@ Special thanks to the open-source contributors behind the 67 free and open tools
 
 ---
 
-*If this helped you, give it a ⭐ — it helps others find it too.*
+*If this helped you, give it a ⭐ - it helps others find it too.*

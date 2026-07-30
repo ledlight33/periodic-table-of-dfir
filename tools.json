@@ -1,0 +1,1755 @@
+{
+  "meta": {
+    "name": "The Periodic Table of DFIR",
+    "author": "Marino Bekios",
+    "homepage": "https://ledlight33.github.io/periodic-table-of-dfir/",
+    "repository": "https://github.com/ledlight33/periodic-table-of-dfir",
+    "license": "Data: CC BY-NC 4.0 - attribution required, no commercial use without permission",
+    "toolCount": 126,
+    "generated": "2026-07-30"
+  },
+  "categories": {
+    "framework": {
+      "name": "Frameworks & Standards",
+      "color": "#66BB6A"
+    },
+    "disk": {
+      "name": "Disk & Memory Forensics",
+      "color": "#42A5F5"
+    },
+    "hybrid": {
+      "name": "Hybrid Platforms",
+      "color": "#9E9E9E"
+    },
+    "network": {
+      "name": "Network Forensics",
+      "color": "#FF7043"
+    },
+    "ir": {
+      "name": "Incident Response",
+      "color": "#AB47BC"
+    },
+    "cloud": {
+      "name": "Cloud Forensics",
+      "color": "#26A69A"
+    },
+    "logti": {
+      "name": "Log Analysis & Threat Intel",
+      "color": "#FFCA28"
+    },
+    "malware": {
+      "name": "Malware Analysis & RE",
+      "color": "#EF5350"
+    },
+    "mobile": {
+      "name": "Mobile Forensics",
+      "color": "#26C6DA"
+    },
+    "ai": {
+      "name": "AI · Synthetic",
+      "color": "#FFFFFF"
+    }
+  },
+  "licenses": {
+    "os": {
+      "label": "Open Source",
+      "color": "#FFFFFF"
+    },
+    "fr": {
+      "label": "Free",
+      "color": "#B0BEC5"
+    },
+    "fm": {
+      "label": "Freemium",
+      "color": "#FFD54F"
+    },
+    "cm": {
+      "label": "Commercial",
+      "color": "#EF9A9A"
+    },
+    "std": {
+      "label": "Standard",
+      "color": "#90CAF9"
+    }
+  },
+  "platforms": {
+    "win": {
+      "icon": "🪟",
+      "label": "Windows"
+    },
+    "lin": {
+      "icon": "🐧",
+      "label": "Linux"
+    },
+    "mac": {
+      "icon": "🍎",
+      "label": "macOS"
+    },
+    "web": {
+      "icon": "🌐",
+      "label": "Web-based"
+    },
+    "standard": {
+      "icon": "📋",
+      "label": "Framework / Standard"
+    },
+    "appliance": {
+      "icon": "🔌",
+      "label": "Hardware Appliance"
+    }
+  },
+  "tools": [
+    {
+      "number": 1,
+      "symbol": "CT",
+      "name": "Cyber Triage",
+      "category": "ir",
+      "license": "cm",
+      "platforms": [
+        "win",
+        "lin"
+      ],
+      "url": "https://www.cybertriage.com",
+      "description": "Automated incident response forensics"
+    },
+    {
+      "number": 2,
+      "symbol": "Sp",
+      "name": "Splunk",
+      "category": "logti",
+      "license": "cm",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.splunk.com",
+      "description": "Enterprise SIEM and data analytics platform"
+    },
+    {
+      "number": 3,
+      "symbol": "NF",
+      "name": "NIST CSF",
+      "category": "framework",
+      "license": "std",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://www.nist.gov/cyberframework",
+      "description": "Cybersecurity framework for managing risk"
+    },
+    {
+      "number": 4,
+      "symbol": "NI",
+      "name": "NIST 800-61",
+      "category": "framework",
+      "license": "std",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r2/final",
+      "description": "Computer security incident handling guide"
+    },
+    {
+      "number": 5,
+      "symbol": "EK",
+      "name": "Elastic Stack",
+      "category": "logti",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.elastic.co/elastic-stack",
+      "description": "Open-source log analysis and search (ELK)"
+    },
+    {
+      "number": 6,
+      "symbol": "Gl",
+      "name": "Graylog",
+      "category": "logti",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://www.graylog.org",
+      "description": "Centralized log management platform"
+    },
+    {
+      "number": 7,
+      "symbol": "QR",
+      "name": "QRadar",
+      "category": "logti",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.ibm.com/qradar",
+      "description": "IBM SIEM for threat detection and compliance"
+    },
+    {
+      "number": 8,
+      "symbol": "Se",
+      "name": "Sentinel",
+      "category": "logti",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://azure.microsoft.com/en-us/products/microsoft-sentinel",
+      "description": "Microsoft cloud-native SIEM solution"
+    },
+    {
+      "number": 9,
+      "symbol": "Si",
+      "name": "Sigma",
+      "category": "logti",
+      "license": "os",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://github.com/SigmaHQ/sigma",
+      "description": "Generic signature format for log events",
+      "install": "pip install sigma-cli"
+    },
+    {
+      "number": 10,
+      "symbol": "OC",
+      "name": "OpenCTI",
+      "category": "logti",
+      "license": "os",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.opencti.io",
+      "description": "Open-source cyber threat intelligence platform"
+    },
+    {
+      "number": 11,
+      "symbol": "SR",
+      "name": "SANS IR",
+      "category": "framework",
+      "license": "std",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://www.sans.org/white-papers/33901/",
+      "description": "SANS incident response process methodology"
+    },
+    {
+      "number": 12,
+      "symbol": "DM",
+      "name": "Diamond Model",
+      "category": "framework",
+      "license": "std",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://www.activeresponse.org/wp-content/uploads/2013/07/diamond.pdf",
+      "description": "Intrusion analysis methodology"
+    },
+    {
+      "number": 13,
+      "symbol": "MI",
+      "name": "MISP",
+      "category": "logti",
+      "license": "os",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.misp-project.org",
+      "description": "Threat intelligence sharing platform"
+    },
+    {
+      "number": 14,
+      "symbol": "VT",
+      "name": "VirusTotal",
+      "category": "logti",
+      "license": "fm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.virustotal.com",
+      "description": "Multi-engine file and URL scanner"
+    },
+    {
+      "number": 15,
+      "symbol": "GN",
+      "name": "GreyNoise",
+      "category": "logti",
+      "license": "fm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.greynoise.io",
+      "description": "Internet noise and mass scanning analyzer"
+    },
+    {
+      "number": 16,
+      "symbol": "Ts",
+      "name": "Timesketch",
+      "category": "logti",
+      "license": "os",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://timesketch.org",
+      "description": "Collaborative forensic timeline analysis"
+    },
+    {
+      "number": 17,
+      "symbol": "Sh",
+      "name": "Shodan",
+      "category": "logti",
+      "license": "fm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.shodan.io",
+      "description": "Internet-connected device search engine",
+      "install": "pip install shodan"
+    },
+    {
+      "number": 18,
+      "symbol": "Ar",
+      "name": "Aurora",
+      "category": "logti",
+      "license": "cm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.nextron-systems.com/aurora/",
+      "description": "Sigma-based endpoint detection agent"
+    },
+    {
+      "number": 19,
+      "symbol": "D3",
+      "name": "D3FEND",
+      "category": "framework",
+      "license": "fr",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://d3fend.mitre.org",
+      "description": "MITRE defensive techniques knowledge graph"
+    },
+    {
+      "number": 20,
+      "symbol": "RE",
+      "name": "RE&CT",
+      "category": "framework",
+      "license": "os",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://atc-project.github.io/atc-react/",
+      "description": "Framework of incident response actions"
+    },
+    {
+      "number": 21,
+      "symbol": "Au",
+      "name": "Autopsy",
+      "category": "disk",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.autopsy.com",
+      "description": "Open-source digital forensics platform"
+    },
+    {
+      "number": 22,
+      "symbol": "FT",
+      "name": "FTK Imager",
+      "category": "disk",
+      "license": "fr",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.exterro.com/digital-forensics-software/ftk-imager",
+      "description": "Forensic disk imaging and preview tool"
+    },
+    {
+      "number": 23,
+      "symbol": "Vo",
+      "name": "Volatility",
+      "category": "disk",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.volatilityfoundation.org",
+      "description": "Advanced memory forensics framework",
+      "install": "pip install volatility3"
+    },
+    {
+      "number": 24,
+      "symbol": "TK",
+      "name": "Sleuth Kit",
+      "category": "disk",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.sleuthkit.org",
+      "description": "Filesystem forensic analysis toolkit",
+      "install": "sudo apt install sleuthkit"
+    },
+    {
+      "number": 25,
+      "symbol": "XW",
+      "name": "X-Ways",
+      "category": "disk",
+      "license": "cm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.x-ways.net/forensics/",
+      "description": "Advanced forensics work environment"
+    },
+    {
+      "number": 26,
+      "symbol": "En",
+      "name": "EnCase",
+      "category": "hybrid",
+      "license": "cm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.opentext.com/products/forensic",
+      "description": "Enterprise digital investigation solution"
+    },
+    {
+      "number": 27,
+      "symbol": "Ax",
+      "name": "AXIOM",
+      "category": "hybrid",
+      "license": "cm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.magnetforensics.com/products/magnet-axiom/",
+      "description": "Magnet forensics investigation suite"
+    },
+    {
+      "number": 28,
+      "symbol": "Wk",
+      "name": "Wireshark",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.wireshark.org",
+      "description": "Network protocol analyzer and packet inspector",
+      "install": "winget install WiresharkFoundation.Wireshark"
+    },
+    {
+      "number": 29,
+      "symbol": "Td",
+      "name": "tcpdump",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.tcpdump.org",
+      "description": "Command-line packet capture and analysis",
+      "install": "sudo apt install tcpdump"
+    },
+    {
+      "number": 30,
+      "symbol": "Zk",
+      "name": "Zeek",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "lin",
+        "mac"
+      ],
+      "url": "https://zeek.org",
+      "description": "Network security monitoring framework"
+    },
+    {
+      "number": 31,
+      "symbol": "Su",
+      "name": "Suricata",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://suricata.io",
+      "description": "High-performance IDS/IPS/NSM engine",
+      "install": "sudo apt install suricata"
+    },
+    {
+      "number": 32,
+      "symbol": "Sn",
+      "name": "Snort",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.snort.org",
+      "description": "Open-source intrusion detection system",
+      "install": "sudo apt install snort"
+    },
+    {
+      "number": 33,
+      "symbol": "NM",
+      "name": "NetworkMiner",
+      "category": "network",
+      "license": "fm",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.netresec.com/?page=NetworkMiner",
+      "description": "Network forensic analysis tool (NFAT)"
+    },
+    {
+      "number": 34,
+      "symbol": "Am",
+      "name": "Arkime",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://arkime.com",
+      "description": "Full packet capture and search system"
+    },
+    {
+      "number": 35,
+      "symbol": "Ri",
+      "name": "RITA",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/activecm/rita",
+      "description": "Real intelligence threat analytics for Zeek"
+    },
+    {
+      "number": 36,
+      "symbol": "Sk",
+      "name": "Strelka",
+      "category": "logti",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://github.com/target/strelka",
+      "description": "File analysis and scanning at scale"
+    },
+    {
+      "number": 37,
+      "symbol": "I5",
+      "name": "ISO 27035",
+      "category": "framework",
+      "license": "std",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://www.iso.org/standard/78973.html",
+      "description": "Incident management standard"
+    },
+    {
+      "number": 38,
+      "symbol": "I7",
+      "name": "ISO 27037",
+      "category": "framework",
+      "license": "std",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://www.iso.org/standard/44381.html",
+      "description": "Digital evidence handling guidelines"
+    },
+    {
+      "number": 39,
+      "symbol": "Kp",
+      "name": "KAPE",
+      "category": "disk",
+      "license": "fr",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://github.com/EricZimmerman/KapeFiles",
+      "description": "Kroll artifact parser and extractor"
+    },
+    {
+      "number": 40,
+      "symbol": "BE",
+      "name": "Bulk Extractor",
+      "category": "disk",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/simsong/bulk_extractor",
+      "description": "Extract useful artifacts from disk images"
+    },
+    {
+      "number": 41,
+      "symbol": "PR",
+      "name": "PhotoRec",
+      "category": "disk",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.cgsecurity.org/wiki/PhotoRec",
+      "description": "Recover lost files from disk images",
+      "install": "sudo apt install testdisk"
+    },
+    {
+      "number": 42,
+      "symbol": "Hs",
+      "name": "Hindsight",
+      "category": "disk",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/obsidianforensics/hindsight",
+      "description": "Chrome/Chromium browser forensics tool",
+      "install": "pip install pyhindsight"
+    },
+    {
+      "number": 43,
+      "symbol": "Bx",
+      "name": "Belkasoft X",
+      "category": "hybrid",
+      "license": "cm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://belkasoft.com/x",
+      "description": "All-in-one forensic acquisition and analysis platform"
+    },
+    {
+      "number": 44,
+      "symbol": "Ba",
+      "name": "Binalyze AIR",
+      "category": "hybrid",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://binalyze.com",
+      "description": "Rapid remote forensic acquisition and triage"
+    },
+    {
+      "number": 45,
+      "symbol": "Tw",
+      "name": "tshark",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.wireshark.org/docs/man-pages/tshark.html",
+      "description": "CLI network protocol analyzer",
+      "install": "sudo apt install tshark"
+    },
+    {
+      "number": 46,
+      "symbol": "Zu",
+      "name": "Zui",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://zui.brimdata.io",
+      "description": "Desktop app for network data exploration"
+    },
+    {
+      "number": 47,
+      "symbol": "St",
+      "name": "Stenographer",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://github.com/google/stenographer",
+      "description": "Full packet capture to disk at scale"
+    },
+    {
+      "number": 48,
+      "symbol": "Ml",
+      "name": "Malcolm",
+      "category": "network",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://github.com/cisagov/Malcolm",
+      "description": "CISA network traffic analysis tool suite"
+    },
+    {
+      "number": 49,
+      "symbol": "NW",
+      "name": "NetWitness",
+      "category": "network",
+      "license": "cm",
+      "platforms": [
+        "win",
+        "lin"
+      ],
+      "url": "https://www.netwitness.com",
+      "description": "Network detection and response platform"
+    },
+    {
+      "number": 50,
+      "symbol": "Vr",
+      "name": "Velociraptor",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://docs.velociraptor.app",
+      "description": "Endpoint monitoring and forensic collection"
+    },
+    {
+      "number": 51,
+      "symbol": "GR",
+      "name": "GRR",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/google/grr",
+      "description": "Google rapid response IR framework"
+    },
+    {
+      "number": 52,
+      "symbol": "TH",
+      "name": "TheHive",
+      "category": "ir",
+      "license": "fm",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://strangebee.com/thehive/",
+      "description": "Scalable incident response platform"
+    },
+    {
+      "number": 53,
+      "symbol": "Cx",
+      "name": "Cortex",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://github.com/TheHive-Project/Cortex",
+      "description": "Observable analysis and active response"
+    },
+    {
+      "number": 54,
+      "symbol": "Oq",
+      "name": "osquery",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://osquery.io",
+      "description": "SQL-powered endpoint visibility tool",
+      "install": "brew install osquery"
+    },
+    {
+      "number": 55,
+      "symbol": "RF",
+      "name": "RFC 3227",
+      "category": "framework",
+      "license": "std",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://datatracker.ietf.org/doc/html/rfc3227",
+      "description": "Evidence collection and archiving guidelines"
+    },
+    {
+      "number": 56,
+      "symbol": "CP",
+      "name": "CISA Playbooks",
+      "category": "framework",
+      "license": "fr",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://www.cisa.gov/resources-tools/resources/federal-government-cybersecurity-incident-and-vulnerability-response-playbooks",
+      "description": "Federal cybersecurity IR playbooks"
+    },
+    {
+      "number": 72,
+      "symbol": "AI",
+      "name": "Arsenal IM",
+      "category": "disk",
+      "license": "fm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://arsenalrecon.com/weapons/image-mounter",
+      "description": "Mount forensic disk images as drives"
+    },
+    {
+      "number": 73,
+      "symbol": "RX",
+      "name": "Reg Explorer",
+      "category": "disk",
+      "license": "fr",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://ericzimmerman.github.io/",
+      "description": "Windows registry hive analysis tool"
+    },
+    {
+      "number": 74,
+      "symbol": "Mf",
+      "name": "MFTECmd",
+      "category": "disk",
+      "license": "fr",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/EricZimmerman/MFTECmd",
+      "description": "NTFS Master File Table parser"
+    },
+    {
+      "number": 75,
+      "symbol": "So",
+      "name": "Security Onion",
+      "category": "hybrid",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://securityonionsolutions.com",
+      "description": "Open-source threat hunting and NIDS/NSM platform"
+    },
+    {
+      "number": 76,
+      "symbol": "CF",
+      "name": "CrowdStrike",
+      "category": "hybrid",
+      "license": "cm",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.crowdstrike.com",
+      "description": "Cloud-native endpoint detection (EDR)"
+    },
+    {
+      "number": 77,
+      "symbol": "CB",
+      "name": "Carbon Black",
+      "category": "hybrid",
+      "license": "cm",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.carbonblack.com",
+      "description": "Endpoint detection and response platform"
+    },
+    {
+      "number": 78,
+      "symbol": "Ox",
+      "name": "Oxygen",
+      "category": "hybrid",
+      "license": "cm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.oxygenforensics.com",
+      "description": "Mobile forensic investigation suite"
+    },
+    {
+      "number": 79,
+      "symbol": "Lk",
+      "name": "LOKI",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/Neo23x0/Loki",
+      "description": "Simple IOC and YARA rule scanner"
+    },
+    {
+      "number": 80,
+      "symbol": "Th",
+      "name": "Thor",
+      "category": "ir",
+      "license": "cm",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.nextron-systems.com/thor/",
+      "description": "Advanced APT and forensic scanner"
+    },
+    {
+      "number": 81,
+      "symbol": "Cy",
+      "name": "CyLR",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/orlikoski/CyLR",
+      "description": "Live response forensic artifact collector"
+    },
+    {
+      "number": 82,
+      "symbol": "Ch",
+      "name": "Chainsaw",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/WithSecureLabs/chainsaw",
+      "description": "Rapid Windows event log analysis"
+    },
+    {
+      "number": 83,
+      "symbol": "Hb",
+      "name": "Hayabusa",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/Yamato-Security/hayabusa",
+      "description": "Windows event log fast forensic analyzer"
+    },
+    {
+      "number": 84,
+      "symbol": "DB",
+      "name": "DeepBlueCLI",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://github.com/sans-blue-team/DeepBlueCLI",
+      "description": "PowerShell-based event log threat hunter"
+    },
+    {
+      "number": 85,
+      "symbol": "Sy",
+      "name": "Sysmon",
+      "category": "ir",
+      "license": "fr",
+      "platforms": [
+        "win",
+        "lin"
+      ],
+      "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon",
+      "description": "Windows system activity monitor"
+    },
+    {
+      "number": 86,
+      "symbol": "UA",
+      "name": "UAC",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/tclahr/uac",
+      "description": "Unix-like artifacts collector for IR"
+    },
+    {
+      "number": 87,
+      "symbol": "AT",
+      "name": "MITRE ATT&CK",
+      "category": "framework",
+      "license": "fr",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://attack.mitre.org",
+      "description": "Adversary tactics and techniques knowledge base"
+    },
+    {
+      "number": 88,
+      "symbol": "DF",
+      "name": "DFIR Report",
+      "category": "framework",
+      "license": "fr",
+      "platforms": [
+        "standard"
+      ],
+      "url": "https://thedfirreport.com",
+      "description": "Community knowledge resource - real-world intrusion analysis & threat research reports"
+    },
+    {
+      "number": 104,
+      "symbol": "Mp",
+      "name": "MemProcFS",
+      "category": "disk",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/ufrisk/MemProcFS",
+      "description": "Memory analysis via virtual filesystem"
+    },
+    {
+      "number": 105,
+      "symbol": "Fj",
+      "name": "FUJI",
+      "category": "disk",
+      "license": "os",
+      "platforms": [
+        "mac"
+      ],
+      "url": "https://github.com/Lazza/Fuji",
+      "description": "macOS forensic disk image acquisition tool"
+    },
+    {
+      "number": 106,
+      "symbol": "GD",
+      "name": "GuardDuty",
+      "category": "cloud",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://aws.amazon.com/guardduty/",
+      "description": "AWS intelligent threat detection service"
+    },
+    {
+      "number": 107,
+      "symbol": "Cl",
+      "name": "CloudTrail",
+      "category": "cloud",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://aws.amazon.com/cloudtrail/",
+      "description": "AWS API activity logging and auditing"
+    },
+    {
+      "number": 108,
+      "symbol": "Pw",
+      "name": "Prowler",
+      "category": "cloud",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/prowler-cloud/prowler",
+      "description": "Cloud security assessment CLI tool",
+      "install": "pip install prowler"
+    },
+    {
+      "number": 109,
+      "symbol": "CQ",
+      "name": "CloudQuery",
+      "category": "cloud",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.cloudquery.io",
+      "description": "Cloud asset inventory and compliance queries",
+      "install": "brew install cloudquery"
+    },
+    {
+      "number": 110,
+      "symbol": "AH",
+      "name": "AzureHound",
+      "category": "cloud",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/BloodHoundAD/AzureHound",
+      "description": "Azure AD attack path enumeration"
+    },
+    {
+      "number": 111,
+      "symbol": "Ro",
+      "name": "ROADtools",
+      "category": "cloud",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/dirkjanm/ROADtools",
+      "description": "Azure AD exploration and forensics",
+      "install": "pip install roadrecon"
+    },
+    {
+      "number": 112,
+      "symbol": "Iv",
+      "name": "Invictus IR",
+      "category": "cloud",
+      "license": "os",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://github.com/invictus-ir",
+      "description": "Azure and M365 incident response tools"
+    },
+    {
+      "number": 113,
+      "symbol": "Cd",
+      "name": "Cado Response",
+      "category": "cloud",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.cadosecurity.com",
+      "description": "Cloud-native forensics and IR platform"
+    },
+    {
+      "number": 114,
+      "symbol": "Wd",
+      "name": "Wiz Defend",
+      "category": "cloud",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.wiz.io/platform/wiz-defend",
+      "description": "Cloud detection and response platform"
+    },
+    {
+      "number": 115,
+      "symbol": "Fa",
+      "name": "Falco",
+      "category": "cloud",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://falco.org",
+      "description": "Kubernetes and cloud runtime threat detection"
+    },
+    {
+      "number": 116,
+      "symbol": "OR",
+      "name": "DFIR-ORC",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://github.com/DFIR-ORC/dfir-orc",
+      "description": "Forensic artifact collection framework"
+    },
+    {
+      "number": 117,
+      "symbol": "Wz",
+      "name": "Wazuh",
+      "category": "ir",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://wazuh.com",
+      "description": "Open-source XDR and SIEM platform"
+    },
+    {
+      "number": 118,
+      "symbol": "Ed",
+      "name": "Elastic EDR",
+      "category": "ir",
+      "license": "fm",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.elastic.co/security/endpoint-security",
+      "description": "Elastic endpoint detection and response"
+    },
+    {
+      "number": 57,
+      "symbol": "Gh",
+      "name": "Ghidra",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://ghidra-sre.org",
+      "description": "NSA reverse engineering framework",
+      "install": "winget install NationalSecurityAgency.Ghidra"
+    },
+    {
+      "number": 58,
+      "symbol": "ID",
+      "name": "IDA Pro",
+      "category": "malware",
+      "license": "cm",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://hex-rays.com/ida-pro/",
+      "description": "Industry-standard disassembler and debugger"
+    },
+    {
+      "number": 59,
+      "symbol": "Xd",
+      "name": "x64dbg",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://x64dbg.com",
+      "description": "Open-source Windows x64/x32 debugger"
+    },
+    {
+      "number": 60,
+      "symbol": "R2",
+      "name": "Radare2",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://rada.re",
+      "description": "Portable reverse engineering framework",
+      "install": "brew install radare2"
+    },
+    {
+      "number": 61,
+      "symbol": "CS",
+      "name": "CAPE Sandbox",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://github.com/kevoreilly/CAPEv2",
+      "description": "Config and payload extraction sandbox"
+    },
+    {
+      "number": 62,
+      "symbol": "Ay",
+      "name": "Any.Run",
+      "category": "malware",
+      "license": "fm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://any.run",
+      "description": "Interactive online malware sandbox"
+    },
+    {
+      "number": 63,
+      "symbol": "Ya",
+      "name": "YARA",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://virustotal.github.io/yara/",
+      "description": "Pattern matching for malware researchers",
+      "install": "brew install yara"
+    },
+    {
+      "number": 64,
+      "symbol": "PE",
+      "name": "PEStudio",
+      "category": "malware",
+      "license": "fm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.winitor.com",
+      "description": "Static analysis of PE executables"
+    },
+    {
+      "number": 65,
+      "symbol": "Rx",
+      "name": "REMnux",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://remnux.org",
+      "description": "Linux distro for malware analysis"
+    },
+    {
+      "number": 66,
+      "symbol": "CC",
+      "name": "CyberChef",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://gchq.github.io/CyberChef/",
+      "description": "Data encoding/decoding Swiss army knife"
+    },
+    {
+      "number": 67,
+      "symbol": "FL",
+      "name": "FLOSS",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/mandiant/flare-floss",
+      "description": "Obfuscated string extraction from malware",
+      "install": "pip install flare-floss"
+    },
+    {
+      "number": 68,
+      "symbol": "Ca",
+      "name": "Capa",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/mandiant/capa",
+      "description": "Detect capabilities in executable files",
+      "install": "pip install flare-capa"
+    },
+    {
+      "number": 69,
+      "symbol": "OL",
+      "name": "OLETools",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/decalage2/oletools",
+      "description": "Analyze malicious Office documents",
+      "install": "pip install oletools"
+    },
+    {
+      "number": 70,
+      "symbol": "Fr",
+      "name": "Frida",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://frida.re",
+      "description": "Dynamic instrumentation toolkit for RE and hooking",
+      "install": "pip install frida-tools"
+    },
+    {
+      "number": 71,
+      "symbol": "Di",
+      "name": "Detect It Easy",
+      "category": "malware",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/horsicq/Detect-It-Easy",
+      "description": "PE/ELF identifier for packers and compilers"
+    },
+    {
+      "number": 89,
+      "symbol": "Pt",
+      "name": "PiRogue Tool Suite",
+      "category": "mobile",
+      "license": "os",
+      "platforms": [
+        "lin"
+      ],
+      "url": "https://pts-project.org",
+      "description": "Network traffic analysis suite for mobile device forensics"
+    },
+    {
+      "number": 90,
+      "symbol": "Ce",
+      "name": "Cellebrite",
+      "category": "mobile",
+      "license": "cm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://cellebrite.com/en/ufed/",
+      "description": "Mobile device extraction and analysis"
+    },
+    {
+      "number": 91,
+      "symbol": "Ud",
+      "name": "UFADE",
+      "category": "mobile",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/prosch88/UFADE",
+      "description": "Universal forensic acquisition and decoding engine"
+    },
+    {
+      "number": 92,
+      "symbol": "AL",
+      "name": "ALEAPP",
+      "category": "mobile",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/abrignoni/ALEAPP",
+      "description": "Android logs events and protobuf parser"
+    },
+    {
+      "number": 93,
+      "symbol": "iL",
+      "name": "iLEAPP",
+      "category": "mobile",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/abrignoni/iLEAPP",
+      "description": "iOS logs events and plists parser"
+    },
+    {
+      "number": 94,
+      "symbol": "Mv",
+      "name": "MVT",
+      "category": "mobile",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/mvt-project/mvt",
+      "description": "Mobile verification toolkit for spyware",
+      "install": "pip install mvt"
+    },
+    {
+      "number": 95,
+      "symbol": "Lx",
+      "name": "ALEX",
+      "category": "mobile",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/prosch88/ALEX",
+      "description": "Android logical extraction and analysis tool"
+    },
+    {
+      "number": 96,
+      "symbol": "XR",
+      "name": "MSAB XRY",
+      "category": "mobile",
+      "license": "cm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.msab.com/products/xry/",
+      "description": "Mobile device examination platform"
+    },
+    {
+      "number": 97,
+      "symbol": "Mq",
+      "name": "Magnet ACQUIRE",
+      "category": "mobile",
+      "license": "fr",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.magnetforensics.com/resources/magnet-acquire/",
+      "description": "Mobile and cloud evidence acquisition"
+    },
+    {
+      "number": 98,
+      "symbol": "Li",
+      "name": "libimobiledevice",
+      "category": "mobile",
+      "license": "os",
+      "platforms": [
+        "lin",
+        "mac"
+      ],
+      "url": "https://libimobiledevice.org",
+      "description": "Cross-platform iOS device communication",
+      "install": "brew install libimobiledevice"
+    },
+    {
+      "number": 99,
+      "symbol": "Ad",
+      "name": "ADB",
+      "category": "mobile",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://developer.android.com/tools/adb",
+      "description": "Android Debug Bridge for device access",
+      "install": "sudo apt install adb"
+    },
+    {
+      "number": 100,
+      "symbol": "Ec",
+      "name": "Elcomsoft",
+      "category": "mobile",
+      "license": "cm",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://www.elcomsoft.com/eift.html",
+      "description": "iOS forensic toolkit and extraction"
+    },
+    {
+      "number": 101,
+      "symbol": "Ap",
+      "name": "APOLLO",
+      "category": "mobile",
+      "license": "os",
+      "platforms": [
+        "win",
+        "lin",
+        "mac"
+      ],
+      "url": "https://github.com/mac4n6/APOLLO",
+      "description": "Apple pattern of life analysis tool"
+    },
+    {
+      "number": 102,
+      "symbol": "GK",
+      "name": "Magnet GrayKey",
+      "category": "mobile",
+      "license": "cm",
+      "platforms": [
+        "appliance"
+      ],
+      "url": "https://www.magnetforensics.com/products/magnet-graykey/",
+      "description": "Mobile device passcode unlock and extraction"
+    },
+    {
+      "number": 103,
+      "symbol": "AE",
+      "name": "ArtEx",
+      "category": "mobile",
+      "license": "fr",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.doubleblak.com/app.php?id=ArtEx2",
+      "description": "iOS artifact analysis and verification tool"
+    },
+    {
+      "number": 119,
+      "symbol": "SC",
+      "name": "Security Copilot",
+      "category": "ai",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.microsoft.com/en-us/security/business/ai-machine-learning/microsoft-security-copilot",
+      "description": "Microsoft AI assistant for security investigation and response",
+      "synthetic": true
+    },
+    {
+      "number": 120,
+      "symbol": "Cr",
+      "name": "Charlotte AI",
+      "category": "ai",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.crowdstrike.com/platform/charlotte-ai/",
+      "description": "Agentic AI security analyst for the CrowdStrike Falcon platform",
+      "synthetic": true
+    },
+    {
+      "number": 121,
+      "symbol": "Pu",
+      "name": "Purple AI",
+      "category": "ai",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.sentinelone.com/platform/purple/",
+      "description": "SentinelOne agentic AI analyst for SOC investigations",
+      "synthetic": true
+    },
+    {
+      "number": 122,
+      "symbol": "Gm",
+      "name": "Gemini SecOps",
+      "category": "ai",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://cloud.google.com/security/products/gemini",
+      "description": "Google AI assistant for security operations and threat intelligence",
+      "synthetic": true
+    },
+    {
+      "number": 123,
+      "symbol": "Mc",
+      "name": "Magnet Copilot",
+      "category": "ai",
+      "license": "cm",
+      "platforms": [
+        "win"
+      ],
+      "url": "https://www.magnetforensics.com/blog/accelerating-investigations-with-ai-using-magnet-copilot-in-magnet-axiom/",
+      "description": "AI evidence analysis inside Magnet Axiom",
+      "synthetic": true
+    },
+    {
+      "number": 124,
+      "symbol": "CI",
+      "name": "Code Insight",
+      "category": "ai",
+      "license": "fm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://blog.virustotal.com/2023/04/introducing-virustotal-code-insight.html",
+      "description": "VirusTotal AI-powered malicious code analysis",
+      "synthetic": true
+    },
+    {
+      "number": 125,
+      "symbol": "EA",
+      "name": "Elastic AI Assistant",
+      "category": "ai",
+      "license": "fm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.elastic.co/security/ai",
+      "description": "AI assistant for Elastic Security alert triage and workflows",
+      "synthetic": true
+    },
+    {
+      "number": 126,
+      "symbol": "In",
+      "name": "AI Investigator",
+      "category": "ai",
+      "license": "cm",
+      "platforms": [
+        "web"
+      ],
+      "url": "https://www.cadosecurity.com/platform/ai-investigator/",
+      "description": "Cado AI-driven cloud forensics investigation",
+      "synthetic": true
+    }
+  ]
+}

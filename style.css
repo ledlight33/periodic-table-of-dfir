@@ -49,13 +49,13 @@ body::before {
     z-index: 1;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 16px 20px;
+    padding: 10px 20px;
 }
 
 /* Header */
 header {
     text-align: center;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
 }
 
 header h1 {
@@ -96,8 +96,8 @@ header .accent {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
+    gap: 8px;
+    margin-bottom: 8px;
 }
 
 .search-wrapper {
@@ -195,15 +195,15 @@ header .accent {
 .periodic-table {
     /* Calculate tile size as the SMALLER of:
        - what fits horizontally: (viewport-width up to 1440 - container padding 40 - 17 gaps × 3) / 18 cols
-       - what fits vertically:   (viewport-height - reserved 460 for header/footer/etc - 45 row gaps & separator) / 9 rows
+       - what fits vertically:   (viewport-height - reserved 460 for header/footer/etc - gaps & separators) / 10 rows
        Whichever is smaller drives the size, so the table always fits the screen. */
     --tile-w: calc((min(100vw, 1440px) - 91px) / 18);
-    --tile-h: calc((100vh - 505px) / 9);
+    --tile-h: calc((100vh - 496px) / 10);
     --tile:   min(var(--tile-w), var(--tile-h));
 
     display: grid;
     grid-template-columns: repeat(18, var(--tile));
-    grid-template-rows:    repeat(7, var(--tile)) 18px repeat(2, var(--tile));
+    grid-template-rows:    repeat(7, var(--tile)) 14px repeat(3, var(--tile));
     gap: 3px;
     justify-content: center;
 }
@@ -392,9 +392,10 @@ header .accent {
 }
 
 /* Scale upward (away from bottom edge) for extension rows
-   so the bottom-most mobile/malware tiles don't push the viewport scroll */
+   so the bottom-most tiles don't push the viewport scroll */
 .element[data-row="9"]:hover,
-.element[data-row="10"]:hover {
+.element[data-row="10"]:hover,
+.element[data-row="11"]:hover {
     transform-origin: center bottom;
 }
 
@@ -492,8 +493,8 @@ header .accent {
     flex-wrap: wrap;
     justify-content: center;
     gap: 18px;
-    margin-top: 14px;
-    padding: 8px 0;
+    margin-top: 8px;
+    padding: 4px 0;
 }
 
 .legend-item {
@@ -513,8 +514,8 @@ header .accent {
 
 /* Footer Styles */
 footer {
-    margin-top: 18px;
-    padding-top: 14px;
+    margin-top: 10px;
+    padding-top: 10px;
     /* The nice white line at the bottom */
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -605,6 +606,120 @@ footer {
     animation: rowFlash 2s ease-in-out infinite;
     position: relative;
     z-index: 50;
+}
+
+/* ============================================================
+   Period 8 — SYNTHETIC ELEMENTS (119+, AI DFIR)
+   Like elements beyond 118: lab-made, unstable, unconfirmed.
+   Translucent fill + dashed border + slow radiation pulse.
+   ============================================================ */
+.element.synthetic {
+    background: #FFFFFF !important;
+    border: 1.5px dashed rgba(0, 0, 0, 0.4);
+    animation: synthPulse 3.6s ease-in-out infinite;
+}
+
+@keyframes synthPulse {
+    0%, 100% { box-shadow: 0 0 3px 0    rgba(255, 255, 255, 0.25); }
+    50%      { box-shadow: 0 0 14px 4px rgba(255, 255, 255, 0.5); }
+}
+
+.element.synthetic:hover {
+    background: #F2F2F2 !important;
+    animation: none;
+}
+
+/* Collapsed by default — the 119+ toggle tile reveals the synthetic row.
+   The AI tools only render when the grid carries .ai-open. */
+.periodic-table:not(.ai-open) .element[data-cat="ai"]:not(.row-marker) {
+    display: none;
+}
+
+.periodic-table.ai-open .element[data-cat="ai"]:not(.row-marker) {
+    animation: aiSlideIn 0.35s ease backwards, synthPulse 3.6s ease-in-out 0.35s infinite;
+}
+
+@keyframes aiSlideIn {
+    from { opacity: 0; transform: translateX(-14px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .periodic-table.ai-open .element[data-cat="ai"]:not(.row-marker) { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .element.synthetic { animation: none; }
+}
+
+/* Install-command chip inside tooltips — clickable copy-to-clipboard.
+   Tooltips WITH a chip become interactive while shown, so the mouse can
+   travel from the tile into the tooltip without the tooltip closing.
+   (The tooltip is a child of the tile <a>, so hovering it keeps :hover.) */
+.element:hover .tooltip:has(.tooltip-install) {
+    pointer-events: auto;
+}
+
+/* Invisible bridge covering the 10px gap between tile and tooltip,
+   so :hover never breaks while crossing. Below the tooltip normally;
+   above it for rows 1-3 where the tooltip opens downward. */
+.element .tooltip::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 14px;
+}
+
+.element[data-row="1"] .tooltip::before,
+.element[data-row="2"] .tooltip::before,
+.element[data-row="3"] .tooltip::before {
+    top: auto;
+    bottom: 100%;
+}
+
+.tooltip-install {
+    pointer-events: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 6px 8px;
+    background: #10101f;
+    border: 1px solid #333;
+    border-radius: 6px;
+    transition: border-color 0.15s;
+}
+
+.tooltip-install:hover {
+    border-color: #42A5F5;
+}
+
+.tooltip-install code {
+    font-family: 'Share Tech Mono', Consolas, monospace;
+    font-size: 0.68rem;
+    color: #7fd4ff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tooltip-install .copy-btn {
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 1;
+    opacity: 0.75;
+    transition: opacity 0.15s, transform 0.15s;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.tooltip-install .copy-btn:hover {
+    opacity: 1;
+    transform: scale(1.15);
 }
 
 /* Responsive */
