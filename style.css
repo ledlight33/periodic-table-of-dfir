@@ -197,8 +197,12 @@ header .accent {
        - what fits horizontally: (viewport-width up to 1440 - container padding 40 - 17 gaps × 3) / 18 cols
        - what fits vertically:   (viewport-height - reserved 460 for header/footer/etc - gaps & separators) / 10 rows
        Whichever is smaller drives the size, so the table always fits the screen. */
+    /* --chrome is the vertical space taken by header, controls, legend and
+       footer. It shrinks on short viewports (see the height queries at the
+       bottom of this file) so laptops keep readable tiles instead of 22px ones. */
+    --chrome: 496px;
     --tile-w: calc((min(100vw, 1440px) - 91px) / 18);
-    --tile-h: calc((100vh - 496px) / 10);
+    --tile-h: calc((100vh - var(--chrome)) / 10);
     --tile:   min(var(--tile-w), var(--tile-h));
 
     display: grid;
@@ -770,4 +774,70 @@ footer {
     .row-label {
         font-size: 0.45rem;
     }
+}
+
+/* ============================================================
+   SHORT VIEWPORTS (laptops)
+   ============================================================
+   The tile size is driven by whichever is smaller: available width
+   or available height. On a laptop the height runs out first, so the
+   page chrome has to give up space or the tiles collapse to ~22px.
+   Each step below shrinks the chrome and lowers --chrome to match.
+   print.html and poster.html are unaffected: they render tall and
+   override these elements with !important. */
+
+@media (max-height: 900px) {
+    .container { padding: 8px 20px; }
+
+    header { margin-bottom: 6px; }
+    header h1 { font-size: 1.9rem; }
+    .subtitle { font-size: 0.82rem; margin-top: 3px; }
+    .stats-badge { font-size: 0.72rem; margin-top: 4px; }
+    .version { margin-top: 2px; }
+
+    .controls { gap: 6px; margin-bottom: 6px; }
+    #search { padding: 7px 32px 7px 14px; font-size: 0.82rem; }
+    .filter-btn { padding: 4px 9px; font-size: 0.66rem; }
+
+    .legend { gap: 12px; margin-top: 6px; padding: 2px 0; }
+    .legend-item { font-size: 0.7rem; gap: 5px; }
+    .legend-swatch { width: 11px; height: 11px; }
+
+    footer { margin-top: 6px; padding-top: 8px; }
+    .footer-author { font-size: 0.82rem; }
+    .footer-link a { font-size: 0.75rem; }
+    .footer-qr-static-index { width: 66px !important; height: 66px !important; }
+    .print-btn-magenta { padding: 9px 18px; font-size: 0.78rem; }
+
+    .periodic-table { --chrome: 396px; }
+}
+
+@media (max-height: 800px) {
+    header h1 { font-size: 1.6rem; }
+    .subtitle { display: none; }
+
+    .footer-qr-static-index { width: 56px !important; height: 56px !important; }
+    .print-btn-magenta { padding: 7px 14px; font-size: 0.72rem; }
+
+    .periodic-table { --chrome: 374px; }
+}
+
+@media (max-height: 760px) {
+    /* The filter buttons already carry every category colour,
+       so the legend is redundant here and its row is worth ~50px. */
+    .legend { display: none; }
+
+    .periodic-table { --chrome: 326px; }
+}
+
+@media (max-height: 680px) {
+    header h1 { font-size: 1.35rem; letter-spacing: 1px; }
+    .stats-badge { font-size: 0.65rem; }
+    .version { display: none; }
+    .wallpaper-quote { display: none; }
+
+    /* Below this point the tiles would stop being readable, so hold a
+       floor and let the page scroll the small remainder instead. */
+    .periodic-table { --tile: max(34px, min(var(--tile-w), var(--tile-h))); }
+    html, body { overflow-y: auto; }
 }

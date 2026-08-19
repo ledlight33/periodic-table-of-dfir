@@ -191,6 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search');
     const searchClear = document.getElementById('searchClear');
 
+    // print.html and poster.html render the table without the search/filter UI
+    if (!searchInput || !searchClear) return;
+
     searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.toLowerCase().trim();
         searchClear.classList.toggle('visible', e.target.value.length > 0);
@@ -452,6 +455,7 @@ function renderLegend() {
 
 function renderFilters() {
     const container = document.getElementById('filters');
+    if (!container) return;   // poster/print editions have no filter bar
 
     const allBtn = document.createElement('button');
     allBtn.className = 'filter-btn active';
