@@ -786,6 +786,15 @@ footer {
    print.html and poster.html are unaffected: they render tall and
    override these elements with !important. */
 
+@media (max-height: 1100px) {
+    /* The table needs roughly 1245px of viewport height before the tiles
+       stop being the limiting factor. Below that, fitting everything on
+       one screen only makes them unreadable, so size the tiles from the
+       width and let the page scroll like any normal page. */
+    .periodic-table { --tile: max(38px, var(--tile-w)); }
+    html, body { overflow-y: auto; }
+}
+
 @media (max-height: 900px) {
     .container { padding: 8px 20px; }
 
@@ -808,8 +817,6 @@ footer {
     .footer-link a { font-size: 0.75rem; }
     .footer-qr-static-index { width: 66px !important; height: 66px !important; }
     .print-btn-magenta { padding: 9px 18px; font-size: 0.78rem; }
-
-    .periodic-table { --chrome: 396px; }
 }
 
 @media (max-height: 800px) {
@@ -818,26 +825,10 @@ footer {
 
     .footer-qr-static-index { width: 56px !important; height: 56px !important; }
     .print-btn-magenta { padding: 7px 14px; font-size: 0.72rem; }
-
-    .periodic-table { --chrome: 374px; }
-}
-
-@media (max-height: 760px) {
-    /* The filter buttons already carry every category colour,
-       so the legend is redundant here and its row is worth ~50px. */
-    .legend { display: none; }
-
-    .periodic-table { --chrome: 326px; }
 }
 
 @media (max-height: 680px) {
     header h1 { font-size: 1.35rem; letter-spacing: 1px; }
     .stats-badge { font-size: 0.65rem; }
     .version { display: none; }
-    .wallpaper-quote { display: none; }
-
-    /* Below this point the tiles would stop being readable, so hold a
-       floor and let the page scroll the small remainder instead. */
-    .periodic-table { --tile: max(34px, min(var(--tile-w), var(--tile-h))); }
-    html, body { overflow-y: auto; }
 }

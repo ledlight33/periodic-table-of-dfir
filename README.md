@@ -38,7 +38,7 @@ And just like the real periodic table, elements beyond 118 are **synthetic** - l
 
 🖨️ **[Printable Poster Edition](https://ledlight33.github.io/periodic-table-of-dfir/print.html)** - A1-ready, ideal for SOC walls and lab posters.
 
-> 💡 **For the full interactive experience**, view on a **desktop browser at 1920×1080 or higher** - hover tooltips, the atmospheric wallpaper, and the full 18-column layout shine at full resolution. The page is responsive down to 768px (tablet/mobile), but tile names hide and the wallpaper effects scale down on smaller screens.
+> 💡 **Best viewed on desktop or laptop.** Tiles scale to your screen width, so laptops and large monitors both get the full size table (shorter screens simply scroll). Hover tooltips and the atmospheric wallpaper need a mouse and a wide window, so phones and narrow tablets see a reduced version.
 
 ![demo](assets/demo.gif)
 
