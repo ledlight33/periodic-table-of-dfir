@@ -130,7 +130,12 @@ periodic-table-of-dfir/
 ├── script.js           # Tool data + rendering (single source of truth)
 ├── tools.json          # Open dataset - generated from script.js
 ├── scripts/            # build-tools-json.mjs generator
-├── assets/             # QR code, preview images, demo.gif, posters
+├── handout-back.html   # Reverse side of the A3 handout (tool index)
+├── assets/             # QR code, preview images, demo, print ready posters
+│   ├── poster-a1.pdf         # A1 wall poster, print ready
+│   ├── handout-a3-2pages.pdf # A3 double sided handout
+│   └── poster-slide.png      # 3840px image for presentations
+├── CITATION.cff        # How to cite this work
 ├── LICENSE             # MIT (code) + CC BY-NC 4.0 (content)
 ├── CHANGELOG.md        # Version history
 ├── CONTRIBUTING.md     # How to contribute

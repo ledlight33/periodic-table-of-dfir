@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THE PERIODIC TABLE OF DFIR - Tool Index (handout reverse)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Share Tech Mono only. See the note in print.html: Google's Inter is a
+         variable font and Chrome cannot embed it in a PDF. -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+    /* ============================================================
+       REVERSE SIDE OF THE A3 HANDOUT
+       Light ground on purpose: dense type reads better on white and
+       double sided dark would soak the sheet with ink.
+       Tools are grouped in the same category order as the table.
+       ============================================================ */
+
+    @page {
+        size: A3 landscape;
+        margin: 0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+        background: #ffffff;
+        color: #1a1d24;
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .sheet {
+        width: 420mm;
+        min-height: 297mm;
+        padding: 8mm 10mm 5.5mm;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        border-bottom: 2px solid #1a1d24;
+        padding-bottom: 2.5mm;
+        margin-bottom: 3.5mm;
+    }
+
+    h1 {
+        font-size: 6.2mm;
+        font-weight: 800;
+        letter-spacing: 0.4mm;
+        text-transform: uppercase;
+        line-height: 1;
+    }
+
+    h1 .accent { color: #1976d2; }
+
+    .subtitle {
+        font-size: 2.7mm;
+        color: #5a6472;
+        margin-top: 1.2mm;
+        font-weight: 500;
+    }
+
+    /* License key sits in the header so the columns stay pure data */
+    .lic-key {
+        display: flex;
+        gap: 4.5mm;
+        font-size: 2.5mm;
+        color: #3d4654;
+        font-weight: 600;
+    }
+
+    .lic-key span { display: flex; align-items: center; gap: 1.2mm; }
+
+    .dot {
+        width: 2.1mm;
+        height: 2.1mm;
+        border-radius: 50%;
+        flex-shrink: 0;
+        display: inline-block;
+    }
+
+    /* ---- Four balanced columns of categories ---- */
+    .index {
+        column-count: 4;
+        column-gap: 7mm;
+        flex: 1;
+    }
+
+    .cat {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 2.7mm;
+    }
+
+    .cat-head {
+        display: flex;
+        align-items: center;
+        gap: 1.6mm;
+        font-size: 3.2mm;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.25mm;
+        padding: 1.2mm 1.7mm;
+        border-radius: 0.8mm;
+        color: #fff;
+        margin-bottom: 1.3mm;
+    }
+
+    /* The synthetic row is white on the front, so its bar needs an outline
+       to exist at all on white paper. Dashed, same as the tiles. */
+    .cat-head.synthetic {
+        border: 0.4mm dashed rgba(0, 0, 0, 0.45);
+        padding: 0.8mm 1.3mm;
+    }
+
+    .cat-head .count {
+        margin-left: auto;
+        font-weight: 600;
+        opacity: 0.85;
+    }
+
+    /* Yellow and white category bars need dark text to stay legible */
+    .cat-head.on-light { color: #1a1d24; }
+
+    .tool {
+        display: flex;
+        align-items: baseline;
+        gap: 1.4mm;
+        font-size: 3.05mm;
+        line-height: 1.33;
+        padding: 0.1mm 0.6mm;
+    }
+
+    .tool .num {
+        min-width: 5.8mm;
+        color: #98a1b0;
+        font-size: 2.55mm;
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+    }
+
+    .tool .sym {
+        min-width: 7.1mm;
+        font-weight: 800;
+        color: #0f1420;
+    }
+
+    .tool .nm { flex: 1; color: #2b3240; }
+
+    .tool .dot { margin-left: 0.8mm; transform: translateY(-0.2mm); }
+
+    /* Install command hangs under its tool */
+    .cmd {
+        font-family: 'Share Tech Mono', Consolas, monospace;
+        font-size: 2.6mm;
+        color: #0d6b8a;
+        margin: 0.1mm 0 0.8mm 14.3mm;
+        line-height: 1.25;
+        word-break: break-all;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6mm;
+        border-top: 1.5px solid #c9cfd8;
+        padding-top: 2.5mm;
+        margin-top: 3mm;
+    }
+
+    .foot-note {
+        font-size: 2.5mm;
+        color: #5a6472;
+        line-height: 1.45;
+        max-width: 190mm;
+    }
+
+    .foot-note strong { color: #1a1d24; }
+
+    /* Invitation to the live version, set apart from the instructions */
+    .cta {
+        margin-top: 1.4mm;
+        padding-left: 2.2mm;
+        border-left: 0.7mm solid #1976d2;
+        color: #14568f;
+    }
+
+    .cta strong { color: #1976d2; }
+
+    .foot-quote {
+        font-family: 'Share Tech Mono', Consolas, monospace;
+        font-size: 2.6mm;
+        letter-spacing: 0.5mm;
+        color: #1976d2;
+        font-style: italic;
+        text-transform: uppercase;
+        text-align: center;
+        flex: 1;
+    }
+
+    .foot-credit {
+        display: flex;
+        align-items: center;
+        gap: 3.5mm;
+        text-align: right;
+    }
+
+    .foot-credit .who { font-size: 4mm; font-weight: 800; }
+    .foot-credit .links { font-size: 2.6mm; color: #1976d2; margin-top: 0.4mm; }
+    .foot-credit img { width: 26mm; height: 26mm; }
+    </style>
+</head>
+<body>
+    <div class="sheet">
+        <header>
+            <div>
+                <h1>The Periodic Table of <span class="accent">DFIR</span> &nbsp;&middot;&nbsp; Tool Index</h1>
+                <p class="subtitle" id="subtitle"></p>
+            </div>
+            <div class="lic-key" id="licKey"></div>
+        </header>
+
+        <main class="index" id="index"></main>
+
+        <footer>
+            <div class="foot-note">
+                <strong>How to read it:</strong> the front of this sheet is the table, colour coded by category.
+                Here every tile is listed in the same order, with its number, symbol and full name.
+                Commands in blue install the tool directly.
+                <div class="cta">
+                    Don't stop at paper. The full interactive table is at
+                    <strong>ledlight33.github.io/periodic-table-of-dfir</strong>
+                    with live search, category filters and a tooltip on every tool.
+                    Source and updates on GitHub.
+                </div>
+            </div>
+            <div class="foot-quote">"What our eyes can see is not the measure of all things."</div>
+            <div class="foot-credit">
+                <div>
+                    <div class="who">Marino Bekios</div>
+                    <div class="links">marinobekios.com &nbsp;&middot;&nbsp; linkedin.com/in/marbekios</div>
+                </div>
+                <img src="assets/qr-linkedin.png" alt="LinkedIn QR code">
+            </div>
+        </footer>
+    </div>
+
+    <!-- Data comes from the same source the table uses, so this sheet can never drift -->
+    <script src="script.js"></script>
+    <script>
+    (function () {
+        // Print friendly license colours. The table's own palette is tuned for a
+        // dark ground (open source is white there) and would vanish on paper.
+        const LIC_PRINT = {
+            os:  { label: 'Open Source', color: '#2e7d32' },
+            fr:  { label: 'Free',        color: '#546e7a' },
+            fm:  { label: 'Freemium',    color: '#ef6c00' },
+            cm:  { label: 'Commercial',  color: '#c62828' },
+            std: { label: 'Standard',    color: '#1565c0' }
+        };
+        // Categories whose bar colour is too light for white lettering
+        const LIGHT_BARS = new Set(['logti', 'ai', 'hybrid']);
+
+        const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+
+        document.getElementById('licKey').innerHTML = Object.values(LIC_PRINT)
+            .map(l => `<span><i class="dot" style="background:${l.color}"></i>${l.label}</span>`)
+            .join('');
+
+        const index = document.getElementById('index');
+        let total = 0, withCmd = 0;
+
+        Object.entries(CATEGORIES).forEach(([key, cat]) => {
+            const tools = ELEMENTS.filter(e => e.cat === key).sort((a, b) => a.n - b.n);
+            if (!tools.length) return;
+            total += tools.length;
+
+            const block = document.createElement('section');
+            block.className = 'cat';
+            block.innerHTML =
+                `<div class="cat-head${LIGHT_BARS.has(key) ? ' on-light' : ''}${key === 'ai' ? ' synthetic' : ''}" style="background:${cat.color}">` +
+                    `${esc(cat.name)}<span class="count">${tools.length}</span>` +
+                `</div>` +
+                tools.map(t => {
+                    if (t.install) withCmd++;
+                    const lic = LIC_PRINT[t.l];
+                    return `<div class="tool">` +
+                               `<span class="num">${t.n}</span>` +
+                               `<span class="sym">${esc(t.s)}</span>` +
+                               `<span class="nm">${esc(t.name)}</span>` +
+                               `<i class="dot" style="background:${lic.color}" title="${lic.label}"></i>` +
+                           `</div>` +
+                           (t.install ? `<div class="cmd">${esc(t.install)}</div>` : '');
+                }).join('');
+            index.appendChild(block);
+        });
+
+        document.getElementById('subtitle').textContent =
+            `${total} tools across ${Object.keys(CATEGORIES).length} categories  ·  ` +
+            `${withCmd} with one line install commands  ·  v1.3  ·  ledlight33.github.io/periodic-table-of-dfir`;
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: The Periodic Table of DFIR
+message: If you use this work, please cite it as below.
+type: dataset
+authors:
+  - given-names: Marino
+    family-names: Bekios
+    website: https://marinobekios.com
+    orcid: https://orcid.org/0009-0000-7778-5035
+repository-code: https://github.com/ledlight33/periodic-table-of-dfir
+url: https://ledlight33.github.io/periodic-table-of-dfir/
+abstract: >-
+  A visual reference of 126 tools for Digital Forensics and Incident Response,
+  organised in the structure of the periodic table across ten categories, with
+  a synthetic elements row for the emerging generation of AI assisted DFIR
+  tooling. Published as an interactive web page, printable A1 and A3 editions,
+  and a machine readable dataset.
+keywords:
+  - digital forensics
+  - incident response
+  - DFIR
+  - cybersecurity
+  - threat intelligence
+  - malware analysis
+  - mobile forensics
+  - cloud forensics
+  - taxonomy
+  - visual reference
+license: CC-BY-NC-4.0
+version: '1.3'
+date-released: '2026-07-31'
+# After minting a DOI on Zenodo, add it here so GitHub and reference managers
+# pick it up automatically:
+# doi: 10.5281/zenodo.XXXXXXX

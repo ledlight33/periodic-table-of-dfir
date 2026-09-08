@@ -243,6 +243,7 @@ function renderOS(osArr) {
 
 function renderTable() {
     const grid = document.getElementById('table');
+    if (!grid) return;   // data-only pages (handout) load this file for ELEMENTS
 
     ELEMENTS.forEach(el => {
         const cat = CATEGORIES[el.cat];
@@ -445,6 +446,7 @@ function setAIExpanded(open) {
 
 function renderLegend() {
     const legend = document.getElementById('legend');
+    if (!legend) return;
     Object.values(CATEGORIES).forEach(cat => {
         const item = document.createElement('div');
         item.className = 'legend-item';

@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Only Share Tech Mono is loaded as a web font. Inter is served by Google as a
+         variable font, which Chrome cannot embed in a PDF: it falls back to Type3
+         glyph drawing, which prints soft and chokes some print RIPs. The system
+         grotesque embeds cleanly instead. -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
     /* ============================================================
@@ -19,6 +23,8 @@
     html, body {
         overflow: visible !important;
         height: auto !important;
+        /* Same face as the handout reverse, so both sides of the sheet match */
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
     }
 
     .table-wrapper {
@@ -44,6 +50,18 @@
         aspect-ratio: 1 !important;
     }
 
+    /* Soft blueprint grid over the dark ground. Breaks up the large flat
+       areas of ink without competing with the tiles. */
+    body::before {
+        display: block !important;
+        background-image:
+            linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1.5px, transparent 1.5px),
+            linear-gradient(0deg,  rgba(255, 255, 255, 0.055) 1.5px, transparent 1.5px);
+        background-size: 106px 106px;
+        background-position: -1px -1px;
+        opacity: 1;
+    }
+
     /* Hide interactive elements and buttons */
     .controls, footer, .print-btn-magenta {
         display: none !important;
@@ -52,7 +70,9 @@
     .container {
         max-width: none;
         width: 100%;
-        padding: 60px;
+        /* Tight vertical padding so the 10-row grid still fits one A1 sheet
+           after the synthetic AI row was added in v1.3 */
+        padding: 10px 60px;
     }
 
     /* 1. Header Scaling */
@@ -146,8 +166,8 @@
     flex-wrap: nowrap !important; /* Force all items into a single line */
     justify-content: center !important;
     gap: 16px !important; /* Tightened to fit all 10 categories */
-    margin-top: 50px !important;
-    padding: 15px 0 !important;
+    margin-top: 14px !important;
+    padding: 6px 0 !important;
     width: 100% !important;
 }
 
@@ -167,30 +187,39 @@
 .print-footer {
     display: block !important;
     /* Move the line UP more by reducing this margin */
-    margin-top: 20px; 
+    margin-top: 8px;
     border-top: 2px solid rgba(255, 255, 255, 0.15);
-    padding-top: 15px;
+    padding-top: 8px;
 }
 
+/* Three tracks so the quote sits on the true centre line of the sheet
+   while the credit block stays hard right */
 .footer-info {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: 25px;
-    padding: 0 80px;
+    gap: 30px;
+    padding: 0 60px;
 }
 
-/* Atmospheric quote on the left of the print footer, matching A1 poster scale */
+.footer-credit {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-self: end;
+}
+
+/* Atmospheric quote, centred on the sheet */
 .print-quote {
     font-family: 'Share Tech Mono', Consolas, monospace;
-    font-size: 1.15rem;
-    letter-spacing: 4px;
-    color: rgba(0, 195, 255, 0.55);
+    font-size: 1.75rem;
+    letter-spacing: 5px;
+    color: rgba(0, 195, 255, 0.62);
     font-style: italic;
     text-transform: uppercase;
-    text-shadow: 0 0 12px rgba(0, 200, 255, 0.25);
-    flex: 0 1 auto;
+    text-shadow: 0 0 14px rgba(0, 200, 255, 0.28);
     white-space: nowrap;
+    text-align: center;
 }
 
 .footer-text {
@@ -198,20 +227,25 @@
     line-height: 1.2;
 }
 
+.footer-text p {
+    font-size: 1.2rem;
+}
+
 .footer-text strong {
-    font-size: 1.9rem;
+    font-size: 2.5rem;
     color: #fff;
     display: block;
+    line-height: 1.15;
 }
 
 .footer-text .link {
     color: #42A5F5;
-    font-size: 1.3rem;
-    margin-top: 2px;
+    font-size: 1.6rem;
+    margin-top: 4px;
 }
 
 .footer-qr-static {
-    width: 130px; /* Maintain poster scale */
+    width: 232px; /* ~61mm on A1, scans from across a room */
     height: auto;
     background: transparent !important;
     /* Ensure no extra margins touch the screen edge */
@@ -223,7 +257,9 @@
    ===================================================== */
 @page {
     size: A1 landscape;
-    margin: 10mm;
+    /* Small margin: the design is edge to edge dark, and a big white
+       border would only shrink the table */
+    margin: 4mm;
 }
 
 @media print {
@@ -267,8 +303,9 @@
 
         <footer class="print-footer">
             <div class="footer-info">
+                <div class="footer-spacer"></div>
                 <div class="print-quote">"What our eyes can see is not the measure of all things."</div>
-                <div style="display: flex; align-items: center; gap: 25px;">
+                <div class="footer-credit">
                     <div class="footer-text">
                         <p>Created by <strong>Marino Bekios</strong></p>
                         <p class="link">marinobekios.com &nbsp;·&nbsp; linkedin.com/in/marbekios</p>
