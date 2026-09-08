@@ -8,7 +8,7 @@
 
 ---
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.3-007ec6.svg" alt="version">
+  <img src="https://img.shields.io/badge/version-1.3.1-007ec6.svg" alt="version">
   <img src="https://img.shields.io/badge/tools-118-97ca00.svg" alt="tools">
   <img src="https://img.shields.io/badge/synthetic%20AI-8-ffffff.svg" alt="synthetic AI">
   <img src="https://img.shields.io/badge/categories-9%20%2B%20AI-fe7d37.svg" alt="categories">
@@ -149,7 +149,14 @@ periodic-table-of-dfir/
 
 ## Versioning
 
-**v1.3** is the current release.
+**v1.3.1** is the current release.
+
+### What's new in v1.3.1
+- 🖨️ **Print ready editions:** A1 wall poster and an A3 double sided handout, with a full tool index on the reverse grouped by category, install commands included
+- 🖼️ **Slide image** (3840 px) for presentations
+- 🎓 **`CITATION.cff`** for academic citation, with ORCID
+- 🔧 **Laptop fix:** tiles were rendering at 34 px on a 1366x768 screen, they now render at 70 px, the same size a 1440p desktop gets
+- 🔤 **Print font fix:** the PDFs were embedding Type3 glyph drawings instead of real fonts, which printed soft. Now zero Type3
 
 ### What's new in v1.3
 - ⚛️ **Period 8 - Synthetic Elements (119-126):** an expandable extension row for AI DFIR tools (Security Copilot, Charlotte AI, Purple AI, Gemini SecOps, Magnet Copilot, Code Insight, Elastic AI Assistant, Cado AI Investigator) - click the 119+ tile under element 89 to reveal them, styled as unstable synthetic elements with their own AI · Synthetic category, filter, and legend entry

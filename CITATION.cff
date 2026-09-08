@@ -27,8 +27,8 @@ keywords:
   - taxonomy
   - visual reference
 license: CC-BY-NC-4.0
-version: '1.3'
-date-released: '2026-07-31'
+version: '1.3.1'
+date-released: '2026-09-09'
 # After minting a DOI on Zenodo, add it here so GitHub and reference managers
 # pick it up automatically:
 # doi: 10.5281/zenodo.XXXXXXX

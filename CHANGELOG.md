@@ -1,5 +1,25 @@
 # Changelog
 
+## v1.3.1 - September 2026
+
+### Added
+- **A1 wall poster** (`assets/poster-a1.pdf`), single page, vector, print ready
+- **A3 double sided handout** (`assets/handout-a3-2pages.pdf`): the table on the front, a full tool index on the back grouped by category, with the 25 install commands printed out. The reverse side is built by `handout-back.html` from the same `script.js` data, so it can never drift from the table
+- **`assets/poster-slide.png`** (3840 px) for slide decks
+- **`CITATION.cff`** so GitHub offers a ready citation, including ORCID
+- Soft blueprint grid behind the printed table, so the large dark areas do not read as flat ink
+
+### Fixed
+- **Tile size on laptops.** Tile size was driven by viewport height with a fixed reserve, so a 1366x768 laptop rendered 34 px tiles. Short viewports are now sized from the width and the page scrolls: the same laptop renders 70 px tiles, matching a 1440p desktop. Real 1080p desktops improved from 45 px to 75 px as well
+- **Print fonts.** Google serves Inter as a variable font, which Chrome cannot embed in a PDF: it fell back to Type3 glyph drawing, printing soft and risking print RIP issues. Both print pages now use an embeddable system face, verified at zero Type3 fonts
+- Both sides of the handout now use the same typeface, they previously differed
+- `print.html` fitted on two sheets after the synthetic row was added; spacing reworked to fit one A1 sheet again
+- QR codes enlarged: 6.1 cm on the poster, 2.6 cm on the handout, the previous sizes were hard to scan
+- `renderTable` and `renderLegend` no longer throw on pages that load `script.js` for data only, which also silenced a long standing error on `print.html` and `poster.html`
+- `assets/og-image.png` regenerated, it was still a pre v1.3 image without the synthetic row
+
+---
+
 ## v1.3 - July 2026
 
 ### Added
