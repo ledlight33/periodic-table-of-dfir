@@ -18,7 +18,10 @@ const out = {
         author: 'Marino Bekios',
         homepage: 'https://ledlight33.github.io/periodic-table-of-dfir/',
         repository: 'https://github.com/ledlight33/periodic-table-of-dfir',
-        license: 'Data: CC BY-NC 4.0 - attribution required, no commercial use without permission',
+        license: 'CC BY-NC 4.0 with attribution to Marino Bekios',
+        licenseNote: 'Use inside any organisation, including commercial ones, is free and needs no permission: internal reference, training, teaching, printing and sharing with your team. Written permission is only required to sell or monetise the work itself, for example reselling prints or bundling it into a paid product or course.',
+        doi: '10.5281/zenodo.22667666',
+        citation: 'Bekios, M. (2026). The Periodic Table of DFIR. Zenodo. https://doi.org/10.5281/zenodo.22667666',
         toolCount: data.ELEMENTS.length,
         generated: new Date().toISOString().slice(0, 10)
     },

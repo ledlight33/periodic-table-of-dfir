@@ -225,18 +225,26 @@ This project uses a **dual-license model**:
 | Code (HTML / CSS / JavaScript) | [MIT License](LICENSE) |
 | Content, design & visual concept (table layout, categorization, color scheme, tile groupings, poster artwork, OG image, demo media) | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
 
-**You are free to:**
-- Use the project for personal, educational, or non-commercial purposes
-- Share and adapt the work, **with proper attribution to author**
+### ✅ Use it at work. Really.
+
+"NonCommercial" is often read more narrowly than intended, so to be explicit: **using this inside your organisation is free and you do not need to ask.** That includes people working at companies, banks, vendors, agencies and public bodies.
+
+- Print the poster and hang it in your lab, office, SOC, classroom or conference stand
+- Share the files with your colleagues, your team or your students
+- Use the table in internal training, onboarding, playbooks and reference material
+- Use it in university teaching, lectures and academic presentations
+- Quote it, cite it, and build further work on top of it
+
+Working for a for-profit company does not make your use commercial. What matters is **the purpose of the use, not who signs your paycheck**.
 
 ### ⚠️ Commercial Use & Collaboration
 
-The following uses **require prior written permission** from the author:
+What the NonCommercial term actually protects against is **selling or monetising the work itself**. The following **require prior written permission**:
 
-- Commercial use of any kind (resale, paid products, monetized content, premium services, advertising-supported sites)
+- Reselling the poster, prints, or the work in any form
+- Bundling it into a paid product, paid training course, or subscription offering
 - Integration into commercial products, platforms, or paid services
 - Use in marketing, promotional, or revenue-generating materials
-- Licensing for organizational, enterprise, or institutional deployment
 - Custom commissions, partnerships, or sponsored/branded versions
 
 To inquire about commercial licensing or any form of collaboration, please contact the author directly (see below).
