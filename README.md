@@ -14,6 +14,7 @@
   <img src="https://img.shields.io/badge/categories-9%20%2B%20AI-fe7d37.svg" alt="categories">
   <img src="https://img.shields.io/badge/open%20source-67-4c1.svg" alt="open source">
   <img src="https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY--NC%204.0-lightgrey.svg" alt="license">
+  <a href="https://doi.org/10.5281/zenodo.22667666"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22667666.svg" alt="DOI"></a>
 </p>
 
 ![The Periodic Table of DFIR](assets/og-image.png)
@@ -241,6 +242,29 @@ The following uses **require prior written permission** from the author:
 To inquire about commercial licensing or any form of collaboration, please contact the author directly (see below).
 
 All rights not expressly granted are reserved by the author.
+
+---
+
+## Citation
+
+If you use this work in research, teaching or a publication, please cite it:
+
+> Bekios, M. (2026). *The Periodic Table of DFIR* (Version 1.3.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.22667666
+
+```bibtex
+@misc{bekios_periodic_table_dfir,
+  author       = {Bekios, Marino},
+  title        = {The Periodic Table of DFIR},
+  year         = {2026},
+  version      = {1.3.1},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.22667666},
+  url          = {https://doi.org/10.5281/zenodo.22667666}
+}
+```
+
+The DOI above is the *concept DOI*: it always resolves to the newest version. To cite this exact release instead, use `10.5281/zenodo.22667667`.
+GitHub's **Cite this repository** button reads [`CITATION.cff`](CITATION.cff) and produces the same thing in APA and BibTeX.
 
 ---
 
